@@ -3,89 +3,48 @@
 var express = require('express');
 var app = express();
 var passport = require('passport');
-var User = require('../models/user');
 var async = require('async');
+var User = require('../models/user');
+var Elector = require('../models/elector');
+var zipcodes = require('zipcodes');
+
 
 app.post('/create', function(req, res) {
-    User.findOne({
-        username: req.body.username
-    }, function(err, user) {
-        if (!user) {
-            async.waterfall([
-                    function(callback) {
-                        User.register(new User({
-                                username: req.body.username,
-                                email: req.body.email
-                            }),
-                            req.body.password,
-                            function(err, person) {
-                                if (err) {
-                                    res.sendStatus(400);
-                                }
-                                callback(null, person);
-
-                            });
-                    },
-                    function(guy, callback) {
-                        passport.authenticate('local')(req, res, function() {
-                            callback(null, guy);
-
-                        });
-                    },
-
-                ],
-                function(err, results) {
-                    if (err) {
-                        console.log('err', err)
-                    }
-                    res.send(results);
-                });
-        } else {
-            res.send('already exists');
-        }
-    });
-});
-
-app.post('/login', passport.authenticate('local'), function(req, res) {
-    User.findOne({
-        username: req.body.username
-    }, function(err, user) {
-        if (err) {
-            res.send('does not exist');
-        }
-        res.json(user);
-    });
+    var state = zipcodes.lookup(req.body.zip).state;
+    var user = new User({
+            email: req.body.username,
+            zip: req.body.zip,
+            age: req.body.age
+        });
+    user.save();
 });
 
 app.get('/getInfo/:id', function(req, res) {
     User.findById({
-        _id: req.params.id
-    })
-    .populate('contracts')
-    .exec(function(err, user) {
-        res.json(user);
+            _id: req.params.id
+        })
+        .populate('endorsed')
+        .exec(function(err, user) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(user);
+            }
     });
 });
 
 
-//change password doesn't work
+app.get('/:id/electors', function(req, res) {
+    User.findOne({ _id: id }, function(err, user) {
+        Elector.findAll({ state: user.state}, function(err, electors) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(electors);
+            }
+        })
+    })
+})
 
-// app.post('/changePassword', function(req, res) {
-//     console.log(req.body)
-//     User.findById({
-//     _id: req.body.id
-//     }, function(err, user) {
-//         console.log('USER', user)
-//         user.setPassword(req.body.password, function(new_user) {
-//         console.log(new_user);
-//         res.send(new_user)
-//         }); 
-//     });
-// });
-
-app.get('/logout', function(req, res) {
-  req.logout();
-  res.send('loggedOut');
-});
 
 module.exports = app;

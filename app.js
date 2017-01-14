@@ -14,12 +14,12 @@ app.use(express.static('./client'));
 
 mongoose.connect('mongodb://localhost/dnc-election');
 
-app.use(passport.initialize());
-app.use(passport.session());
-var User = require('./models/user');
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser())
+// app.use(passport.initialize());
+// app.use(passport.session());
+// var User = require('./models/user');
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser())
 
 
 app.use(logger('dev'));
@@ -31,10 +31,16 @@ app.use(cookieParser());
 var users = require('./routes/users');
 var candidates = require('./routes/candidates');
 var electors = require('./routes/electors');
+var texts = require('./routes/texts');
+var emails = require('./routes/emails');
+var postcards = require('./routes/postcards');
 
 app.use('/users', users);
-app.use('/candidates', contracts);
+app.use('/candidates', candidates);
 app.use('/electors', electors);
+app.use('/emails', emails);
+app.use('/postcards', postcards);
+app.use('/texts', electors);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
