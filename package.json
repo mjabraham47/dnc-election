@@ -28,12 +28,15 @@
     "lob": "^3.9.0",
     "mongoose": "^4.4.14",
     "morgan": "^1.7.0",
+    "n": "^2.1.4",
+    "node-xlsx": "^0.7.4",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",
     "request": "^2.74.0",
     "serve-favicon": "^2.3.0",
     "twilio": "^2.11.1",
+    "xlsx": "^0.8.1",
     "zipcodes": "^2.1.0"
   },
   "engines": {
