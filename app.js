@@ -33,7 +33,7 @@ var candidates = require('./routes/candidates');
 var electors = require('./routes/electors');
 
 app.use('/users', users);
-app.use('/candidates', contracts);
+app.use('/candidates', candidates);
 app.use('/electors', electors);
 
 app.use(function(req, res, next) {

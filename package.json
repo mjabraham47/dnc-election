@@ -36,5 +36,8 @@
   "engines": {
     "node": ">=5.0.0"
   },
-  "postinstall": "bower install"
+  "postinstall": "bower install",
+  "devDependencies": {
+    "grunt-injector": "^1.1.0"
+  }
 }

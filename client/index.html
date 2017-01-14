@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- injector:css -->
+    <!-- endinjector -->
+  </head>
+  <body ng-app="dncElection">
+    <div class="jumbotron">
+      <h1>DNC Chair Election</h1>
+      <p>
+        <a class="btn btn-primary btn-lg" ui-sref='about' role="button">About the DNC Election</a>
+        <a class="btn btn-primary btn-lg" ui-sref='candidates' role="button">Candidates</a>
+        <a class="btn btn-primary btn-lg" ui-sref='elector' role="button">Find your electors</a>
+      </p>
+    </div>
+    <ui-view></ui-view>
+
+    <!--external javascript libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- injector:js -->
+    <script src="app.js"></script>
+    <script src="js/config.js"></script>
+
+    
+    <!-- endinjector -->
+  </body>
+</html>
