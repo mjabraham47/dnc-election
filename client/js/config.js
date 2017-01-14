@@ -10,17 +10,18 @@ angular.module('dncElection')
       url:'/candidates',
       templateUrl: 'templates/candidates.html',
       resolve: {
-        candidates: function(CandidateService) {
-          return CandidateService.getCandidates();
+        candidates: function() {
+          // return CandidateService.getCandidates();
+          return [];
         }
       },
-      controller: function(candidates){
+      controller: function($scope, candidates){
         $scope.candidates = candidates;
       },
   })
   .state('candidates.overview', {
     url: '/overview',
-    templateUrl: 'template/candidateOverview.html',
+    templateUrl: 'templates/candidateOverview.html',
     resolve: {},
     controller: function(){
 
