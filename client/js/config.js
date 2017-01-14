@@ -4,14 +4,37 @@ angular.module('dncElection')
   .state('about', {
       url:'/about',
       templateUrl: 'templates/about.html',
-      controller: function(){
-      },
+      controller: 'AboutCtrl',
   })
   .state('candidates', {
       url:'/candidates',
       templateUrl: 'templates/candidates.html',
-      controller: function(){
+      resolve: {
+        candidates: function(CandidateService) {
+          return CandidateService.getCandidates();
+        }
       },
+      controller: function(candidates){
+        $scope.candidates = candidates;
+      },
+  })
+  .state('candidates.overview', {
+    url: '/overview',
+    templateUrl: 'template/candidateOverview.html',
+    resolve: {},
+    controller: function(){
+
+    }
+  })
+  .state('candidates.detail', {
+    url: '/:id',
+    templateUrl: 'template/candidateDetail.html',
+    resolve: {
+      candidate: function($stateParams) {
+        return $stateParams.candidate;
+      }
+    },
+    controller: 'CandidatesCtrl'
   })
   .state('elector', {
       url:'/elector',

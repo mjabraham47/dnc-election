@@ -1,1 +1,12 @@
-ELECTOR STUFF GOES HERE
+<div class='row'>
+	<div class='col col-xs-4'>
+		<candidate-box
+		ng-repeat='candidate in candidates'
+		candidate='candidate'
+		>
+		</candidate-box>
+	</div>
+	<div class='col col-xs-8'>
+		<ui-view></ui-view>
+	</div>
+</div>

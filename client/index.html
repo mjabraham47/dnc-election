@@ -7,15 +7,17 @@
     <!-- endinjector -->
   </head>
   <body ng-app="dncElection">
-    <div class="jumbotron">
-      <h1>DNC Chair Election</h1>
-      <p>
-        <a class="btn btn-primary btn-lg" ui-sref='about' role="button">About the DNC Election</a>
-        <a class="btn btn-primary btn-lg" ui-sref='candidates' role="button">Candidates</a>
-        <a class="btn btn-primary btn-lg" ui-sref='elector' role="button">Find your electors</a>
-      </p>
+    <div class='container'>
+        <div class="jumbotron">
+          <h1>DNC Chair Election</h1>
+          <p>
+            <a class="btn btn-primary btn-lg" ui-sref='about' role="button">About the DNC Election</a>
+            <a class="btn btn-primary btn-lg" ui-sref='candidates' role="button">Candidates</a>
+            <a class="btn btn-primary btn-lg" ui-sref='elector' role="button">Find your electors</a>
+          </p>
+        </div>
+        <ui-view></ui-view>
     </div>
-    <ui-view></ui-view>
 
     <!--external javascript libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
@@ -23,11 +25,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- injector:js -->
     <script src="app.js"></script>
     <script src="js/config.js"></script>
-
-    
-    <!-- endinjector -->
+    <script src="js/controllers/candidates.controller.js"></script>
+    <script src="js/controllers/about.controller.js"></script>
+    <script src="js/controllers/elector.controller.js"></script>
+    <script sric="js/services/candidates.service.js"></script>
+    <script sric="js/services/electors.service.js"></script>
+    <script sric="js/services/user.service.js"></script>
   </body>
 </html>

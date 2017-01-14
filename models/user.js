@@ -6,13 +6,13 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new mongoose.Schema({
     username: String,
-    password: String,
     email: String,
     zip: String,
-    endorsing: [{type: Schema.ObjectId, ref:'Contract'}]
+    state: String,
+    endorsing: [{type: Schema.ObjectId, ref:'Candidate'}]
 });
 
-UserSchema.plugin(passportLocalMongoose);
+// UserSchema.plugin(passportLocalMongoose);
 
 
 module.exports = mongoose.model('User', UserSchema);
