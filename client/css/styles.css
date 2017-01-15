@@ -3,7 +3,35 @@
 body {
   background-color: #E8EDF1;
   font-family: 'Montserrat', 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-transition: all 1s easy-in-out;
+  transition: all 1s easy-in-out;
+}
+
+p {
+  line-height: 1.5em;
+  -webkit-transition: all 1s easy-in-out;
+  transition: all 1s easy-in-out;
+}
+
+a {
+  -webkit-transition: all 1s easy-in-out;
+  transition: all 1s easy-in-out;
+}
+
+.red {
+  color: #E53333;
+}
+
+.left {
+  float: left;
+  text-align: left;
+}
+
+.right {
+  float: right;
+  text-align: right;
 }
 
 /* SITE HEADER */
@@ -57,11 +85,10 @@ header {
 .nav li a {
   color: #fff;
   padding-bottom: 2px;
-  margin-top: -2px;
 }
 
 .nav li a:hover {
-  border-bottom: 3px solid #fff;
+  border-bottom: 3px solid #E53333;
   text-decoration: none;
 }
 
@@ -82,11 +109,14 @@ header {
 /* ABOUT */
 
 .splash-container {
+  display: table;
   width: 100%;
   height: 100vh;
   background-image: url('../images/monument.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  display: table;
 }
 
 .intro-message {
@@ -97,7 +127,7 @@ header {
   letter-spacing: .5px;
   line-height: 1.65em;
   color: #fff;
-  padding: 0 50px;
+  padding: 0 100px;
 }
 
 .underline {
@@ -109,6 +139,7 @@ header {
   border: 3px solid #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-size: 16px;
   text-align: center;
   margin-top: 50px;
   display: inline-block;
@@ -117,12 +148,119 @@ header {
 }
 
 .intro-message a:hover {
-  color: #2F4F84;
-  background-color: #fff;
+  color: #fff;
+  background-color: #E53333;
+  border-color: #E53333;
 }
 
 /* Section: Why */
 
+article {
+  width: 100%;
+  padding: 200px 80px;
+  background-color: #E8EDF1;
+}
+
+article h2 {
+  text-transform: uppercase;
+  font-size: 3em;
+  letter-spacing: .125em;
+  font-weight: bold;
+  margin-bottom: .5em;
+  color: #2F4F84;
+  display: block;
+  margin-top: 0;
+}
+
+article a {
+  color: #E53333;
+  text-decoration: none;
+}
+
+article a:hover {
+  -webkit-transition: all 1s easy-in-out;
+  transition: all 1s easy-in-out;
+  text-decoration: none;
+}
+
+article p {
+  font-size: 1.25em;
+  line-height: 1.65em;
+}
+
+article .article-image {
+  border-radius: 200px;
+  background-color: #fff;
+  width: 30%;
+  height: 300px;
+}
+
+article#why .article-image {
+  padding-left: 100px;
+}
+
 article#why {
-  height: 500px;
+
+}
+
+article#why h2 {
+  width: 30%;
+}
+
+article#why p {
+  //width: 90%;
+  //padding-right: 50px;
+  //position: absolute;
+}
+
+article#how {
+  padding-top: 100px;
+}
+
+article#how h2 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  width: 100%;
+  clear: both;
+}
+
+article#how p {
+  //width: 86%;
+  //position: absolute;
+  //padding-left: 350px;
+}
+
+article#how .article-image {
+  display: table-cell;
+  width: 30%;
+  height: 200px;
+  margin-right: 50px;
+}
+
+article .step {
+  display: inline-block;
+  width: 100%;
+  min-height: 200px;
+  margin-bottom: 100px;
+}
+
+article .step .article-text {
+  width: auto;
+}
+
+article .article-text {
+  width: 65%;
+  vertical-align: middle;
+  padding-top: 2.5em;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: .75em;
+  letter-spacing: .5px;
+  color: #BACAD9;
 }
