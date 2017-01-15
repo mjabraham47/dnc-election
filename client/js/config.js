@@ -77,7 +77,8 @@ angular.module('dncElection')
     defaultFontSize: 25,
     responsive: false
   });
-});
+})
+  .constant('$webroot', 'https://clause.herokuapp.com');
 
 // To account for plunker embeds timing out,preload the async data
 // angular.module('dnc-election').run(function($http) {

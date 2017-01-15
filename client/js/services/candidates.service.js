@@ -1,8 +1,8 @@
 angular.module('dncElection')
-.factory('CandidateService', function($http) {
+.factory('CandidateService', function($http, $webroot) {
   var service = {
     getCandidates: function() {
-      return $http.get('/candidates', { cache: true }).then(function(resp) {
+      return $http.get($webroot + '/candidates', { cache: true }).then(function(resp) {
         return resp.data;
       });
     },

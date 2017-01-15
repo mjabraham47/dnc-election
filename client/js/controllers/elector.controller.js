@@ -10,15 +10,18 @@ angular.module('dncElection')
 	$scope.emailSent = false;
 
 	$scope.get_electors = function(demo) {
+
 		ElectorService.getElectors(demo).then(function(electors) {
+			console.log(electors);
 				$scope.formFilled = true;
 				$scope.electors = electors;
 				$scope.chooseElector = true;
 		});
+
 	}
 
-	$scope.get_state = function(demo) {
-		ElectorService.getState(demo.zip).then(function(electors) {
+	$scope.get_state = function(zip) {
+		ElectorService.getState(zip).then(function(electors) {
 				console.log(electors);
 				$scope.formFilled = true;
 		});		
@@ -61,7 +64,7 @@ angular.module('dncElection')
 		}
 		ElectorService.postcard(card).then(function(data) {
 				console.log(data);
-				
+
 		});	
 	}
 });
