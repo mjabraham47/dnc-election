@@ -13,7 +13,7 @@
 		</form>
 	</div>
 
-<div ng-if="formFilled">
+<div ng-if="chooseElector">
 	<h2>Send a message to one of your electors</h2>
 	<div ng-repeat="elector in electors">
 		<div ng-click="chooseMessage(elector)"> {{elector.name}}</div>

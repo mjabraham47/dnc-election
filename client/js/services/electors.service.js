@@ -15,6 +15,16 @@ angular.module('dncElection')
     	return $http.get('http://localhost:3000/electors/getStateElectors/' + zip).then(function(resp) {
         	return resp.data;
       });
+    },
+    email: function(mail) {
+      return $http.post('http://localhost:3000/emails/email', mail).then(function(resp) {
+          return resp.data;
+      }); 
+    },
+    postcard: function(card) {
+      return $http.post('http://localhost:3000/postcards/postcard', card).then(function(resp) {
+          return resp.data;
+      }); 
     }
   };
   

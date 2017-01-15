@@ -69,7 +69,10 @@ var seed = {
                name: state.Name,
                line_1: state.Line1,
                line_2: state.Line2,
-               line_3: state.Line3
+               line_3: state.Line3,
+               website: state.Website,
+               email: state.Email,
+               phone: state.Phone
             }, function(err, stat) {
                 if(err) {
                     console.log(err);
