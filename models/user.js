@@ -12,7 +12,7 @@ var UserSchema = new mongoose.Schema({
     zip: String,
     state: String,
     abroad: Boolean,
-    endorsing: [{type: Schema.ObjectId, ref:'Candidate'}]
+    endorsing: {type: Schema.ObjectId, ref:'Candidate'}
 });
 
 

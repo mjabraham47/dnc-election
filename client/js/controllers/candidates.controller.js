@@ -16,6 +16,7 @@ angular.module('dncElection')
   	});
 
   	modalInstance.result.then(function(user){
+  		console.log('user', user)
   		return $state.go('elector', {user: user});
   	});
   };
@@ -40,6 +41,7 @@ angular.module('dncElection')
 		return UserService.create(user)
 		.then(function(createdUser){
 			if (createdUser) {
+				console.log('createdUser', createdUser)
 				$uibModalInstance.close(createdUser);
 			} else {
 				$scope.errored = true;
