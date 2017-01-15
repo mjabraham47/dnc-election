@@ -2,7 +2,7 @@ angular.module('dncElection')
 .service('ElectorService', function($http) {
   var service = {
     getElectors: function(demo) {
-      	return $http.post('http://localhost:3000/users/', demo).then(function(resp) {
+      	return $http.post('http://localhost:3000/electors/getAllElectors', demo).then(function(resp) {
         	return resp.data;
       });
     },

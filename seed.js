@@ -11,10 +11,14 @@ var seed = {
     seedElectors : function(elector) {
         Elector.create({
             name: elector.Name,
-            email: elector.Email,
+            membership: elector.Membership,
+            title: elector.Title,
             phone: elector.Phone,
-            address: elector.Address,
-            state: elector.State
+            personal_email: elector.PersonalEmail,
+            under_37_group: elector.Age_36andunder,
+            over_64_group: elector.Age_65andolder,
+            female_group: elector.Sex_female,
+            abroad_group: elector.abroad
         }, function(err, elect) {
         	if(err) {
         		console.log(err);
@@ -75,7 +79,7 @@ var seed = {
         };
     }
 }
-seed.parseStates(stateFile);
+// seed.parseStates(stateFile);
 // seed.parseCandidates(candidateFile);
 // seed.parseElectors(electorFile);
 
