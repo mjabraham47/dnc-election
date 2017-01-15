@@ -1,14 +1,17 @@
 <!doctype html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+
     <script src="https://use.fontawesome.com/f379a6cc53.js"></script>
     <!-- injector:css -->
     <!-- endinjector -->
   </head>
   <body ng-app="dncElection">
     <div class='container'>
-        <div class="jumbotron">
+        <div class="jumbotron title">
           <h1>DNC Chair Election</h1>
           <p>
             <a class="btn btn-primary btn-lg" ui-sref='about' role="button">About the DNC Election</a>
@@ -33,9 +36,16 @@
     <script src="js/controllers/candidates.controller.js"></script>
     <script src="js/controllers/about.controller.js"></script>
     <script src="js/controllers/elector.controller.js"></script>
+    <script sric="js/services/candidates.service.js"></script>
+    <script sric="js/services/electors.service.js"></script>
+    <script sric="js/services/user.service.js"></script>
     <script src="js/directives/candidate-box.js"></script>
     <script src="js/services/candidates.service.js"></script>
     <script src="js/services/electors.service.js"></script>
     <script src="js/services/user.service.js"></script>
+
+    <script src="//localhost:1337/livereload.js"></script>
+
+
   </body>
 </html>

@@ -1,18 +1,19 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var passportLocalMongoose = require('passport-local-mongoose');
 var Schema = mongoose.Schema;
 
 var UserSchema = new mongoose.Schema({
-    username: String,
     email: String,
+    first_name: String,
+    last_name: String,
+    gender: String,
+    age: String,
     zip: String,
     state: String,
+    abroad: Boolean,
     endorsing: [{type: Schema.ObjectId, ref:'Candidate'}]
 });
-
-// UserSchema.plugin(passportLocalMongoose);
 
 
 module.exports = mongoose.model('User', UserSchema);
