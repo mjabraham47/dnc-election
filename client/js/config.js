@@ -40,6 +40,11 @@ angular.module('dncElection')
       url:'/elector',
       templateUrl: 'templates/elector.html',
       controller: 'ElectorCtrl'
+  })
+  .state('results', {
+    url: '/results',
+    template: 'templates/results.html',
+    controller: 'ResultsCtrl'
   });
 
   $urlRouterProvider.otherwise('/about');
