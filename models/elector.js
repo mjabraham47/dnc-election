@@ -4,10 +4,14 @@ var mongoose = require('mongoose');
 
 var ElectorSchema = new mongoose.Schema({
 	name: String,
-	email: String,
+	membership: String,
+	personal_email: String,
+	title: String,
 	phone: String,
-	address: String,
-	city: String,
+	under_37_group: {type: Boolean, default: false },
+	over_64_group: {type: Boolean, default: false },
+	female_group: {type: Boolean, default: false },
+	abroad_group: {type: Boolean, default: false },
 	state: String
 });
 

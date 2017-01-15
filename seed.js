@@ -11,21 +11,26 @@ var seed = {
     seedElectors : function(elector) {
         Elector.remove({}, function(err, response, next){
             if (err) next(err);
-
-           Elector.create({
+            Elector.create({
                 name: elector.Name,
-                email: elector.Email,
+                membership: elector.Membership,
+                title: elector.Title,
                 phone: elector.Phone,
-                address: elector.Address,
-                state: elector.State
+                state: elector.State,
+                personal_email: elector.PersonalEmail,
+                under_37_group: Boolean(elector.Age_36andunder),
+                over_64_group: Boolean(elector.Age_65andolder),
+                female_group: Boolean(elector.Sex_female),
+                abroad_group: Boolean(elector.abroad)
             }, function(err, elect) {
-                if(err) {
-                    console.log(err);
+            	if(err) {
+            		console.log(err);
                     throw err;
-                } else {
-                    elect.save();
-                }
-            });
+
+            	} else {
+            		elect.save()
+            	}
+        	});
         });
     },
     seedCandidates : function(candidate) {

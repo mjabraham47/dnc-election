@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <img ng-src="{{candidate.photo}}"></img></br>
 <h2>{{candidate.first_name}} {{candidate.last_name}}</h2></br>
 <a ng-href="http://www.twitter.com/{{candidate.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i>@{{candidate.twitter}}</a>
@@ -17,4 +18,26 @@
 	<h3>Platform</h3></br>
 	<div ng-bind-html="platform"></div>
 </p>
+=======
+<button ng-click="openEndorseModal()" class="endorse-btn"><i class="fa fa-check-square-o" aria-hidden="true"></i>
+Endorse This Candidate!</button>
+<div class="photo-container">
+	<img ng-src="{{candidate.photo}}" class="candidate-photo"></img>
+</div>
+<h2 class="candidate-name">{{candidate.first_name}} {{candidate.last_name}}</h2>
+<ul class="candidate-links">
+	<li><a ng-href="http://www.twitter.com/{{candidate.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i>@{{candidate.twitter}}</a></li>
+	<li><a ng-href="{{candidate.facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook Page</a></li>
+	<li><i class="fa fa-link" aria-hidden="true"></i><a ng-href="{{candidate.website}}">Website</a></li>
+</ul>
+	<h3>Bio</h3>
+	<p>{{candidate.bio}}</p>
+
+	<h3>Vision</h3>
+	<p>{{candidate.vision}}</p>
+	
+	<h3>Platform</h3>
+	<p>{{candidate.platform}}</p>
+
+>>>>>>> master
 <p>To learn more about {{candidate.first_name}} {{candidate.last_name}} visit <a ng-href="{{candidate.website}}">{{candidate.website}}</a>

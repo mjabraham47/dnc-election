@@ -7,6 +7,7 @@ body {
   font-weight: normal;
   -webkit-transition: all 1s easy-in-out;
   transition: all 1s easy-in-out;
+  -webkit-font-smoothing: antialiased;
 }
 
 p {
@@ -85,6 +86,7 @@ header {
 .nav li a {
   color: #fff;
   padding-bottom: 2px;
+  font-weight: bold;
 }
 
 .nav li a:hover {
@@ -135,7 +137,8 @@ header {
 }
 
 .intro-message a {
-  padding: 6px 20px;
+  padding: 10px 30px;
+  font-weight: bold;
   border: 3px solid #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -189,9 +192,10 @@ article p {
 }
 
 article .article-image {
-  border-radius: 200px;
-  background-color: #fff;
-  width: 30%;
+  //border-radius: 200px;
+  //background-color: #fff;
+  width: 35%;
+  text-align: center;
   height: 300px;
 }
 
@@ -241,11 +245,17 @@ article .step {
   display: inline-block;
   width: 100%;
   min-height: 200px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 article .step .article-text {
   width: auto;
+}
+
+article .step .article-text h3 {
+  font-weight: bold;
+  color: #2F4F84;
+  text-transform: uppercase;
 }
 
 article .article-text {
@@ -265,54 +275,166 @@ footer {
   color: #BACAD9;
 }
 
-#results-chart {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        width: 960px;
-        height: 500px;
-        position: relative;
-    }
+/* RESULTS */
+.results-chart {
+    width: 960px;
+    height: 500px;
+    position: relative;
+}
 
-    svg {
-        width: 100%;
-        height: 100%;
-        position: center;
-    }
+svg {
+    width: 100%;
+    height: 100%;
+    position: center;
+}
 
-    .toolTip {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        position: absolute;
-        display: none;
-        width: auto;
-        height: auto;
-        background: none repeat scroll 0 0 white;
-        border: 0 none;
-        border-radius: 8px 8px 8px 8px;
-        box-shadow: -3px 3px 15px #888888;
-        color: black;
-        font: 12px sans-serif;
-        padding: 5px;
-        text-align: center;
-    }
+.toolTip {
+    position: absolute;
+    display: none;
+    width: auto;
+    height: auto;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: -3px 3px 15px #888888;
+    color: black;
+    font: 12px sans-serif;
+    padding: 5px;
+    text-align: center;
+}
 
-    text {
-        font: 10px sans-serif;
-        color: white;
-    }
-    text.data {
-        font-size: 120%;
-        fill: white;
-    }
+text {
+    font: 10px sans-serif;
+    color: white;
+}
+text.data {
+    font-size: 120%;
+    fill: white;
+}
 
-    .axisHorizontal path{
-        fill: none;
-    }
+.axisHorizontal path{
+    fill: none;
+}
 
-    .axisHorizontal .tick line {
-        stroke-width: 1;
-        stroke: rgba(0, 0, 0, 0.2);
-    }
+.axisHorizontal .tick line {
+    stroke-width: 1;
+    stroke: rgba(0, 0, 0, 0.2);
+}
 
-    .bar {
-        fill: steelblue;
-        fill-opacity: .9;
-    }
+.bar {
+    fill: steelblue;
+    fill-opacity: .9;
+}
+
+/* CANDIDATES */
+
+aside {
+  //background-color: #0F2446;
+  padding: 20px 0;
+}
+
+.candidate-box {
+  display: block;
+  padding: 10px 40px;
+}
+
+.candidate-box a {
+  color: #0F2446;
+  font-size: 1.25em;
+  letter-spacing: -.25px;
+  text-decoration: none;
+}
+
+.candidate-box a:hover,
+.candidate-box a:active {
+  text-decoration: none;
+  color: #E53333;
+  cursor: pointer;
+}
+
+.candidate-box i {
+  font-size: .75em;
+  margin-right: 10px;
+  vertical-align: middle;
+  color: #2F4F84;
+}
+
+.candidate-info {
+  padding: 40px;
+}
+.candidate-info h3 {
+  font-size: 1.85em;
+  font-weight: bold;
+  color: #2F4F84;
+  padding-top: 20px;
+}
+.photo-container {
+  border-radius: 200px;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  vertical-align: bottom;
+  text-align: center;
+  background-color: #2F4F84;
+}
+.candidate-photo {
+  width: 100%;
+}
+.candidate-info p {
+  width: 85%;
+}
+.candidate-name {
+  color: #2F4F84;
+  font-size: 3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin: 40px 0 20px 0;
+}
+
+.candidate-links {
+  padding: 0;
+  margin: 0;
+  font-size: 1.10em;
+}
+.candidate-links li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.candidate-links i {
+  color: #E53333;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.candidate-links a {
+  color: #E53333;
+  text-decoration: none;
+}
+.candidate-links a:hover {
+  color: #2F4F84;
+}
+.endorse-btn {
+  float: right;
+  padding: 20px 30px;
+  font-size: 1.25em;
+  background-color: #E53333;
+  border: none;
+  color: #fff;
+  margin-right: 15px;
+}
+.endorse-btn:hover {
+  background-color: #2F4F84;
+  color: #fff;
+}
+.candidate-overview h2 {
+  font-size: 1.85em;
+  font-weight: bold;
+  color: #2F4F84;
+  margin: 0 0 20px 0;
+}
+.find-your-elector {
+  padding: 40px;
+}
+>>>>>>> master

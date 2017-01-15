@@ -10,7 +10,7 @@ angular.module('dncElection')
     scope: {
     	chartData: '='
     },
-    template: "<div id='results-chart'></div>",
+    template: "<div id='results-chart' class='results-chart'></div>",
     link: function(scope, elem, attrs){
 
     	var padding = 20;
@@ -84,16 +84,6 @@ angular.module('dncElection')
             .attr("x", function(d){
                 var width = this.getBBox().width;
                 return Math.max(width + valueMargin, scale(d.data));
-            });
-
-    bar.on("mousemove", function(d){
-                div.style("left", d3.event.pageX+10+"px");
-                div.style("top", d3.event.pageY-25+"px");
-                div.style("display", "inline-block");
-                div.html(parseInt((d.data/scope.chartData.total) * 100) +"%");
-            });
-    bar.on("mouseout", function(d){
-                div.style("display", "none");
             });
 
     svg.insert("g",":first-child")
