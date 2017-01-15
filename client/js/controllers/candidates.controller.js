@@ -18,7 +18,7 @@ angular.module('dncElection')
 
   	modalInstance.result.then(function(user){
   		console.log('user', user)
-  		return $state.go('elector', {user: user});
+  		return $state.go('electorResults', {user: user});
   	});
   };
 })

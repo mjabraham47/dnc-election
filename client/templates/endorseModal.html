@@ -19,6 +19,14 @@
                 <label>First Name: <input type="text" ng-model="user.first_name"/></label><br />
                 <label>Last Name: <input type="text" ng-model="user.last_name" /></label><br />
                 <label>E-mail: <input type="email" ng-model="user.email" required/></label><br />
+                <label>Zip Code: <input type="text" ng-model="user.zip"></label><br/>
+                <label><input type="checkbox" ng-model="user.abroad">I live abroad.</label><br/>
+                <label>Age: <input type="text" ng-model="user.age"></label><br/>
+                Gender:
+                <select ng-model="demo.gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select><br/>
             </div>
             <div class="modal-footer">
                 <input type="button" ng-click="cancel()" value="Cancel" />
