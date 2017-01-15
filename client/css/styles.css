@@ -156,6 +156,26 @@ header {
   border-color: #E53333;
 }
 
+.candidate-overview a {
+  padding: 10px 30px;
+  font-weight: bold;
+  border: 3px solid #2F4F84;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 50px;
+  display: inline-block;
+  color: #2F4F84;
+  text-decoration: none;
+}
+
+.candidate-overview a:hover {
+  color: #fff;
+  background-color: #E53333;
+  border-color: #E53333;
+}
+
 /* Section: Why */
 
 article {
