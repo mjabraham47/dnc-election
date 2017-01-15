@@ -50,17 +50,20 @@ angular.module('dncElection')
       results: function(CandidateService){
         return CandidateService.getCandidates()
         .then(function(candidates){
-          var result = {
-            data: [],
-            labels:[]
-          };
-          candidates.forEach(function(candidate){
+          var total = 0;
+          var dataPoints = candidates.map(function(candidate){
             var fullName = candidate.first_name  + ' ' + candidate.last_name;
-            result.labels.push(fullName);
-            result.data.push(candidate.endorsements);
+            total += candidate.endorsements;
+            return {
+              name: fullName,
+              data: candidate.endorsements
+            }
           });
 
-          return result;
+          return {
+            dataPoints: dataPoints,
+            total: total
+          }
         });
       }
     }
