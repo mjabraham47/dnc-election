@@ -9,55 +9,72 @@ var stateFile = require('./states.js');
 
 var seed = {
     seedElectors : function(elector) {
-        Elector.create({
-            name: elector.Name,
-            email: elector.Email,
-            phone: elector.Phone,
-            address: elector.Address,
-            state: elector.State
-        }, function(err, elect) {
-        	if(err) {
-        		console.log(err);
-        	} else {
-        		elect.save()
-        	}
-    	});
+        Elector.remove({}, function(err, response, next){
+            if (err) next(err);
+
+           Elector.create({
+                name: elector.Name,
+                email: elector.Email,
+                phone: elector.Phone,
+                address: elector.Address,
+                state: elector.State
+            }, function(err, elect) {
+                if(err) {
+                    console.log(err);
+                    throw err;
+                } else {
+                    elect.save();
+                }
+            });
+        });
     },
     seedCandidates : function(candidate) {
-        Candidate.create({
-            first_name: candidate.FirstName,
-            last_name: candidate.LastName,
-            bio: candidate.Bio,
-            twitter: candidate.Twitter,
-            website: candidate.Website,
-            photo: candidate.Photo,
-            image_source: candidate.ImageSource,
-            vision: candidate.Vision,
-            platform: candidate.Platform,
-            facebook: candidate.Facebook,
-            endorsements: 0
-        }, function(err, candid) {
-        	if(err) {
-        		console.log(err);
-        	} else {
-        		candid.save()
-        	}
-    	});
+        Candidate.remove({}, function(err, response, next) {
+            if (err) next(err);
+
+            Candidate.create({
+                first_name: candidate.FirstName,
+                last_name: candidate.LastName,
+                bio: candidate.Bio,
+                twitter: candidate.Twitter,
+                website: candidate.Website,
+                photo: candidate.Photo,
+                image_source: candidate.ImageSource,
+                vision: candidate.Vision,
+                platform: candidate.Platform,
+                facebook: candidate.Facebook,
+                endorsements: Math.floor( Math.random() * 1000 ) 
+            }, function(err, candid) {
+                if(err) {
+                    console.log(err);
+                    throw err;
+                } else {
+                    candid.save();
+                }
+            });
+        });
+        
     },
     seedStates : function(state) {
-        State.create({
-           state: state.State,
-           name: state.Name,
-           line_1: state.Line1,
-           line_2: state.Line2,
-           line_3: state.Line3
-        }, function(err, stat) {
-            if(err) {
-                console.log(err);
-            } else {
-                stat.save()
-            }
-        });
+        State.remove({}, function(err, response, next){
+            if (err) next(err);
+
+            State.create({
+               state: state.State,
+               name: state.Name,
+               line_1: state.Line1,
+               line_2: state.Line2,
+               line_3: state.Line3
+            }, function(err, stat) {
+                if(err) {
+                    console.log(err);
+                    throw err;
+                } else {
+                    stat.save()
+                }
+            });
+        })
+        
     },
 	parseCandidates : function(candidates) {
 		for (var i = 0; i < candidates.length; i++) {
@@ -74,9 +91,9 @@ var seed = {
             this.seedStates(states[i]);
         };
     }
-}
+};
 seed.parseStates(stateFile);
-// seed.parseCandidates(candidateFile);
-// seed.parseElectors(electorFile);
+seed.parseCandidates(candidateFile);
+seed.parseElectors(electorFile);
 
 module.exports = seed;
