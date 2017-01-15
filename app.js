@@ -28,6 +28,7 @@ var electors = require('./routes/electors');
 var texts = require('./routes/texts');
 var emails = require('./routes/emails');
 var postcards = require('./routes/postcards');
+var states = require('./routes/states');
 
 app.use('/users', users);
 app.use('/candidates', candidates);
@@ -35,7 +36,7 @@ app.use('/electors', electors);
 app.use('/emails', emails);
 app.use('/postcards', postcards);
 app.use('/texts', electors);
-
+app.use('/states', states);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

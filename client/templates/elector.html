@@ -1,12 +1,7 @@
-<div class='row'>
-	<div class='col col-xs-4'>
-		<candidate-box
-		ng-repeat='candidate in candidates'
-		candidate='candidate'
-		>
-		</candidate-box>
-	</div>
-	<div class='col col-xs-8'>
-		<ui-view></ui-view>
-	</div>
-</div>
+	<form ng-if="!elector.formFilled">
+		Zip Code: <input type="text" ng-model="demo.zip">
+		<input type="checkbox" ng-model="demo.abroad">I live abroad.
+		Age: <input type="text" ng-model="demo.age">
+		Gender: <input type="text" ng-model="demo.gender">
+		<button class="btn btn-lg" ng-click="elector.get_electors(demo)"/>
+	</form>

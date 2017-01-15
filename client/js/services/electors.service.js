@@ -1,8 +1,8 @@
 angular.module('dncElection')
 .service('ElectorService', function($http) {
   var service = {
-    getElectors: function(user_id) {
-      	return $http.get('http://localhost:3000/users/' + user_id + '/electors').then(function(resp) {
+    getElectors: function(demo) {
+      	return $http.post('http://localhost:3000/users/', demo).then(function(resp) {
         	return resp.data;
       });
     },
