@@ -137,7 +137,8 @@ header {
 }
 
 .intro-message a {
-  padding: 6px 20px;
+  padding: 10px 30px;
+  font-weight: bold;
   border: 3px solid #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -251,6 +252,12 @@ article .step .article-text {
   width: auto;
 }
 
+article .step .article-text h3 {
+  font-weight: bold;
+  color: #2F4F84;
+  text-transform: uppercase;
+}
+
 article .article-text {
   width: 65%;
   vertical-align: middle;
@@ -266,6 +273,57 @@ footer {
   font-size: .75em;
   letter-spacing: .5px;
   color: #BACAD9;
+}
+
+/* RESULTS */
+.results-chart {
+    width: 960px;
+    height: 500px;
+    position: relative;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+    position: center;
+}
+
+.toolTip {
+    position: absolute;
+    display: none;
+    width: auto;
+    height: auto;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: -3px 3px 15px #888888;
+    color: black;
+    font: 12px sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+
+text {
+    font: 10px sans-serif;
+    color: white;
+}
+text.data {
+    font-size: 120%;
+    fill: white;
+}
+
+.axisHorizontal path{
+    fill: none;
+}
+
+.axisHorizontal .tick line {
+    stroke-width: 1;
+    stroke: rgba(0, 0, 0, 0.2);
+}
+
+.bar {
+    fill: steelblue;
+    fill-opacity: .9;
 }
 
 /* CANDIDATES */
@@ -376,3 +434,7 @@ aside {
   color: #2F4F84;
   margin: 0 0 20px 0;
 }
+.find-your-elector {
+  padding: 40px;
+}
+>>>>>>> master

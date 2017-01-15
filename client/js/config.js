@@ -1,5 +1,5 @@
 angular.module('dncElection')
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, ChartJsProvider) {
   $stateProvider
   .state('about', {
       url:'/about',
@@ -43,11 +43,40 @@ angular.module('dncElection')
   })
   .state('results', {
     url: '/results',
-    template: 'templates/results.html',
-    controller: 'ResultsCtrl'
+    templateUrl: 'templates/results.html',
+    controller: 'ResultsCtrl',
+    controllerAs: 'resultsCtrl',
+    resolve: {
+      results: function(CandidateService){
+        return CandidateService.getCandidates()
+        .then(function(candidates){
+          var total = 0;
+          var dataPoints = candidates.map(function(candidate){
+            var fullName = candidate.first_name  + ' ' + candidate.last_name;
+            total += candidate.endorsements;
+            return {
+              name: fullName,
+              data: candidate.endorsements
+            }
+          });
+
+          return {
+            dataPoints: dataPoints,
+            total: total
+          }
+        });
+      }
+    }
   });
 
   $urlRouterProvider.otherwise('/about');
+
+  // Configure all charts
+  ChartJsProvider.setOptions({
+    chartColors: ['#E8EDF1'],
+    defaultFontSize: 25,
+    responsive: false
+  });
 });
 
 // To account for plunker embeds timing out,preload the async data

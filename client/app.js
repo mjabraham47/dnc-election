@@ -2,6 +2,8 @@
     var myApp = angular.module('dncElection', [
         'ui.router',
         'ngLodash',
-        'ui.bootstrap'
+        'ngSanitize',
+        'ui.bootstrap',
+        'chart.js'
     ]);
 })();
