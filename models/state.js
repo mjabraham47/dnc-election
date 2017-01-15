@@ -8,7 +8,10 @@ var StateSchema = new mongoose.Schema({
 	name: String,
 	line_1: String,
 	line_2: String,
-	line_3: String
+	line_3: String,
+	website: String,
+	email: String,
+	phone: String
 });
 
 module.exports = mongoose.model('State', StateSchema);
