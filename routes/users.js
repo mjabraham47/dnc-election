@@ -7,17 +7,19 @@ var async = require('async');
 var User = require('../models/user');
 var Elector = require('../models/elector');
 var zipcodes = require('zipcodes');
+var Candidate = require('../models/candidate');
 var emailExistence = require('email-existence');
 
 
 app.post('/create', function(req, res) {
     emailExistence.check(req.body.email, function(err, response) {
         if (err) {
-            console.log(err)
+            console.log(err);
+            throw err;
         } else {
             console.log('res: ' + response);
             if (response === true) {
-                var state = zipcodes.lookup(req.body.zip).state;
+                //var state = zipcodes.lookup(req.body.zip).state;
                 User.create({
                     first_name: req.body.first_name,
                     last_name: req.body.first_name,
@@ -26,16 +28,19 @@ app.post('/create', function(req, res) {
                 }, function(err, user) {
                     if (err) {
                         console.log(err);
+                        throw err;
                     } else {
-                        Candidate.findByIdAndUpdate({ _id: req.body.endorsed }, { $inc: { fieldToIncrement: 1 } },
+                        Candidate.findByIdAndUpdate({ _id: req.body.endorsed }, { $inc: { endorsements: 1 } },
                             function(err, candidate) {
+                                if (err) throw err;
                                 user.save();
                                 candidate.save();
+                                res.send(user);
                             });
                     }
                 });
             } else {
-                res.send('nah nah nah')
+                throw new Error('There was an error creating a new user account');
             }
         }
     });

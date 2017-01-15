@@ -13,7 +13,7 @@
         </div>
     </div>
     <div ng-if="confirmed">
-        <p ng-if="errored">An error occurred while registering your email. Please try again.</p> 
+        <p ng-if="errored" class="text-danger">An error occurred while registering your email. Please try again.</p> 
         <form novalidate class="simple-form">
             <div class="modal-body" id="modal-body">
                 <label>First Name: <input type="text" ng-model="user.first_name"/></label><br />
