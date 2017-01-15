@@ -70,12 +70,9 @@ angular.module('dncElection')
 
   // Configure all charts
   ChartJsProvider.setOptions({
-    chartColors: ['#FF5252', '#FF8A80'],
+    chartColors: ['#E8EDF1'],
+    defaultFontSize: 25,
     responsive: false
-  });
-  // Configure all line charts
-  ChartJsProvider.setOptions('line', {
-    showLines: false
   });
 });
 
