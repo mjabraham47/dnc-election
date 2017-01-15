@@ -1,0 +1,30 @@
+<div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Endorse {{candidate.first_name}} {{candidate.last_name}}</h3>
+    </div>
+     
+    <div ng-if="!confirmed">
+        <div class="modal-body" id="modal-body">
+            <p>Are you sure you want to endorse {{candidate.first_name}} {{candidate.last_name}}</p>
+            <p>You are only allowed one endorsement.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-primary" type="button" ng-click="confirm()">Yes, I'm Sure</button>
+        </div>
+    </div>
+    <div ng-if="confirmed">
+        <p ng-if="errored">An error occurred while registering your email. Please try again.</p> 
+        <form novalidate class="simple-form">
+            <div class="modal-body" id="modal-body">
+                <label>First Name: <input type="text" ng-model="user.first_name"/></label><br />
+                <label>Last Name: <input type="text" ng-model="user.last_name" /></label><br />
+                <label>E-mail: <input type="email" ng-model="user.email" required/></label><br />
+            </div>
+            <div class="modal-footer">
+                <input type="button" ng-click="cancel()" value="Cancel" />
+                <input type="submit" ng-click="endorse(user)" value="Submit" />
+            </div>
+        </form>
+    </div>
+</div>
+    
