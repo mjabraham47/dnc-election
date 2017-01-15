@@ -5,7 +5,7 @@ var app = express();
 var Candidate = require('../models/candidate');
 var User = require('../models/user')
 
-app.get('/candidates', function(req, res) {
+app.get('/', function(req, res) {
     Candidate.find(function(err, candidates) {
         if (err) {
             console.log(err);
