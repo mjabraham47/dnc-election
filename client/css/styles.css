@@ -137,7 +137,8 @@ header {
 }
 
 .intro-message a {
-  padding: 6px 20px;
+  padding: 10px 30px;
+  font-weight: bold;
   border: 3px solid #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -249,6 +250,12 @@ article .step {
 
 article .step .article-text {
   width: auto;
+}
+
+article .step .article-text h3 {
+  font-weight: bold;
+  color: #2F4F84;
+  text-transform: uppercase;
 }
 
 article .article-text {
@@ -375,4 +382,7 @@ aside {
   font-weight: bold;
   color: #2F4F84;
   margin: 0 0 20px 0;
+}
+.find-your-elector {
+  padding: 40px;
 }
