@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-<img ng-src="{{candidate.photo}}"></img></br>
-<h2>{{candidate.first_name}} {{candidate.last_name}}</h2></br>
-<a ng-href="http://www.twitter.com/{{candidate.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i>@{{candidate.twitter}}</a>
-<a ng-href="{{candidate.facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-<a ng-href="{{candidate.website}}">Website</a>
-</br>
-<button ng-click="openEndorseModal()">Endorse This Candidate</button>
-<p>
-	<h3>Bio</h3></br>
-	{{candidate.bio}}
-</p>
-<p>
-	<h3>Vision</h3></br>
-	{{candidate.vision}}
-</p>
-<p>
-	<h3>Platform</h3></br>
-	<div ng-bind-html="platform"></div>
-</p>
-=======
 <button ng-click="openEndorseModal()" class="endorse-btn"><i class="fa fa-check-square-o" aria-hidden="true"></i>
 Endorse This Candidate!</button>
 <div class="photo-container">
@@ -37,7 +16,5 @@ Endorse This Candidate!</button>
 	<p>{{candidate.vision}}</p>
 	
 	<h3>Platform</h3>
-	<p>{{candidate.platform}}</p>
-
->>>>>>> master
+	<p ng-bind-html="platform"></p>
 <p>To learn more about {{candidate.first_name}} {{candidate.last_name}} visit <a ng-href="{{candidate.website}}">{{candidate.website}}</a>
