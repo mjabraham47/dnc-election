@@ -7,6 +7,7 @@ body {
   font-weight: normal;
   -webkit-transition: all 1s easy-in-out;
   transition: all 1s easy-in-out;
+  -webkit-font-smoothing: antialiased;
 }
 
 p {
@@ -85,6 +86,7 @@ header {
 .nav li a {
   color: #fff;
   padding-bottom: 2px;
+  font-weight: bold;
 }
 
 .nav li a:hover {
@@ -189,9 +191,10 @@ article p {
 }
 
 article .article-image {
-  border-radius: 200px;
-  background-color: #fff;
-  width: 30%;
+  //border-radius: 200px;
+  //background-color: #fff;
+  width: 35%;
+  text-align: center;
   height: 300px;
 }
 
@@ -241,7 +244,7 @@ article .step {
   display: inline-block;
   width: 100%;
   min-height: 200px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 article .step .article-text {
@@ -361,6 +364,7 @@ aside {
   background-color: #E53333;
   border: none;
   color: #fff;
+  margin-right: 15px;
 }
 .endorse-btn:hover {
   background-color: #2F4F84;
