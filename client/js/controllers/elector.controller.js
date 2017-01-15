@@ -1,9 +1,9 @@
 angular.module('dncElection')
 .controller('ElectorCtrl', function($scope, ElectorService) {
-	var self = this;
-	self.formFilled = false;
+	console.log('hi hi')
+	$scope.formFilled = false;
 
-	self.get_electors = function(demo) {
+	$scope.get_electors = function(demo) {
 		console.log('runs')
 		ElectorService.getElectors(demo).then(function(err, electors) {
 			if (err) {
@@ -11,8 +11,20 @@ angular.module('dncElection')
 			}
 			else {
 				console.log(electors);
-				self.formFilled = true;
+				$scope.formFilled = true;
 			};
 		});
+	}
+
+	$scope.get_state = function(demo) {
+		ElectorService.getState(demo.zip).then(function(err, electors) {
+			if (err) {
+				console.log(err);
+			}
+			else {
+				console.log(electors);
+				$scope.formFilled = true;
+			};
+		});		
 	}
 });

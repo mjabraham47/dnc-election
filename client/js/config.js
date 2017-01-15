@@ -39,8 +39,7 @@ angular.module('dncElection')
   .state('elector', {
       url:'/elector',
       templateUrl: 'templates/elector.html',
-      controller: function(){
-      },
+      controller: 'ElectorCtrl'
   });
 
   $urlRouterProvider.otherwise('/about');

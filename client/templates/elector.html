@@ -1,7 +1,7 @@
-	<form ng-if="!elector.formFilled">
+	<form ng-if="!formFilled">
 		Zip Code: <input type="text" ng-model="demo.zip">
 		<input type="checkbox" ng-model="demo.abroad">I live abroad.
 		Age: <input type="text" ng-model="demo.age">
 		Gender: <input type="text" ng-model="demo.gender">
-		<button class="btn btn-lg" ng-click="elector.get_electors(demo)"/>
+		<button class="btn btn-lg" ng-click="get_electors(demo)"/>
 	</form>
