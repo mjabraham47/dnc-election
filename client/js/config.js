@@ -41,6 +41,19 @@ angular.module('dncElection')
       templateUrl: 'templates/elector.html',
       controller: 'ElectorCtrl'
   })
+  .state('electorResults', {
+    url: '/elector/results',
+    params: {
+      user: null
+    },
+    resolve: {
+      electors: function(ElectorService, $stateParams){
+        return ElectorService.getElectors($stateParams.user);
+      }
+    },
+    templateUrl: 'templates/elector-results.html',
+    controller: 'ElectorResultsCtrl'
+  })
   .state('results', {
     url: '/results',
     templateUrl: 'templates/results.html',

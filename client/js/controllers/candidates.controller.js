@@ -17,8 +17,11 @@ angular.module('dncElection')
   	});
 
   	modalInstance.result.then(function(user){
-  		console.log('user', user)
-  		return $state.go('elector', {user: user});
+  		if (user.zip) {
+  			return $state.go('electorResults', {user: user});
+  		} else {
+  			$state.go('elector')
+  		}
   	});
   };
 })

@@ -12,6 +12,7 @@ angular.module('dncElection')
     },
     template: "<div id='results-chart' class='results-chart'></div>",
     link: function(scope, elem, attrs){
+    	console.log('results')
 
     	var padding = 20;
 			var pathClass = "path";

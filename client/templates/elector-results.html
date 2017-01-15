@@ -1,0 +1,31 @@
+<div ng-if="chooseElector">
+	<h2>Send a message to one of your electors</h2>
+	<div ng-repeat="elector in electors">
+		<div ng-click="chooseMessage(elector)"> {{elector.name}}</div>
+	</div>
+</div>
+<div ng-if="messageTypes">
+	<h2>Pick a message format</h2>
+	<div ng-click="pickEmail()">Send an E-mail</div>
+	<div ng-click="pickPostcard()">
+	Send a Postcard
+	</div>
+<div>
+
+<div ng-if="pickedEmail">
+	<textarea ng-model="emailMessage"></textarea>
+	<button ng-click="sendEmail(emailMessage, selectedElector)"/>
+</div>
+
+<div ng-if="emailSent">
+	<h3>Your e-mail has been sent to {{selectedElector.name}} </h3>
+</div>
+
+<div ng-if="pickedPostcard">
+	<textarea ng-model="postMessage"></textarea>
+	<button ng-click="sendPostcard(postMessage, selectedElector)"/>
+</div>
+
+<div ng-if="postcardSent">
+	<h3>Your postcard has been sent to {{selectedElector.name}} </h3>
+</div>
