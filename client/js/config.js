@@ -10,9 +10,8 @@ angular.module('dncElection')
       url:'/candidates',
       templateUrl: 'templates/candidates.html',
       resolve: {
-        candidates: function() {
-          // return CandidateService.getCandidates();
-          return [];
+        candidates: function(CandidateService) {
+          return CandidateService.getCandidates();
         }
       },
       controller: function($scope, candidates){
@@ -29,10 +28,10 @@ angular.module('dncElection')
   })
   .state('candidates.detail', {
     url: '/:id',
-    templateUrl: 'template/candidateDetail.html',
+    templateUrl: 'templates/candidateDetail.html',
     resolve: {
-      candidate: function($stateParams) {
-        return $stateParams.candidate;
+      candidate: function($stateParams, candidates, lodash) {
+        return lodash.find(candidates, {_id: $stateParams.id});
       }
     },
     controller: 'CandidatesCtrl'

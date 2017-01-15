@@ -1,1 +1,19 @@
-CANDIDATE DETAILS GO HERE
+<img ng-src="{{candidate.photo}}"></img></br>
+<h2>{{candidate.first_name}} {{candidate.last_name}}</h2></br>
+<a ng-href="http://www.twitter.com/{{candidate.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i>@{{candidate.twitter}}</a>
+<a ng-href="{{candidate.facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+<a ng-href="{{candidate.website}}">Website</a>
+</br>
+<p>
+	<h3>Bio</h3></br>
+	{{candidate.bio}}
+</p>
+<p>
+	<h3>Vision</h3></br>
+	{{candidate.vision}}
+</p>
+<p>
+	<h3>Platform</h3></br>
+	{{candidate.platform}}
+</p>
+<p>To learn more about {{candidate.first_name}} {{candidate.last_name}} visit <a ng-href="{{candidate.website}}">{{candidate.website}}</a>
