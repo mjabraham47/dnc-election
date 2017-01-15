@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
@@ -10,17 +11,26 @@
     <!-- endinjector -->
   </head>
   <body ng-app="dncElection">
-    <div class='container'>
-        <div class="jumbotron title">
-          <h1>DNC Chair Election</h1>
-          <p>
-            <a class="btn btn-primary btn-lg" ui-sref='about' role="button">About the DNC Election</a>
-            <a class="btn btn-primary btn-lg" ui-sref='candidates.overview' role="button">Candidates</a>
-            <a class="btn btn-primary btn-lg" ui-sref='elector' role="button">Find your electors</a>
-          </p>
+    <div>
+      <header>
+        <div class="title">
+          <a href="/">
+            <h1>RUN<span class="red">-</span>DNC</h1>
+          </a>
         </div>
-        <ui-view></ui-view>
+        <div class="nav">
+          <ul>
+            <li><a ui-sref='about' role="button">About</a></li>
+            <li><a ui-sref='candidates.overview' role="button">Candidates</a></li>
+            <li><a ui-sref='elector' role="button">Find your electors</a></li>
+          </ul>
+        </div>
+      </header>
+      <ui-view></ui-view>
     </div>
+    <footer>
+      <p>Copyright 2017.</p>
+    </footer>
 
     <!--external javascript libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>

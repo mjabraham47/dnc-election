@@ -1,23 +1,266 @@
+/* General */
+
 body {
-	background-color: #fff;
-	font-family: 'Open Sans', sans-serif;
+  background-color: #E8EDF1;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-transition: all 1s easy-in-out;
+  transition: all 1s easy-in-out;
 }
 
-.title {
-	color: #232066;
-	text-transform: uppercase;
+p {
+  line-height: 1.5em;
+  -webkit-transition: all 1s easy-in-out;
+  transition: all 1s easy-in-out;
+}
+
+a {
+  -webkit-transition: all 1s easy-in-out;
+  transition: all 1s easy-in-out;
+}
+
+.red {
+  color: #E53333;
+}
+
+.left {
+  float: left;
+  text-align: left;
+}
+
+.right {
+  float: right;
+  text-align: right;
+}
+
+/* SITE HEADER */
+
+header {
+  width: 100%;
+  display: table;
+  height: 80px;
+  background: #2F4F84;
+  padding: 0px 40px;
+}
+
+.title, .title a {
+  display: table-cell;
+  vertical-align: middle;
+  width: 20%;
+} 
+
+.title h1 {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 32px;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.nav {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
+}
+
+.nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  display: inline;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-left: 30px;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+.nav li a {
+  color: #fff;
+  padding-bottom: 2px;
+}
+
+.nav li a:hover {
+  border-bottom: 3px solid #E53333;
+  text-decoration: none;
 }
 
 .description {
-	color: #232066;
-	font-size: 16px;
+  color: #232066;
+  font-size: 16px;
 }
 
 .jumbotron {
-	background-color: #232066;
-	color: #fff;
+  background-color: #232066;
+  color: #fff;
 }
 
 .jumbotron .title {
-	font-size: 36px;
+  font-size: 36px;
+}
+
+/* ABOUT */
+
+.splash-container {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/monument.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.intro-message {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.5em;
+  letter-spacing: .5px;
+  line-height: 1.65em;
+  color: #fff;
+  padding: 0 100px;
+}
+
+.underline {
+  border-bottom: 2px solid #fff;
+}
+
+.intro-message a {
+  padding: 6px 20px;
+  border: 3px solid #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 50px;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.intro-message a:hover {
+  color: #fff;
+  background-color: #E53333;
+  border-color: #E53333;
+}
+
+/* Section: Why */
+
+article {
+  width: 100%;
+  padding: 200px 80px;
+  background-color: #E8EDF1;
+}
+
+article h2 {
+  text-transform: uppercase;
+  font-size: 3em;
+  letter-spacing: .125em;
+  font-weight: bold;
+  margin-bottom: .5em;
+  color: #2F4F84;
+  display: block;
+  margin-top: 0;
+}
+
+article a {
+  color: #E53333;
+  text-decoration: none;
+}
+
+article a:hover {
+  -webkit-transition: all 1s easy-in-out;
+  transition: all 1s easy-in-out;
+  text-decoration: none;
+}
+
+article p {
+  font-size: 1.25em;
+  line-height: 1.65em;
+}
+
+article .article-image {
+  border-radius: 200px;
+  background-color: #fff;
+  width: 30%;
+  height: 300px;
+}
+
+article#why .article-image {
+  padding-left: 100px;
+}
+
+article#why {
+
+}
+
+article#why h2 {
+  width: 30%;
+}
+
+article#why p {
+  //width: 90%;
+  //padding-right: 50px;
+  //position: absolute;
+}
+
+article#how {
+  padding-top: 100px;
+}
+
+article#how h2 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  width: 100%;
+  clear: both;
+}
+
+article#how p {
+  //width: 86%;
+  //position: absolute;
+  //padding-left: 350px;
+}
+
+article#how .article-image {
+  display: table-cell;
+  width: 30%;
+  height: 200px;
+  margin-right: 50px;
+}
+
+article .step {
+  display: inline-block;
+  width: 100%;
+  min-height: 200px;
+  margin-bottom: 100px;
+}
+
+article .step .article-text {
+  width: auto;
+}
+
+article .article-text {
+  width: 65%;
+  vertical-align: middle;
+  padding-top: 2.5em;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: .75em;
+  letter-spacing: .5px;
+  color: #BACAD9;
 }
