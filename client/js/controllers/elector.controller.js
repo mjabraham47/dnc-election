@@ -1,4 +1,4 @@
 angular.module('dncElection')
-.controller('ElectorCtrl', function($scope) {
-  
+.controller('ElectorCtrl', function($scope, ElectorService) {
+	
 });

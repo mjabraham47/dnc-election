@@ -20,17 +20,19 @@ var seed = {
         		elector.save()
         	}
     	});
-
     },
     seedCandidates : function(candidate) {
-    	console.log(candidate)
         Candidate.create({
             first_name: candidate.FirstName,
             last_name: candidate.LastName,
-            short_description: candidate.ShortDescription,
+            bio: candidate.Bio,
             twitter: candidate.Twitter,
             website: candidate.Website,
             photo: candidate.Photo,
+            image_source: candidate.ImageSource,
+            vision: candidate.Vision,
+            platform: candidate.Platform,
+            facebook: candidate.Facebook,
             endorsements: 0
         }, function(err, candidate) {
         	if(err) {

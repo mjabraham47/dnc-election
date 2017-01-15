@@ -1,0 +1,23 @@
+body {
+	background-color: #fff;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.title {
+	color: #232066;
+	text-transform: uppercase;
+}
+
+.description {
+	color: #232066;
+	font-size: 16px;
+}
+
+.jumbotron {
+	background-color: #232066;
+	color: #fff;
+}
+
+.jumbotron .title {
+	font-size: 36px;
+}
