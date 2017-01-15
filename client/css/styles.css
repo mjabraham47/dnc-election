@@ -128,7 +128,10 @@ header {
   background-size: cover;
   padding-top: 80px;
 }
-
+.intro-message strong {
+  text-transform: uppercase;
+  font-size: 1.25em;
+}
 .intro-message {
   display: table-cell;
   vertical-align: middle;
@@ -138,6 +141,15 @@ header {
   line-height: 1.65em;
   color: #fff;
   padding: 0 100px;
+}
+
+.intro-message ul {
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+.intro-message li {
+  list-style-type: none;
+  margin-top: 10px;
 }
 
 .underline {
@@ -173,9 +185,7 @@ article {
 }
 
 article h2 {
-  text-transform: uppercase;
-  font-size: 3em;
-  letter-spacing: .125em;
+  font-size: 2em;
   font-weight: bold;
   margin-bottom: .5em;
   color: #2F4F84;
@@ -208,7 +218,7 @@ article .article-image {
 }
 
 article#why .article-image {
-  padding-left: 100px;
+  padding-left: 50px;
 }
 
 article#why {
@@ -216,7 +226,7 @@ article#why {
 }
 
 article#why h2 {
-  width: 30%;
+  //width: 30%;
 }
 
 article#why p {
@@ -269,6 +279,10 @@ article .article-text {
   width: 65%;
   vertical-align: middle;
   padding-top: 2.5em;
+}
+
+h2 .underline {
+  border-bottom: 3px solid #2F4F84;
 }
 
 /* FOOTER */
