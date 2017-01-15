@@ -1,0 +1,11 @@
+<div class='row'>
+	<aside class='col col-sm-4'>
+		<candidate-box
+		ng-repeat='candidate in candidates'
+		candidate='candidate' class="candidate-box">
+		</candidate-box>
+	</aside>
+	<div class='col col-sm-8 col-md-8 candidate-info'>
+		<ui-view></ui-view>
+	</div>
+</div>

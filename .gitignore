@@ -1,0 +1,4 @@
+node_modules
+client/bower_components
+.DS_Store
+client/.DS_Store
