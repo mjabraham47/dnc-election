@@ -91,7 +91,7 @@ angular.module('dncElection')
     responsive: false
   });
 })
-  .constant('$webroot', 'https://clause.herokuapp.com');
+  .constant('$webroot', 'https://rundns.herokuapp.com');
 
 // To account for plunker embeds timing out,preload the async data
 // angular.module('dnc-election').run(function($http) {
