@@ -12,13 +12,13 @@ var emailExistence = require('email-existence');
 
 
 app.post('/create', function(req, res) {
-    emailExistence.check(req.body.email, function(err, response) {
-        if (err) {
-            console.log(err);
-            throw err;
-        } else {
-            console.log('res: ' + response);
-            if (response === true) {
+    // emailExistence.check(req.body.email, function(err, response) {
+        // if (err) {
+        //     console.log(err);
+        //     throw err;
+        // } else {
+        //     console.log('res: ' + response);
+            if (req) {
                 //var state = zipcodes.lookup(req.body.zip).state;
                 User.create({
                     first_name: req.body.first_name,
@@ -47,8 +47,7 @@ app.post('/create', function(req, res) {
                 throw new Error('There was an error creating a new user account');
             }
         }
-    });
-});
+   );
 
 app.get('/getInfo/:id', function(req, res) {
     User.findById({
