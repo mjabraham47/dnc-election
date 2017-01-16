@@ -4,19 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
-  "dependencies": {
-    "bower": "1.8.0"
-  },
-  "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "postinstall": "./node_modules/bower/bin/bower install"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "async": "^2.1.4",
     "body-parser": "^1.15.0",
+    "bower": "^1.8.0",
     "cfenv": "^1.0.3",
     "cookie-parser": "^1.4.1",
     "email-existence": "^0.1.5",
@@ -46,6 +40,8 @@
     "xlsx": "^0.8.1",
     "zipcodes": "^2.1.0"
   },
+  "author": "",
+  "license": "ISC",
   "engines": {
     "node": ">=5.0.0"
   },
