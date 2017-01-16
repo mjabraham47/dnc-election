@@ -1,18 +1,20 @@
 {
-  "name": "client",
-  "homepage": "https://github.com/mjabraham47/dnc-election",
+  "name": "dnc-election",
+  "description": "",
+  "main": "app.js",
   "authors": [
     "Michael <mjabraham@gmail.com>"
   ],
-  "description": "",
-  "main": "",
-  "license": "MIT",
-  "private": true,
+  "license": "ISC",
+  "homepage": "https://github.com/mjabraham47/dnc-election",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "ng-lodash": "^0.5.0"
+  }
 }
