@@ -7,7 +7,10 @@ var zipcodes = require('zipcodes');
 
 
 app.post('/getAllElectors', function(req, res) {
-    var state = zipcodes.lookup(req.body.zip).state;
+    if (req.body.zip) {
+        var state = zipcodes.lookup(req.body.zip).state;
+    }
+    else state = null;
     console.log(state);
 
     var age = req.body.age || '';
