@@ -46,8 +46,7 @@ app.post('/create', function(req, res) {
             } else {
                 throw new Error('There was an error creating a new user account');
             }
-        }
-   );
+        });
 
 app.get('/getInfo/:id', function(req, res) {
     User.findById({

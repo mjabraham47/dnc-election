@@ -299,7 +299,7 @@ footer {
 
 /* RESULTS */
 .results-chart {
-    width: 960px;
+    width: 90%;
     height: 500px;
     position: relative;
 }
@@ -325,12 +325,12 @@ svg {
     text-align: center;
 }
 
-text {
+name {
     font: 10px sans-serif;
     color: white;
 }
 text.data {
-    font-size: 120%;
+    font-size: 1.15em;
     fill: white;
 }
 
@@ -339,13 +339,19 @@ text.data {
 }
 
 .axisHorizontal .tick line {
-    stroke-width: 1;
+    stroke-width: 2;
     stroke: rgba(0, 0, 0, 0.2);
 }
 
 .bar {
-    fill: steelblue;
-    fill-opacity: .9;
+  fill: #2F4F84;
+}
+.bar rect {
+  opacity: .85;
+}
+text.name {
+  fill: #0F2446 !important;
+  opacity: 1.0 !important;
 }
 
 /* CANDIDATES */
@@ -398,6 +404,36 @@ aside {
   vertical-align: bottom;
   text-align: center;
   background-color: #2F4F84;
+}
+.candidates-about {
+  text-align: center;
+  display: table;
+  margin-top: 50px;
+  width: 100%;
+}
+.candidate-container {
+  text-align: center;
+  display: table-cell;
+  font-size: .65em;
+  font-weight: bold;
+  padding-right: 30px;
+  vertical-align: top;
+  width: 16.5%;
+}
+.candidate-container:last-child {
+  padding-right: 0;
+}
+.candidates-about .photo-container {
+  border-radius: 200px;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  vertical-align: bottom;
+  text-align: center;
+  background-color: #2F4F84;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  line-height: 1em;
 }
 .candidate-photo {
   width: 100%;
@@ -476,7 +512,7 @@ aside {
   width: 40%;
 }
 .elector-container .input-container {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   display: block;
 }
 .elector-container .checkbox-container {
@@ -489,7 +525,7 @@ aside {
 }
 .elector-container .input-container label {
   margin-right: 20px;
-  font-size: 1.25em;
+  font-size: 1.15em;
   text-transform: uppercase;
   color: #0F2446;
   width: 30%;
@@ -498,14 +534,15 @@ aside {
 .elector-container .input-container input,
 .elector-container .input-container select {
   width: 65%;
-  padding: 10px 20px;
-  font-size: 1.5em;
+  padding: 7px 15px;
+  font-size: 1.25em;
   border: 0;
   border-radius: 8px;
 }
 .elector-container .input-container select {
   padding: 60px 80px !important;
-  height: 60px;
+  height: 50px;
+  background: #fff;
   font-size: 1.25em;
 }
 .elector-container .input-container option {
@@ -521,7 +558,7 @@ aside {
   width: 100%;
   text-transform: uppercase;
   font-weight: bold;
-  padding: 20px 30px;
+  padding: 15px 30px;
   font-size: 1.85em;
   letter-spacing: 1px;
   background-color: #55B0E6;
@@ -532,20 +569,31 @@ aside {
   background-color: #2F4F84;
   color: #fff;
 }
+
+.elector-container h2 {
+  margin: 30px;
+  text-transform: capitalize;
+}
 .elector-container aside {
   float: left;
   width: 30%;
   padding-top: 0;
 }
-
-.elector-container ul {
-  padding: 0;
+.elector-container h4 {
+  text-align: center;
 }
-
+.elector-container ul {
+  padding: 30px 0 0 0;
+  text-align: center;
+  margin: 0 auto;
+}
 .elector-container li {
   list-style-type: none;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   cursor: pointer;
+  width: 33%;
+  font-size: 1.15em;
+  display: inline-block;
 }
 .elector-container li:hover {
   color: #55B0E6;
@@ -590,4 +638,95 @@ aside {
 .elector-container .confirmation {
   margin-top: 40px;
   color: #E53333;
+}
+.modal-container {
+  padding: 20px 30px;
+  text-align: center;
+  background-color: #E8EDF1;
+  border-radius: 8px;
+}
+.modal-title {
+  font-weight: bold;
+}
+.modal-container h2 {
+  color: #2F4F84;
+}
+.modal-container .modal-footer,
+.modal-container .modal-header {
+  margin: 0 auto;
+  text-align: center;
+  border: 0;
+  //padding: 0 20px 20px 20px;
+}
+.modal-container .btn {
+  padding: 10px 20px;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.05em;
+  background-color: #55B0E6;
+  border: 2px solid #55B0E6;
+  width: 40%;
+  text-align: center;
+  //clear: both;
+  margin: 20px 0 0 0 !important;
+}
+.modal-container .btn:hover {
+  background-color: #2F4F84;
+  border-color: #2F4F84;
+}
+.modal-container .btn-warning {
+  background-color: transparent;
+  border: 2px solid #ccc;
+  color: #ccc;
+}
+.modal-container .btn-warning:hover {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #fff;
+}
+.modal-container form {
+  margin: 0px auto;
+  width: 100%;
+  text-align: left;
+}
+.modal-container .input-container {
+  margin-bottom: 30px;
+  display: block;
+}
+.modal-container .checkbox-container {
+  margin: -20px 0 20px 0;
+  display: block;
+  text-align: right;
+}
+.modal-container .checkbox-container input {
+  margin-right: 10px;
+}
+.modal-container .input-container label {
+  margin-right: 20px;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #0F2446;
+  width: 30%;
+}
+
+.modal-container .input-container input,
+.modal-container .input-container select {
+  width: 65%;
+  padding: 7px 15px;
+  font-size: 1.15em;
+  border: 0;
+  border-radius: 8px;
+}
+.modal-container .input-container select {
+  padding: 60px 80px !important;
+  height: 50px;
+  background: #fff;
+  font-size: 1.15em;
+}
+.modal-container .input-container option {
+  padding: 60px 80px !important;
+}
+.modal-container .input-container.age input {
+  width: 25%;
 }

@@ -1,35 +1,34 @@
 <div class="page-container elector-container">
     <div ng-if="chooseElector">
-        <h2>Send a message to one of your electors</h2>
-        <div ng-repeat="elector in electors">
-            <div ng-click="chooseMessage(elector)"> {{elector.name}}</div>
-        </div>
+        <h2>Choose an elector</h2>
+        <h4><strong>Send a message to one of your electors below:</strong></h4>
+        <ul>
+            <li ng-repeat="elector in electors">
+                <div ng-click="chooseMessage(elector)"> {{elector.name}}</div>
+            </li>
+        </ul>
     </div>
     <div ng-if="messageTypes">
-        <h2>Pick a message format</h2>
-        <a href=''>
-            <div ng-click="pickEmail()">Send an E-mail</div>
-        </a>
-        <a href=''>
-            <div ng-click="pickPostcard()">
-                Send a Postcard
-            </div>
-        </a>
-        <div>
-            <div ng-if="pickedEmail">
-                <textarea ng-model="emailMessage"></textarea>
-                <button ng-click="sendEmail(emailMessage, selectedElector)">Send Email</button>
-            </div>
-            <div ng-if="emailSent">
-                <h3>Your e-mail has been sent to {{selectedElector.name}} </h3>
-            </div>
-            <div ng-if="pickedPostcard">
-                <textarea ng-model="postMessage"></textarea>
-                <button ng-click="sendPostcard(postMessage, selectedElector)">Send Postcard</button>
-            </div>
-            <div ng-if="postcardSent">
-                <h3>Your postcard has been sent to {{selectedElector.name}} </h3>
-            </div>
-        </div>
+        <h3>Pick a message format:</h3>
+        <div class="message-btn" ng-click="pickEmail()"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send {{selectedElector.name}} an E-mail</div>
+        <div class="message-btn" ng-click="pickPostcard()"><i class="fa fa-envelope" aria-hidden="true"></i> Send {{selectedElector.name}} a Postcard</div>
+    </div>
+    <div ng-if="pickedEmail">
+        <textarea placeholder="Type your email message..." ng-model="emailMessage"></textarea>
+        <button class="send-btn" ng-click="sendEmail(emailMessage, selectedElector)">
+            Send!
+        </button>
+    </div>
+    <div ng-if="emailSent">
+        <h3>Thanks! Your e-mail has been sent to {{selectedElector.name}}. </h3>
+    </div>
+    <div ng-if="pickedPostcard">
+        <textarea placeholder="Type your postcard message..." ng-model="postMessage"></textarea>
+        <button class="send-btn" ng-click="sendPostcard(postMessage, selectedElector)">
+            Send!
+        </button>
+    </div>
+    <div ng-if="postcardSent">
+        <h3>Thanks! Your postcard has been sent to {{selectedElector.name}}. </h3>
     </div>
 </div>

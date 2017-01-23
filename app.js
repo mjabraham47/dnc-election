@@ -8,14 +8,15 @@ app = express(),
 passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
 favicon = require('serve-favicon'),
-seed = require('./seed'),
-cors = require('cors')
+cors = require('cors'),
+config = require('./config'),
+seed = require('./seed');
 
 app.use(express.static('./client'));
 
 // app.use(favicon('favicon.ico'));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dnc-election')
+mongoose.connect(config.database);
 
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
