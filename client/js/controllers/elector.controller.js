@@ -1,5 +1,4 @@
 angular.module('dncElection')
-<<<<<<< HEAD
 .controller('ElectorCtrl', function($scope, ElectorService, $state) {
 	// $scope.formFilled = false;
 	// $scope.messageTypes = false;
