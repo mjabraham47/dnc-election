@@ -8,12 +8,13 @@ app = express(),
 passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
 favicon = require('serve-favicon'),
+config = require('./config'),
 seed = require('./seed');
 
 app.use(express.static('./client'));
 // app.use(favicon('favicon.ico'));
 
-mongoose.connect('mongodb://localhost/dnc-election');
+mongoose.connect(config.database);
 // mongoose.connect('mongodb://admin:admin@ds111479.mlab.com:11479/heroku_g3rjjrkp')
 
 app.use(logger('dev'));
