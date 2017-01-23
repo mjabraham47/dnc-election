@@ -15,8 +15,7 @@ app.use(express.static('./client'));
 
 // app.use(favicon('favicon.ico'));
 
-// mongoose.connect('mongodb://localhost/dnc-election');
-mongoose.connect('mongodb://admin:admin@ds111479.mlab.com:11479/heroku_g3rjjrkp')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dnc-election')
 
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
