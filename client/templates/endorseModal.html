@@ -1,38 +1,54 @@
-<div class="modal-header">
-        <h3 class="modal-title" id="modal-title">Endorse {{candidate.first_name}} {{candidate.last_name}}</h3>
-    </div>
-     
-    <div ng-if="!confirmed">
-        <div class="modal-body" id="modal-body">
-            <p>Are you sure you want to endorse {{candidate.first_name}} {{candidate.last_name}}</p>
-            <p>You are only allowed one endorsement.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-            <button class="btn btn-primary" type="button" ng-click="confirm()">Yes, I'm Sure</button>
-        </div>
-    </div>
-    <div ng-if="confirmed">
-        <p ng-if="errored" class="text-danger">An error occurred while registering your email. Please try again.</p> 
-        <form novalidate class="simple-form">
-            <div class="modal-body" id="modal-body">
-                <label>First Name: <input type="text" ng-model="user.first_name"/></label><br />
-                <label>Last Name: <input type="text" ng-model="user.last_name" /></label><br />
-                <label>E-mail: <input type="email" ng-model="user.email" required/></label><br />
-                <label>Zip Code: <input type="text" ng-model="user.zip"></label><br/>
-                <label><input type="checkbox" ng-model="user.abroad">I live abroad.</label><br/>
-                <label>Age: <input type="text" ng-model="user.age"></label><br/>
-                Gender:
-                <select ng-model="demo.gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select><br/>
-            </div>
-            <div class="modal-footer">
-                <input type="button" ng-click="cancel()" value="Cancel" />
-                <input type="submit" ng-click="endorse(user)" value="Submit" />
-            </div>
-        </form>
-    </div>
+<div class="modal-container">
+  <div class="modal-header">
+          <h2 class="modal-title" id="modal-title">Endorse {{candidate.first_name}} {{candidate.last_name}}</h2>
+      </div>
+       
+      <div ng-if="!confirmed">
+          <div class="modal-body" id="modal-body">
+              <h4>Are you sure you want to endorse {{candidate.first_name}} {{candidate.last_name}}?</h4>
+              <p>You are only allowed one endorsement.</p>
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+              <button class="btn btn-primary" type="button" ng-click="confirm()">Yes, I'm Sure</button>
+          </div>
+      </div>
+      <div ng-if="confirmed">
+          <p ng-if="errored" class="text-danger">An error occurred while registering your email. Please try again.</p> 
+          <form novalidate class="simple-form">
+              <div class="modal-body" id="modal-body">
+                <span class="input-container">
+                    <label>First Name:</label> <input type="text" ng-model="user.first_name"/></label>
+                </span>
+                <span class="input-container">
+                    <label>Last Name:</label> <input type="text" ng-model="user.last_name" />
+                </span>
+                <span class="input-container">
+                    <label>E-mail:</label> <input type="email" ng-model="user.email" required/>
+                </span>
+                <span class="input-container">
+                    <label>Zip Code:</label> <input type="text" ng-model="user.zip">
+                </span>
+                <span class="checkbox-container">
+                    <label><input type="checkbox" ng-model="user.abroad">I live abroad.</label>
+                </span>
+                <span class="input-container age">
+                    <label>Age:</label> <input type="text" ng-model="user.age">
+                </span>
+                <span class="input-container age">
+                    <label>Gender:</label>
+                    <select ng-model="demo.gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </span>
+              </div>
+              <div class="modal-footer">
+                  <button class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel">Cancel</button>
+                  <button class="btn btn-primary" type="submit" ng-click="endorse(user)" value="Endorse!">Endorse!</button>
+              </div>
+          </form>
+      </div>
+  </div>
 </div>
     
