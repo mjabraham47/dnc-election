@@ -5,9 +5,9 @@ Endorse This Candidate!</button>
 </div>
 <h2 class="candidate-name">{{candidate.first_name}} {{candidate.last_name}}</h2>
 <ul class="candidate-links">
-	<li><a ng-href="http://www.twitter.com/{{candidate.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i>@{{candidate.twitter}}</a></li>
-	<li><a ng-href="{{candidate.facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook Page</a></li>
-	<li><i class="fa fa-link" aria-hidden="true"></i><a ng-href="{{candidate.website}}">Website</a></li>
+	<li><a ng-href="http://www.twitter.com/{{candidate.twitter}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>{{candidate.twitter}}</a></li>
+	<li><a ng-href="{{candidate.facebook}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook Page</a></li>
+	<li><i class="fa fa-link" aria-hidden="true"></i><a ng-href="{{candidate.website}}" target="_blank">Website</a></li>
 </ul>
 	<h3>Bio</h3>
 	<p>{{candidate.bio}}</p>

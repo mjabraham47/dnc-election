@@ -1,5 +1,5 @@
 angular.module('dncElection')
-.config(function($stateProvider, $urlRouterProvider, ChartJsProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, ChartJsProvider) {
   $stateProvider
   .state('about', {
       url:'/about',
@@ -90,10 +90,21 @@ angular.module('dncElection')
     defaultFontSize: 25,
     responsive: false
   });
+
+  //enable cors requests
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
 })
-  .constant('$webroot', 'https://rundns.herokuapp.coms');
+  .constant('$webroot', '');
 
 // To account for plunker embeds timing out,preload the async data
 // angular.module('dnc-election').run(function($http) {
 //   $http.get('data/people.json',{cache: true });
 // });
+
+
+// To account for plunker embeds timing out,preload the async data
+// angular.module('dnc-election').run(function($http) {
+//   $http.get('data/people.json',{cache: true });
+

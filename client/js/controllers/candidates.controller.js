@@ -17,11 +17,11 @@ angular.module('dncElection')
   	});
 
   	modalInstance.result.then(function(user){
-  		if (user.zip) {
+  		// if (user.zip) {
   			return $state.go('electorResults', {user: user});
-  		} else {
-  			$state.go('elector')
-  		}
+  		// } else {
+  		// 	$state.go('elector')
+  		// }
   	});
   };
 })
