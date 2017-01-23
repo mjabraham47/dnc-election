@@ -8,9 +8,11 @@ app = express(),
 passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
 favicon = require('serve-favicon'),
-seed = require('./seed');
+seed = require('./seed'),
+cors = require('cors')
 
 app.use(express.static('./client'));
+
 // app.use(favicon('favicon.ico'));
 
 // mongoose.connect('mongodb://localhost/dnc-election');
@@ -21,7 +23,7 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(cookieParser());
 
-
+app.use(cors())
 
 var users = require('./routes/users');
 var candidates = require('./routes/candidates');
