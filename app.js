@@ -8,11 +8,14 @@ app = express(),
 passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
 favicon = require('serve-favicon'),
-config = require('./config'),
+config = require('./config.js'),
 seed = require('./seed');
 
 app.use(express.static('./client'));
 // app.use(favicon('favicon.ico'));
+var uri = config.database;
+var options = { promiseLibrary: require('bluebird') };
+var db = mongoose.createConnection(uri, options);
 
 mongoose.connect(config.database);
 
