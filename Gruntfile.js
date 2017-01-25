@@ -39,7 +39,7 @@ grunt.initConfig({
         },
         src: {
             files: ['client/**/*.js', 'client/css/*.css', 'client/index.html', 'client/templates/*.html'],
-            tasks: ['ngconstant:development']
+            tasks: []
         }
     },
     nodemon: {
@@ -106,6 +106,6 @@ grunt.loadNpmTasks('grunt-contrib-connect');
 grunt.loadNpmTasks('grunt-injector');
 grunt.loadNpmTasks('grunt-ng-constant');
 
-grunt.registerTask('serve', ['concurrent']);
+grunt.registerTask('serve', ['concurrent', 'ngconstant:development']);
 grunt.registerTask('inject', ['injector']);
 };
