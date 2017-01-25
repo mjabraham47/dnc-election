@@ -290,7 +290,7 @@ article .step .article-text h3 {
 article .article-text {
   width: 65%;
   vertical-align: middle;
-  padding-top: 2.5em;
+  //padding-top: 2.5em;
 }
 
 h2 .underline {
@@ -411,6 +411,7 @@ aside {
   font-size: 1.25em;
   letter-spacing: -.25px;
   text-decoration: none;
+  display: inline-block;
 }
 
 .candidate-box a:hover,
@@ -418,6 +419,18 @@ aside {
   text-decoration: none;
   color: #E53333;
   cursor: pointer;
+  //border-bottom: 3px solid #E53333;
+  ///margin-bottom: 7px;
+}
+.candidate-box a:focus {
+  //border-bottom: 3px solid #E53333;
+  color: #E53333;
+}
+.candidate-box a:focus:hover {
+  color: #E53333;
+}
+.candidate-box p {
+  margin: 0;
 }
 
 .candidate-box i {
@@ -431,15 +444,37 @@ aside {
   padding: 50px 40px 40px 0;
 }
 .candidate-info h3 {
-  font-size: 1.85em;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   font-weight: bold;
   color: #2F4F84;
   padding-top: 10px;
 }
+.candidate-info h4 {
+  font-size: 1.25em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #2F4F84;
+  padding-bottom: 15px;
+  margin: 0;
+}
+aside h4 {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #2F4F84;
+  margin: 20px 0 15px 25px;
+  border-bottom: 2px solid #D0D9E2;
+  display: inline-block;
+  padding-bottom: 5px;
+}
 .photo-container {
   border-radius: 200px;
-  width: 250px;
-  height: 250px;
+  width: 225px;
+  height: 225px;
   overflow: hidden;
   vertical-align: bottom;
   text-align: center;
@@ -514,13 +549,12 @@ aside {
   width: 100%;
 }
 .candidate-info p {
-  width: 85%;
+  width: 80%;
 }
 .candidate-name {
   color: #2F4F84;
   font-size: 3em;
   font-weight: bold;
-  text-transform: uppercase;
   letter-spacing: .5px;
   margin: 40px 0 20px 0;
 }
@@ -556,16 +590,36 @@ aside {
   background-color: #E53333;
   border: none;
   color: #fff;
+  box-shadow: 7px 7px 0px #fff;
+  //margin-top: 75px;
 }
 .endorse-btn:hover {
-  background-color: #2F4F84;
+  background-color: #55B0E6;
   color: #fff;
+}
+.endorse-btn:hover i {
+  //font-size: 5em;
 }
 .candidate-overview h2 {
   font-size: 1.85em;
   font-weight: bold;
   color: #2F4F84;
   margin: 0 0 20px 0;
+}
+.candidate-overview i {
+  width: 16%;
+  padding-right: 30px;
+  float: left;
+  text-align: center;
+  font-size: 5em;
+  vertical-align: top;
+  color: #D0D9E2;
+  margin-top: -5px;
+}
+.candidate-overview p {
+  margin-bottom: 60px;
+  width: 80%;
+  float: left;
 }
 .find-your-elector {
   padding: 40px;
