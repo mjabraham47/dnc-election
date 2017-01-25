@@ -3,3 +3,4 @@ client/bower_components
 .DS_Store
 client/.DS_Store
 development.sh
+client/js/environment_script.js

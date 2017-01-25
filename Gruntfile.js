@@ -52,7 +52,7 @@ grunt.initConfig({
         options: {
             logConcurrentOutput: true
         },
-        tasks: ['nodemon', 'watch']
+        tasks: ['nodemon', 'watch', 'ngconstant:development']
     },
     //inject js and css files into index.html
     injector: {
@@ -106,6 +106,6 @@ grunt.loadNpmTasks('grunt-contrib-connect');
 grunt.loadNpmTasks('grunt-injector');
 grunt.loadNpmTasks('grunt-ng-constant');
 
-grunt.registerTask('serve', ['concurrent', 'ngconstant:development']);
+grunt.registerTask('serve', ['concurrent']);
 grunt.registerTask('inject', ['injector']);
 };
