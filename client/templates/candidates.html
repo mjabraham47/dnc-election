@@ -1,7 +1,7 @@
 <div class='row page-container'>
 	<aside class='col col-sm-4'>
 		<candidate-box
-		ng-repeat='candidate in candidates'
+		ng-repeat="candidate in candidates | orderBy: 'last_name'"
 		candidate='candidate' class="candidate-box">
 		</candidate-box>
 	</aside>
