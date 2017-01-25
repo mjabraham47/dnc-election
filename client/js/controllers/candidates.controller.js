@@ -16,12 +16,9 @@ angular.module('dncElection')
       }
   	});
 
-  	modalInstance.result.then(function(user){
-  		// if (user.zip) {
-  			return $state.go('electorResults', {user: user});
-  		// } else {
-  		// 	$state.go('elector')
-  		// }
+  	modalInstance.result.then(function(email){
+  		var created = user.email ? true : false;
+  			return $state.go('electorResults', {email: email, created: created});
   	});
   };
 })
@@ -40,19 +37,11 @@ angular.module('dncElection')
 
 	$scope.endorse = function(user) {
 		if (!user) return;
+		console.log('user', user)
 
 		user.endorsed = $scope.candidate._id;
-		return UserService.create(user)
-		.then(function(createdUser){
-			if (createdUser) {
-				console.log('createdUser', createdUser)
-				$uibModalInstance.close(createdUser);
-			} else {
-				$scope.errored = true;
-			}
-		})
-		.catch(function(err){
-			$scope.errored = true;
+		UserService.create(user, function(){
+			uibModalInstance.close(user.email);
 		});
 	};
 

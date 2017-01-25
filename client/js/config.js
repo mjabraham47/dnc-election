@@ -48,7 +48,10 @@ angular.module('dncElection')
     },
     resolve: {
       electors: function(ElectorService, $stateParams){
-        return ElectorService.getElectors($stateParams.user);
+        return ElectorService.getElectors($stateParams.email);
+      },
+      created: function($stateParams) {
+        return $stateParams.created;
       }
     },
     templateUrl: 'templates/elector-results.html',
@@ -96,7 +99,7 @@ angular.module('dncElection')
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 })
-  .constant('$webroot', '');
+  .constant('$webroot', '  ');
 
 // To account for plunker embeds timing out,preload the async data
 // angular.module('dnc-election').run(function($http) {

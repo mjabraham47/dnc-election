@@ -11,42 +11,23 @@ var Candidate = require('../models/candidate');
 var emailExistence = require('email-existence');
 
 
-app.post('/create', function(req, res) {
-    // emailExistence.check(req.body.email, function(err, response) {
-        // if (err) {
-        //     console.log(err);
-        //     throw err;
-        // } else {
-        //     console.log('res: ' + response);
-            if (req) {
-                //var state = zipcodes.lookup(req.body.zip).state;
-                User.create({
-                    first_name: req.body.first_name,
-                    last_name: req.body.first_name,
-                    email: req.body.email,
-                    endorsed: req.body.endorsed,
-                    zip: req.body.zip || null,
-                    abroad: req.body.abroad || false,
-                    gender: req.body.gender || null,
-                    age: req.body.age || null
-                }, function(err, user) {
-                    if (err) {
-                        console.log(err);
-                        throw err;
-                    } else {
-                        Candidate.findByIdAndUpdate({ _id: req.body.endorsed }, { $inc: { endorsements: 1 } },
-                            function(err, candidate) {
-                                if (err) throw err;
-                                user.save();
-                                candidate.save();
-                                res.send(user);
-                            });
-                    }
-                });
-            } else {
-                throw new Error('There was an error creating a new user account');
-            }
-        });
+app.post('/', function(req, res, next) {
+    console.log('req', req)
+    return User.create({
+        first_name: req.body.first_name,
+        last_name: req.body.first_name,
+        email: req.body.email,
+        endorsed: req.body.endorsed,
+        zip: req.body.zip || null,
+        abroad: req.body.abroad || false,
+        gender: req.body.gender || null,
+        age: req.body.age || null
+    }).then(function(user){
+        res.send(user);
+    }).catch(function(err){
+        next(err);
+    });
+});
 
 app.get('/getInfo/:id', function(req, res) {
     User.findById({
