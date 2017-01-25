@@ -21,7 +21,10 @@ a {
   transition: all 1s easy-in-out;
   color: #55B0E6;
 }
-
+a:focus,
+a:active {
+  text-decoration: none;
+}
 .red {
   color: #E53333;
 }
@@ -46,7 +49,7 @@ header {
   width: 100%;
   display: table;
   height: 80px;
-  background: #2F4F84;
+  background-color: #2F4F84;
   padding: 0px 40px;
   position: fixed;
   z-index: 500;
@@ -120,7 +123,7 @@ header {
 .splash-container {
   display: table;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   background-image: url('../images/monument.jpg');
   background-attachment: fixed;
   background-position: center;
@@ -156,7 +159,7 @@ header {
   border-bottom: 2px solid #fff;
 }
 
-.intro-message a {
+/*.intro-message a {
   padding: 10px 30px;
   font-weight: bold;
   border: 3px solid #fff;
@@ -174,6 +177,14 @@ header {
   color: #fff;
   background-color: #55B0E6;
   border-color: #55B0E6;
+}*/
+
+.intro-message a {
+  color: #fff;
+}
+.intro-message a:hover {
+  color: #E53333;
+  text-decoration: none;
 }
 
 /* Section: Why */
@@ -284,17 +295,45 @@ article .article-text {
 h2 .underline {
   border-bottom: 3px solid #2F4F84;
 }
+.learnmore {
+  //width: 40%;
+  //border: 3px solid #fff;
+  padding: 15px 20px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: -100px;
+  font-size: .75em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.learnmore:hover,
+.learnmore:active,
+.learnmore:focus {
+  text-decoration: none;
+}
+.learnmore p {
+  margin: 0;
+}
+.learnmore .arrow {
+  font-size: 2.5em;
+}
 
 /* FOOTER */
 
 footer {
-  padding: 20px;
+  padding: 30px 20px;
   width: 100%;
+  //background-color: #2F4F84;
   clear: both;
   text-align: center;
   font-size: .75em;
   letter-spacing: .5px;
-  color: #BACAD9;
+  color: #8b9cb9;
+}
+footer p {
+  margin: 10px;
 }
 
 /* RESULTS */
@@ -405,10 +444,16 @@ aside {
   text-align: center;
   background-color: #2F4F84;
 }
+.photo-container a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+}
 .candidates-about {
   text-align: center;
   display: table;
-  margin-top: 50px;
+  margin: 80px 0 60px;
   width: 100%;
 }
 .candidate-container {
