@@ -99,7 +99,8 @@ header {
   font-weight: bold;
 }
 
-.nav li a:hover {
+.nav li a:hover,
+.nav li a:focus {
   border-bottom: 3px solid #E53333;
   text-decoration: none;
 }
@@ -123,7 +124,7 @@ header {
 .splash-container {
   display: table;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   background-image: url('../images/monument.jpg');
   background-attachment: fixed;
   background-position: center;
@@ -143,7 +144,7 @@ header {
   letter-spacing: .5px;
   line-height: 1.65em;
   color: #fff;
-  padding: 0 100px;
+  padding: 0 50px;
 }
 
 .intro-message ul {
@@ -289,7 +290,7 @@ article .step .article-text h3 {
 article .article-text {
   width: 65%;
   vertical-align: middle;
-  padding-top: 2.5em;
+  //padding-top: 2.5em;
 }
 
 h2 .underline {
@@ -338,7 +339,7 @@ footer p {
 
 /* RESULTS */
 .results-chart {
-    width: 90%;
+    width: 100%;
     height: 500px;
     position: relative;
 }
@@ -402,7 +403,7 @@ aside {
 
 .candidate-box {
   display: block;
-  padding: 10px 40px;
+  padding: 10px 25px;
 }
 
 .candidate-box a {
@@ -410,6 +411,7 @@ aside {
   font-size: 1.25em;
   letter-spacing: -.25px;
   text-decoration: none;
+  display: inline-block;
 }
 
 .candidate-box a:hover,
@@ -417,6 +419,18 @@ aside {
   text-decoration: none;
   color: #E53333;
   cursor: pointer;
+  //border-bottom: 3px solid #E53333;
+  ///margin-bottom: 7px;
+}
+.candidate-box a:focus {
+  //border-bottom: 3px solid #E53333;
+  color: #E53333;
+}
+.candidate-box a:focus:hover {
+  color: #E53333;
+}
+.candidate-box p {
+  margin: 0;
 }
 
 .candidate-box i {
@@ -427,18 +441,40 @@ aside {
 }
 
 .candidate-info {
-  padding: 50px 55px 40px 0;
+  padding: 50px 40px 40px 0;
 }
 .candidate-info h3 {
-  font-size: 1.85em;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   font-weight: bold;
   color: #2F4F84;
   padding-top: 10px;
 }
+.candidate-info h4 {
+  font-size: 1.25em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #2F4F84;
+  padding-bottom: 15px;
+  margin: 0;
+}
+aside h4 {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #2F4F84;
+  margin: 20px 0 15px 25px;
+  border-bottom: 2px solid #D0D9E2;
+  display: inline-block;
+  padding-bottom: 5px;
+}
 .photo-container {
   border-radius: 200px;
-  width: 250px;
-  height: 250px;
+  width: 225px;
+  height: 225px;
   overflow: hidden;
   vertical-align: bottom;
   text-align: center;
@@ -470,27 +506,55 @@ aside {
 }
 .candidates-about .photo-container {
   border-radius: 200px;
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   overflow: hidden;
-  vertical-align: bottom;
+  vertical-align: middle;
   text-align: center;
   background-color: #2F4F84;
   margin: 0 auto;
   margin-bottom: 15px;
   line-height: 1em;
+  font-size: .95em;
+}
+.candidates-about .photo-container a:hover,
+.candidates-about .photo-container a:focus {
+  background-color: #55B0E6;
+}
+.candidates-about .photo-container a:hover img,
+.candidates-about .photo-container a:focus img {
+  //opacity: .5;
+  display: none;
+  //margin-top: -200px;
+  cursor: pointer;
+}
+.candidates-about .photo-container a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.candidates-about .photo-container a p {
+  display: table-cell;
+  vertical-align: middle;
+  height: 110px;
+  line-height: 1.15;
+  color: #fff;
+  width: 110px;
+  margin: 0 auto;
+  padding: 0 10px;
+  text-align: center;
 }
 .candidate-photo {
   width: 100%;
 }
 .candidate-info p {
-  width: 85%;
+  width: 80%;
 }
 .candidate-name {
   color: #2F4F84;
   font-size: 3em;
   font-weight: bold;
-  text-transform: uppercase;
   letter-spacing: .5px;
   margin: 40px 0 20px 0;
 }
@@ -526,16 +590,36 @@ aside {
   background-color: #E53333;
   border: none;
   color: #fff;
+  box-shadow: 7px 7px 0px #fff;
+  //margin-top: 75px;
 }
 .endorse-btn:hover {
-  background-color: #2F4F84;
+  background-color: #55B0E6;
   color: #fff;
+}
+.endorse-btn:hover i {
+  //font-size: 5em;
 }
 .candidate-overview h2 {
   font-size: 1.85em;
   font-weight: bold;
   color: #2F4F84;
   margin: 0 0 20px 0;
+}
+.candidate-overview i {
+  width: 16%;
+  padding-right: 30px;
+  float: left;
+  text-align: center;
+  font-size: 5em;
+  vertical-align: top;
+  color: #D0D9E2;
+  margin-top: -5px;
+}
+.candidate-overview p {
+  margin-bottom: 60px;
+  width: 80%;
+  float: left;
 }
 .find-your-elector {
   padding: 40px;
@@ -585,13 +669,9 @@ aside {
   border-radius: 8px;
 }
 .elector-container .input-container select {
-  padding: 60px 80px !important;
   height: 50px;
   background: #fff;
   font-size: 1.25em;
-}
-.elector-container .input-container option {
-  padding: 60px 80px !important;
 }
 
 .elector-container .input-container.age input {
@@ -764,13 +844,9 @@ aside {
   border-radius: 8px;
 }
 .modal-container .input-container select {
-  padding: 60px 80px !important;
   height: 50px;
   background: #fff;
   font-size: 1.15em;
-}
-.modal-container .input-container option {
-  padding: 60px 80px !important;
 }
 .modal-container .input-container.age input {
   width: 25%;

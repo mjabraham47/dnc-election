@@ -4,6 +4,11 @@ angular.module('dncElection')
   .state('about', {
       url:'/about',
       templateUrl: 'templates/about.html',
+      resolve: {
+        candidates: function(CandidateService) {
+          return CandidateService.getCandidates();
+        }
+      },
       controller: 'AboutCtrl',
   })
   .state('candidates', {
