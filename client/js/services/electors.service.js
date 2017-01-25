@@ -3,7 +3,7 @@ angular.module('dncElection')
 
   var webroot;
 
-  ENV === 'development' ? webroot = '' : webroot = 'https://rundnc.herokuapp.com';
+  ENV === 'development' ? webroot = '' : webroot = 'https://rundncstaging.herokuapp.com';
 
   var service = {
     getElectors: function(demo) {
