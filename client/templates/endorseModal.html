@@ -17,26 +17,27 @@
         <form novalidate class="simple-form">
             <div class="modal-body" id="modal-body">
                 <span class="input-container">
-                    <label>First Name:</label> <input type="text" ng-model="user.first_name"/></label>
+                    <label>First Name:</label> <input type="text" ng-model="user.first_name" placeholder="First Name" /></label>
                 </span>
                 <span class="input-container">
-                    <label>Last Name:</label> <input type="text" ng-model="user.last_name" />
+                    <label>Last Name:</label> <input type="text" ng-model="user.last_name" placeholder="Last Name" />
                 </span>
                 <span class="input-container">
-                    <label>E-mail:</label> <input type="email" ng-model="user.email" required/>
+                    <label>E-mail:</label> <input type="email" ng-model="user.email" required placeholder="Valid e-mail address" />
                 </span>
                 <span class="input-container">
-                    <label>Zip Code:</label> <input type="text" ng-model="user.zip">
+                    <label>Zip Code:</label> <input type="text" ng-model="user.zip" placeholder="Zip Code (if in the U.S.)" />
                 </span>
                 <span class="checkbox-container">
                     <label><input type="checkbox" ng-model="user.abroad">I live abroad.</label>
                 </span>
                 <span class="input-container age">
-                    <label>Age:</label> <input type="text" ng-model="user.age">
+                    <label>Age:</label> <input type="text" ng-model="user.age" placeholder="Age" />
                 </span>
                 <span class="input-container age">
                     <label>Gender:</label>
                     <select ng-model="demo.gender">
+                        <option value="">Choose your gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
