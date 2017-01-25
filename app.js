@@ -16,7 +16,7 @@ app.use(express.static('./client'));
 
 // app.use(favicon('favicon.ico'));
 
-mongoose.connect(config.database_development);
+mongoose.connect(config.database);
 
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
