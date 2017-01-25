@@ -1,4 +1,5 @@
 'use strict'
+require('dotenv').config();
 var express = require('express'),
 mongoose = require('mongoose'),
 logger = require('morgan'),
@@ -13,8 +14,15 @@ seed = require('./seed');
 
 app.use(express.static('./client'));
 // app.use(favicon('favicon.ico'));
+console.log(process.env.NODE_ENV)
+if (process.env.NODE_ENV === 'production') {
+	mongoose.connect(config.database);
+}
+else if (process.env.NODE_ENV === 'development') {
+	console.log(config.database_development);
+	mongoose.connect(config.database_development);
+}
 
-mongoose.connect(config.database_development);
 
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: '50mb'}));

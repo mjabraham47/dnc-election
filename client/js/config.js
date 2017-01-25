@@ -107,4 +107,3 @@ angular.module('dncElection')
 // To account for plunker embeds timing out,preload the async data
 // angular.module('dnc-election').run(function($http) {
 //   $http.get('data/people.json',{cache: true });
-
