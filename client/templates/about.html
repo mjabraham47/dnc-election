@@ -6,7 +6,7 @@
         <div class="photo-container">
           <a ui-sref="candidates.detail({id: candidate._id})">
             <img ng-src="{{candidate.photo}}" class="candidate-photo"></img>
-            {{candidateBoxCtrl.candidate.first_name}} {{candidateBoxCtrl.candidate.last_name}}
+            <p>{{candidate.first_name}} {{candidate.last_name}}</p>
           </a>
         </div>
       </div>
