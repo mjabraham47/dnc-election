@@ -101,7 +101,7 @@ angular.module('dncElection')
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 })
-  .constant('$webroot', '');
+  .constant('$webroot', 'https://rundncstaging.herokuapp.com');
 
 // To account for plunker embeds timing out,preload the async data
 // angular.module('dnc-election').run(function($http) {
