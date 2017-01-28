@@ -11,42 +11,68 @@ var Candidate = require('../models/candidate');
 var emailExistence = require('email-existence');
 
 
-app.post('/create', function(req, res) {
-    // emailExistence.check(req.body.email, function(err, response) {
-        // if (err) {
-        //     console.log(err);
-        //     throw err;
-        // } else {
-        //     console.log('res: ' + response);
-            if (req) {
-                //var state = zipcodes.lookup(req.body.zip).state;
-                User.create({
-                    first_name: req.body.first_name,
-                    last_name: req.body.first_name,
-                    email: req.body.email,
-                    endorsed: req.body.endorsed,
-                    zip: req.body.zip || null,
-                    abroad: req.body.abroad || false,
-                    gender: req.body.gender || null,
-                    age: req.body.age || null
-                }, function(err, user) {
-                    if (err) {
-                        console.log(err);
-                        throw err;
-                    } else {
-                        Candidate.findByIdAndUpdate({ _id: req.body.endorsed }, { $inc: { endorsements: 1 } },
-                            function(err, candidate) {
-                                if (err) throw err;
-                                user.save();
-                                candidate.save();
-                                res.send(user);
-                            });
-                    }
-                });
-            } else {
-                throw new Error('There was an error creating a new user account');
-            }
+app.post('/endorse', function(req, res, next) {
+    var created = true;
+
+    return User.find({email: req.body.email})
+    .then(function (users) {
+        if (!users.length) {
+            return User.create(req.body);
+        } else {
+            created = false;
+            return User.update(req.body)
+            .then(function(res){
+                return users[0];
+            });
+        }
+    }).then(function(updatedUser){
+        res.send({ created: created, userId: updatedUser._id });
+    });
+});
+
+app.get('/:userId/electors', function(req, res) {
+    var userId = req.params.userId;
+
+    return User.findById(userId)
+    .then(function(user){
+        if (!user) throw new Error('User not found');
+
+        var state = user.zip ? zipcodes.lookup(user.zip).state : null;
+        var age = user.age || '';
+        var gender = user.gender || '';
+        var abroad = user.abroad;
+
+        var query = {
+            $or: []
+        };
+
+        if (gender === "female") {
+            query['$or'].push({"sex_female": true});
+        }
+
+        if (age < 37) {
+            query['$or'].push({"under_37" : true});
+        }
+
+        if (age > 64) {
+            query['$or'].push({"over_64" : true});
+        }
+
+        if (abroad === true) {
+           query['$or'].push({"lives_abroad" : true});
+        } else {
+            query['$or'].push({"state" : state});
+        }
+
+        return Elector.find(query)
+        .then(function(electors){
+            res.send(electors);
         });
+    });
+
+    
+    
+});
 
 app.get('/getInfo/:id', function(req, res) {
     User.findById({

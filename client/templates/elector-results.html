@@ -1,4 +1,6 @@
 <div class="page-container elector-container">
+    <div ng-if='!created'>Looks like you've already voted! We've updated your vote, and encourage you to look through the list of electors that represent your geographic and demographic profile below. Please take a few minutes to let them know who you'd like to see as the next DNC chair! </div>
+    <div ng-if="created">Thanks for voting! These are the electors that represent you during the DNC election. Please consider taking a few minutes to reach out to them to let them know who you would like them to vote for on February 26.</div>
     <div ng-if="chooseElector">
         <h2>Choose an elector</h2>
         <h4><strong>Send a message to one of your electors below:</strong></h4>

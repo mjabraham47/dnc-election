@@ -15,7 +15,10 @@ seed = require('./seed');
 
 app.use(cors())
 app.use(express.static('./client'));
-// // app.use(favicon('favicon.ico'));
+
+var uri = config.database;
+var options = { promiseLibrary: require('bluebird') };
+var db = mongoose.createConnection(uri, options);
 
 mongoose.connect(config.database);
 

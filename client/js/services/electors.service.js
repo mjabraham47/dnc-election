@@ -14,8 +14,8 @@ angular.module('dncElection')
   }
  
   var service = {
-    getElectors: function(demo) {
-      	return $http.post(webroot + '/electors/getAllElectors', demo).then(function(resp) {
+    getElectors: function(userId) {
+      	return $http.get($webroot + '/users/' + userId + '/electors').then(function(resp) {
         	return resp.data;
       });
     },

@@ -27,9 +27,7 @@ angular.module('dncElection')
                 url: '/overview',
                 templateUrl: 'templates/candidateOverview.html',
                 resolve: {},
-                controller: function() {
-
-                }
+                controller: function() {}
             })
             .state('candidates.detail', {
                 url: '/:id',
@@ -49,11 +47,19 @@ angular.module('dncElection')
             .state('electorResults', {
                 url: '/elector/results',
                 params: {
-                    user: null
+                    userId: null,
+                    created: false,
+                    candidate: null
                 },
                 resolve: {
                     electors: function(ElectorService, $stateParams) {
-                        return ElectorService.getElectors($stateParams.user);
+                        return ElectorService.getElectors($stateParams.userId);
+                    },
+                    created: function($stateParams) {
+                        return $stateParams.created;
+                    },
+                    candidate: function($stateParams) {
+                        return $stateParams.candidate;
                     }
                 },
                 templateUrl: 'templates/elector-results.html',
@@ -77,7 +83,6 @@ angular.module('dncElection')
                                         data: candidate.endorsements
                                     }
                                 });
-
                                 return {
                                     dataPoints: dataPoints,
                                     total: total
@@ -108,8 +113,9 @@ angular.module('dncElection')
                 staging: ['rundncstaging.herokuapp.com']
                     // anotherStage: ['domain1', 'domain2'],
                     // anotherStage: ['domain1', 'domain2']
-            }  
+            }
         });
+
 
         // run the environment check, so the comprobation is made
         // before controllers and services are built

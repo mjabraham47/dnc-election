@@ -14,12 +14,7 @@ angular.module('dncElection')
  
   var service = {
     create: function(data) {
-    	return $http.post(webroot + '/users/create', data)
-    	.then(function(res, err){
-    		if (err) throw err;
-    		else return res.data;
-
-    	})
+    	return $http.post($webroot + '/users/endorse', data);
     }
   };
   
