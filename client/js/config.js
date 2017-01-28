@@ -120,13 +120,20 @@ angular.module('dncElection')
         // run the environment check, so the comprobation is made
         // before controllers and services are built
         envServiceProvider.check();
-    });
-// To account for plunker embeds timing out,preload the async data
-// angular.module('dnc-election').run(function($http) {
-//   $http.get('data/people.json',{cache: true });
-// });
+    })
+    .run(function($rootScope, envService) {
+      var webroot;
+      if (envService.get() === 'development') {
+        webroot = '';
+      }
+      else if (envService.get() === 'staging') {
+        webroot = 'https://rundncstaging.herokuapp.com'
+      }
+      else if (envService.get() === 'production') {
+        webroot = 'https://rundnc.herokuapp.com'
+      }
+      $rootScope.baseUrl = webroot;
+
+  });
 
 
-// To account for plunker embeds timing out,preload the async data
-// angular.module('dnc-election').run(function($http) {
-//   $http.get('data/people.json',{cache: true });

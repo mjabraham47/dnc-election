@@ -37,7 +37,7 @@ angular.module('dncElection')
 
 	$scope.endorse = function(user) {
 		if (!user) return;
-
+		if (user.gender === 'null') user.gender = null;
 		user.endorsed = $scope.candidate._id;
 		return UserService.create(user)
 		.then(function(res){
