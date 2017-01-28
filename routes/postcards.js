@@ -24,10 +24,11 @@ app.post('/postcard', function(req, res) {
                 address_state: req.body.state,
                 address_zip: req.body.zip
             }
-            front: '<html style="padding: 1in; font-size: 50;">Front HTML for {{name}}</html>',
+            front: '<html style="padding: 1in; font-size: 50;">Front HTML for {{name}}.  Message is {{message}}.</html>',
             back: '<html style="padding: 1in; font-size: 20;">Back HTML for {{name}}</html>',
             data: {
-                name: req.body.candidate
+                name: req.body.candidate,
+                message: req.body.mess
             }
         }, function(err, res) {
             console.log(err, res);
