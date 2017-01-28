@@ -28,7 +28,7 @@ app.post('/postcard', function(req, res) {
             back: '<html style="padding: 1in; font-size: 20;">Back HTML for {{name}}</html>',
             data: {
                 name: req.body.candidate,
-                message: req.body.mess
+                message: req.body.messages
             }
         }, function(err, res) {
             console.log(err, res);
