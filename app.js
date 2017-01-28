@@ -10,16 +10,13 @@ passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
 favicon = require('serve-favicon'),
 config = require('./config'),
+cors = require('cors');
 seed = require('./seed');
 
+app.use(cors())
 app.use(express.static('./client'));
 // // app.use(favicon('favicon.ico'));
-// if (process.env.NODE_ENV === 'production') {
-// 	mongoose.connect(config.database);
-// }
-// else if (process.env.NODE_ENV === 'development') {
-// 	mongoose.connect(config.database_development);
-// }
+
 mongoose.connect(config.database);
 
 app.use(logger('dev'));
