@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-environment": "^1.0.4"
+    "angular-environment": "^1.0.4",
+    "ng-lodash": "^0.5.0"
   }
 }
