@@ -4,13 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd ./client && bower install"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "async": "^2.1.4",
     "body-parser": "^1.15.0",
+    "bower": "^1.8.0",
     "cfenv": "^1.0.3",
     "cookie-parser": "^1.4.1",
     "dotenv": "^4.0.0",
