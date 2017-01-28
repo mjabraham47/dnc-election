@@ -23,7 +23,7 @@ app.post('/postcard', function(req, res) {
                 address_city: req.body.city,
                 address_state: req.body.state,
                 address_zip: req.body.zip
-            }
+            },
             front: '<html style="padding: 1in; font-size: 50;">Front HTML for {{name}}.  Message is {{message}}.</html>',
             back: '<html style="padding: 1in; font-size: 20;">Back HTML for {{name}}</html>',
             data: {
