@@ -1,7 +1,16 @@
 angular.module('dncElection')
-.service('UserService', function($http, ENV) {
+.service('UserService', function($http, envService) {
+  
   var webroot;
-  ENV === 'development' ? webroot = '' : webroot = 'https://rundncstaging.herokuapp.com';
+  if (envService.get() === 'development') {
+    webroot = '';
+  }
+  else if (envService.get() === 'staging') {
+    webroot = 'https://rundncstaging.herokuapp.com'
+  }
+  else if (envService.get() === 'production') {
+    webroot = 'https://rundnc.herokuapp.com'
+  }
  
   var service = {
     create: function(data) {

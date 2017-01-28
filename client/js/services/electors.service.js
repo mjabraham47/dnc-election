@@ -1,10 +1,18 @@
 angular.module('dncElection')
-.service('ElectorService', function($http, ENV) {
+.service('ElectorService', function($http, envService) {
 
+  
   var webroot;
-
-  ENV === 'development' ? webroot = '' : webroot = 'https://rundncstaging.herokuapp.com';
-
+  if (envService.get() === 'development') {
+    webroot = '';
+  }
+  else if (envService.get() === 'staging') {
+    webroot = 'https://rundncstaging.herokuapp.com'
+  }
+  else if (envService.get() === 'production') {
+    webroot = 'https://rundnc.herokuapp.com'
+  }
+ 
   var service = {
     getElectors: function(demo) {
       	return $http.post(webroot + '/electors/getAllElectors', demo).then(function(resp) {
