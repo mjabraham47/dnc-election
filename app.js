@@ -10,7 +10,7 @@ passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
 favicon = require('serve-favicon'),
 config = require('./config'),
-cors = require('cors');
+cors = require('cors'),
 seed = require('./seed');
 
 app.use(cors())
