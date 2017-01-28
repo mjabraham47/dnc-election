@@ -10,15 +10,15 @@ angular.module('dncElection')
       controller: 'EndorseCtrl',
       size: 'md',
       resolve: {
-      	candidate: function() {
+     		candidate: function() {
       		return $scope.candidate;
       	}
       }
   	});
 
-  	modalInstance.result.then(function(email){
-  		var created = user.email ? true : false;
-  			return $state.go('electorResults', {email: email, created: created});
+  	modalInstance.result.then(function(result){
+  		var created = result.created ? true : false;
+			return $state.go('electorResults', {userId: result.userId, created: result.created, candidate: candidate});
   	});
   };
 })
@@ -37,11 +37,11 @@ angular.module('dncElection')
 
 	$scope.endorse = function(user) {
 		if (!user) return;
-		console.log('user', user)
 
 		user.endorsed = $scope.candidate._id;
-		UserService.create(user, function(){
-			uibModalInstance.close(user.email);
+		return UserService.create(user)
+		.then(function(res){
+			$uibModalInstance.close(res.data);
 		});
 	};
 

@@ -44,14 +44,19 @@ angular.module('dncElection')
   .state('electorResults', {
     url: '/elector/results',
     params: {
-      user: null
+      userId: null,
+      created: false,
+      candidate: null
     },
     resolve: {
       electors: function(ElectorService, $stateParams){
-        return ElectorService.getElectors($stateParams.email);
+        return ElectorService.getElectors($stateParams.userId);
       },
       created: function($stateParams) {
         return $stateParams.created;
+      },
+      candidate: function($stateParams){
+        return $stateParams.candidate;
       }
     },
     templateUrl: 'templates/elector-results.html',
