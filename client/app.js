@@ -4,6 +4,8 @@
         'ngLodash',
         'ngSanitize',
         'ui.bootstrap',
-        'chart.js'
+        'chart.js',
+        'config',
+        'environment'
     ]);
 })();

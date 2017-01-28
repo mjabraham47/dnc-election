@@ -2,100 +2,36 @@
   <div class="intro-message">
     <p>On February 26th, just 447 people will decide the next chair of the Democratic National Committee. Make <span class="underline">your</span> voice heard by endorsing a candidate!</p>
     <div class="candidates-about">
-      <div class="candidate-container">
+      <div class = "candidate-container" ng-repeat="candidate in candidates | orderBy: 'last_name'">
         <div class="photo-container">
-          <img ng-src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Keithellison.jpg/429px-Keithellison.jpg" class="candidate-photo"></img>
-          Keith Ellison
+          <a ui-sref="candidates.detail({id: candidate._id})">
+            <img ng-src="{{candidate.photo}}" class="candidate-photo"></img>
+            <p>{{candidate.first_name}} {{candidate.last_name}}</p>
+          </a>
         </div>
-        <p>Keith Ellison</p>
-      </div>
-      <div class="candidate-container">
-        <div class="photo-container">
-          <img ng-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Official_portrait_of_United_States_Secretary_of_Labor_Tom_Perez.jpg/420px-Official_portrait_of_United_States_Secretary_of_Labor_Tom_Perez.jpg" class="candidate-photo"></img>
-          Tom Perez
-        </div>
-        <p>Tom Perez</p>
-      </div>
-      <div class="candidate-container">
-        <div class="photo-container">
-          <img ng-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/PeteButtigieg.JPG/443px-PeteButtigieg.JPG" class="candidate-photo"></img>
-          Pete Buttigieg
-        </div>
-        <p>Pete Buttigieg</p>
-      </div>
-      <div class="candidate-container">
-        <div class="photo-container">
-          <img ng-src="http://wethednc.org/wp-content/uploads/2017/01/SallyBrownforDNC2017-067.jpg" class="candidate-photo"></img>
-          Sally Boynton Brown
-        </div>
-        <p>Sally Boynton Brown</p>
-      </div>
-      <div class="candidate-container">
-        <div class="photo-container">
-          <img ng-src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Ray_Buckley.png" class="candidate-photo"></img>
-          Raymond Buckley
-        </div>
-        <p>Raymond Buckley</p>
-      </div>
-      <div class="candidate-container">
-        <div class="photo-container">
-          <img ng-src="http://www.feminist.com/activism/jehmu.jpg" class="candidate-photo"></img>
-          Jehmu Greene
-        </div>
-        <p>Jehmu Greene</p>
-      </div>
-      <div class="candidate-container">
-        <div class="photo-container">
-          <img ng-src="https://heavyeditorial.files.wordpress.com/2016/12/jaime-harrison1.jpg?quality=65&strip=all&strip=all" class="candidate-photo"></img>
-          Jamie Harrison
-        </div>
-        <p>Jamie Harrison</p>
       </div>
     </div>
+    <a class="learnmore" href="/#!/about#why"><p>Why the DNC is important...</p><p class="arrow">&darr;</p></a>
   </div>
 </div>
 <article id="why">
   <div class="article-image right">
-    <img src="../images/dem-logo.svg" style="width: 100%;margin-top: 30px;"/>
+    <img src="../images/dem-logo.svg" style="width: 100%;"/>
   </div>
-  <div class="article-text">
-    <h2 style="margin-top: 80px;"><strong>The DNC:</strong></h2>
+  <div id="dnc" class="article-text">
+    <h2><strong>The DNC:</strong></h2>
     <ul>
       <li><p>Establishes our unified party platform.</p></li>
       <li><p>Recruits and helps elect candidates.</p></li>
       <li><p>Administers the Presidential nomination process.</p></li>
     </ul>
+    <h2 style="margin-top: 60px;">But the DNC Is Failing</h2>
+    <p>Not only did it fail on November 8th, but while <a href="http://www.politico.com/story/2016/10/how-many-registered-voters-are-in-america-2016-229993" target="_blank">43% of new voters identify as Democrats</a> compared to 29% for Republicans, the Democratic Party is <a href="http://thehill.com/homenews/campaign/306736-dems-hit-new-low-in-state-legislatures" target="_blank">hemorrhaging seats at the federal, state, and local levels</a>.</p>
   </div>
 </article>
-<!--
-<article id="how">
-  <h2>How</h2>
-  <div class="step">
-    <div class="article-image left">
-      <img src="../images/voice.svg" style="height: 100%;margin-top: 30px;"/>
-    </div>
-    <div class="article-text">
-      <h3>Step 1</h3>
-      <p>Start right now by lending your voice to the DNC chair elections.</p>
-    </div>
+<div class="splash-container">
+  <div class="intro-message">
+    <h1 style="font-weight: bold;">We can <span class="underline">not</span> wait until 2020 to reshape our party.</h1>
+    <p style="margin-top: 60px;">Let's make sure that on February 26th, it's not just 447 voices that select our next leader, but the 72 million voices of the Democratic Party.</p>
   </div>
-  <div class="step">
-    <div class="article-image left">
-      <img src="../images/vote.svg" style="height: 80%;margin-top: 30px;"/>
-    </div>
-    <div class="article-text">
-      <h3>Step 2</h3>
-      <p>Check out the candidates and endorse a candidate.</p>
-    </div>
-  </div>
-  <div class="step">
-    <div class="article-image left">
-      <img src="../images/mail.svg" style="height: 80%;margin-top: 30px;"/>
-    </div>
-    <div class="article-text">
-      <h3>Step 3</h3>
-      <p>We provide you with contact information to let your delegates know who to vote for on February 26.</p>
-    </div>
-  </div>
-</article>
--->
+</div>

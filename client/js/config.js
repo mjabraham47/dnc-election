@@ -4,6 +4,11 @@ angular.module('dncElection')
   .state('about', {
       url:'/about',
       templateUrl: 'templates/about.html',
+      resolve: {
+        candidates: function(CandidateService) {
+          return CandidateService.getCandidates();
+        }
+      },
       controller: 'AboutCtrl',
   })
   .state('candidates', {
@@ -104,8 +109,40 @@ angular.module('dncElection')
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 })
-  .constant('$webroot', '  ');
+.config(function(envServiceProvider) {
+      // set the domains and variables for each environment
+      envServiceProvider.config({
+          domains: {
+              development: ['localhost', 'dev.local'],
+              production: ['rundnc.herokuapp.com'],
+              staging: ['rundncstaging.herokuapp.com']
+              // anotherStage: ['domain1', 'domain2'],
+              // anotherStage: ['domain1', 'domain2']
+          },
+          vars: {
+              development: {
+                  apiUrl: '//localhost/api',
+                  staticUrl: '//localhost/static'
+                  // antoherCustomVar: 'lorem',
+                  // antoherCustomVar: 'ipsum'
+              },
+              production: {
+                  apiUrl: '//api.acme.com/v2',
+                  staticUrl: '//static.acme.com'
+                  // antoherCustomVar: 'lorem',
+                  // antoherCustomVar: 'ipsum'
+              }
+              // anotherStage: {
+              //  customVar: 'lorem',
+              //  customVar: 'ipsum'
+              // }
+          }
+      });
 
+      // run the environment check, so the comprobation is made
+      // before controllers and services are built
+      envServiceProvider.check();
+  });
 // To account for plunker embeds timing out,preload the async data
 // angular.module('dnc-election').run(function($http) {
 //   $http.get('data/people.json',{cache: true });
@@ -115,4 +152,3 @@ angular.module('dncElection')
 // To account for plunker embeds timing out,preload the async data
 // angular.module('dnc-election').run(function($http) {
 //   $http.get('data/people.json',{cache: true });
-
