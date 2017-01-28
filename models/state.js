@@ -4,14 +4,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var StateSchema = new mongoose.Schema({
-	state: String,
-	name: String,
-	line_1: String,
-	line_2: String,
-	line_3: String,
-	website: String,
-	email: String,
-	phone: String
+	State: String,
+	Name: String,
+	Line1: String,
+	Line2: String,
+	Line3: String,
+	Website: String,
+	Email: String,
+	Phone: String
 });
 
 module.exports = mongoose.model('State', StateSchema);
