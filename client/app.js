@@ -5,7 +5,6 @@
         'ngSanitize',
         'ui.bootstrap',
         'chart.js',
-        'config',
         'environment'
     ]);
 })();

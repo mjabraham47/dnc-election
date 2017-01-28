@@ -1,5 +1,5 @@
 angular.module('dncElection')
-.factory('CandidateService', function($http, envServices) {
+.factory('CandidateService', function($http, envService) {
   
   
   var webroot;

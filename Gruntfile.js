@@ -52,7 +52,7 @@ grunt.initConfig({
         options: {
             logConcurrentOutput: true
         },
-        tasks: ['nodemon', 'watch', 'ngconstant:development']
+        tasks: ['nodemon', 'watch']
     },
     //inject js and css files into index.html
     injector: {
@@ -70,24 +70,6 @@ grunt.initConfig({
         local_dependencies: {
             'client/index.html': ['client/**/*.js', 'client/**/*.css']
         },
-    },
-    ngconstant: {
-        options: {
-            name: 'config'
-        },
-        development: {
-            options: {
-              dest: 'client/js/environment_script.js'
-            },
-            constants: {
-                ENV: 'development'
-            }
-        },
-        production: {
-            constants: {
-                ENV: 'production'
-            }
-        }
     }
 
 });
@@ -104,7 +86,6 @@ grunt.loadNpmTasks('grunt-nodemon');
 grunt.loadNpmTasks('grunt-concurrent');
 grunt.loadNpmTasks('grunt-contrib-connect');
 grunt.loadNpmTasks('grunt-injector');
-grunt.loadNpmTasks('grunt-ng-constant');
 
 grunt.registerTask('serve', ['concurrent']);
 grunt.registerTask('inject', ['injector']);
