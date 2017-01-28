@@ -7,9 +7,9 @@ var State = require('../models/state');
 var Lob = require('lob')('test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc');
 
 app.post('/postcard', function(req, res) {
-    State.find({'State': req.body.state}, function(err, party) {
+    State.findOne({'State': req.body.state}, function(err, party) {
         Lob.postcards.create({
-            description: 'Demo Postcard job',
+            description: 'Postcard to Power',
             to: {
                 name: party.name,
                 address_line1: party.street_address,
