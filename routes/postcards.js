@@ -7,7 +7,7 @@ var State = require('../models/state');
 var Lob = require('lob')('test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc');
 
 app.post('/postcard', function(req, res) {
-    State.findOne({'State': req.body.state}, function(err, party) {
+    State.findOne({ 'State': req.body.state }, function(err, party) {
         Lob.postcards.create({
             description: 'Postcard to Power',
             to: {
@@ -32,6 +32,32 @@ app.post('/postcard', function(req, res) {
             }
         }, function(err, res) {
             console.log(err, res);
+            if (err) {
+                console.log(err);
+                throw err;
+            } else {
+                Postcard.create({
+                    from: {
+                        name: req.body.name,
+                        street_address: req.body.street_address,
+                        city: req.body.city,
+                        state: req.body.state,
+                        zip: req.body.zip
+                    },
+                    price: req.body.price,
+                    state: req.body.state,
+                    user: req.body.user_id
+                }, function(err, postcard) {
+                    if (err) {
+                        console.log(err);
+                        throw err;
+                    } else {
+                        postcard.save();
+                        res.sendStatus(200);
+                    }
+
+                })
+            }
         });
     });
 
