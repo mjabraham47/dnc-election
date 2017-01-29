@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "async": "^2.1.4",
+    "bluebird": "^3.4.7",
     "body-parser": "^1.15.0",
     "bower": "^1.8.0",
     "cfenv": "^1.0.3",
@@ -30,6 +31,7 @@
     "http": "0.0.0",
     "lob": "^3.9.0",
     "mongoose": "^4.4.14",
+    "mongoose-unique-validator": "^1.0.3",
     "morgan": "^1.7.0",
     "n": "^2.1.4",
     "node-xlsx": "^0.7.4",
@@ -47,7 +49,11 @@
   },
   "postinstall": "bower install",
   "devDependencies": {
+    "grunt-build-control": "^0.7.1",
+    "grunt-contrib-htmlmin": "^2.1.0",
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-injector": "^1.1.0",
-    "grunt-ng-constant": "^2.0.1"
+    "grunt-ng-constant": "^2.0.1",
+    "grunt-sass": "^2.0.0"
   }
 }

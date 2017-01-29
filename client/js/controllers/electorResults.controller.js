@@ -1,7 +1,8 @@
 angular.module('dncElection')
-.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors) {
+.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created) {
 
 	$scope.electors = electors;
+	$scope.created = created;
 	$scope.chooseElector = true;
 	$scope.messageTypes = false;
 	$scope.pickedEmail = false;
@@ -14,17 +15,17 @@ angular.module('dncElection')
 		$scope.messageTypes = true;
 		$scope.selectedElector = elector;
 		$scope.chooseElector = false;
-	}
+	};
 
 	$scope.pickEmail = function() {
 		$scope.pickedEmail = true;
 		$scope.pickedPostcard = false;
-	}
+	};
 
 	$scope.pickPostcard = function() {
 		$scope.pickedPostcard = true;
 		$scope.pickedEmail = false;
-	}
+	};
 
 	var subject = 'Thoughts%20on%20the%20DNC%20Chair';
 
@@ -34,7 +35,7 @@ angular.module('dncElection')
 		var email_body = message.length ? message : body;
 		var email = elector.personal_email || 'fake@gmail.com';
 		$window.open('mailto:' + email + '?subject=' + subject + '&body=' + email_body);
-	}
+	};
 
 	$scope.sendPostcard = function(message, elector) {
 		$scope.pickedPostcard = false;
