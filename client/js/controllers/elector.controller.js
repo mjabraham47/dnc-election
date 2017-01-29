@@ -51,7 +51,6 @@ angular.module('dncElection')
 
 	$scope.sendPostcard = function(message, elector) {
 		$scope.pickedPostcard = false;
-		$scope.postcardSent = true;	
 		var card = {
 			message: message,
 			id: elector._id,
@@ -59,6 +58,7 @@ angular.module('dncElection')
 		}
 		ElectorService.postcard(card).then(function(data) {
 				console.log(data);
+		$scope.postcardSent = true;	
 
 		});	
 	}

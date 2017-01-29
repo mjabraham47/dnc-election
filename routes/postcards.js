@@ -27,8 +27,8 @@ app.post('/postcard', function(req, res) {
             front: '<html style="padding: 1in; font-size: 50;">Front HTML for {{name}}.  Message is {{message}}.</html>',
             back: '<html style="padding: 1in; font-size: 20;">Back HTML for {{name}}</html>',
             data: {
-                name: req.body.candidate,
-                message: req.body.messages
+                name: req.body.candidate.first_name + req.body.candidate.last_name,
+                message: req.body.message
             }
         }, function(err, res) {
             console.log(err, res);
@@ -46,7 +46,8 @@ app.post('/postcard', function(req, res) {
                     },
                     price: req.body.price,
                     state: req.body.state,
-                    user: req.body.user_id
+                    user: req.body.user_id,
+                    candidate: req.body.candidate._id
                 }, function(err, postcard) {
                     if (err) {
                         console.log(err);

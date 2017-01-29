@@ -26,7 +26,7 @@ app.post('/endorse', function(req, res, next) {
             });
         }
     }).then(function(updatedUser){
-        res.send({ created: created, userId: updatedUser._id });
+        res.send({ created: created, user: updatedUser });
     });
 });
 

@@ -1,5 +1,5 @@
 angular.module('dncElection')
-.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created) {
+.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, PostcardService) {
 
 	$scope.electors = electors;
 	$scope.created = created;
@@ -9,8 +9,9 @@ angular.module('dncElection')
 	$scope.pickedText = false;
 	$scope.pickedPostcard = false;
 	$scope.emailSent = false;
-
-
+	$scope.candidate = PostcardService.postcardData.candidate;
+	$scope.user = PostcardService.postcardData.user;
+	console.log('user', $scope.user);
 	$scope.chooseMessage = function(elector) {
 		$scope.messageTypes = true;
 		$scope.selectedElector = elector;
@@ -37,15 +38,20 @@ angular.module('dncElection')
 		$window.open('mailto:' + email + '?subject=' + subject + '&body=' + email_body);
 	};
 
-	$scope.sendPostcard = function(message, elector) {
+	$scope.sendPostcard = function(info) {
 		$scope.pickedPostcard = false;
 		$scope.postcardSent = true;	
 		var card = {
-			message: message,
-			id: elector._id,
-			state: elector.state
-		}
-		ElectorService.postcard(card).then(function(data) {
+			message: info.message,
+			name: info.first_name + info.last_name,
+            street_address: info.street_address,
+            city: info.city,
+            state: info.state,
+            zip: info.zip,
+            candidate: $scope.candidate._id,
+            user_id: $scope.user._id		
+		};
+		PostcardService.sendPostcard(card).then(function(data) {
 				console.log(data);
 				
 		});	
