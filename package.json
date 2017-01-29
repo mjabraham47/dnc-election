@@ -49,7 +49,9 @@
   },
   "postinstall": "bower install",
   "devDependencies": {
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-injector": "^1.1.0",
-    "grunt-ng-constant": "^2.0.1"
+    "grunt-ng-constant": "^2.0.1",
+    "grunt-sass": "^2.0.0"
   }
 }

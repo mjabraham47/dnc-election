@@ -18,7 +18,7 @@ grunt.initConfig({
     uglify: {
         my_target: {
             files: {
-                'client/dist/js/app.min.js': ['client/*.js']
+                'client/dist/js/app.min.js': ['client/js/**/*.js']
             }
         }
     },
@@ -32,14 +32,29 @@ grunt.initConfig({
             }
         }
     },
+    sass: {
+        options: {
+            sourceMap: false,
+            style: 'expanded'
+        },
+        dist: {
+            files: [{
+                expand: true,
+                cwd: 'client/sass',
+                src: ['**/*.scss'],
+                dest: 'client/dist/css',
+                ext: '.css'
+            }]
+        }
+    },
     // COOL TASKS ==============================================================
     watch: {
         options: {
             livereload: 1337,
         },
         src: {
-            files: ['client/**/*.js', 'client/css/*.css', 'client/index.html', 'client/templates/*.html'],
-            tasks: []
+            files: ['client/**/*.js','client/sass/*.scss', 'client/css/*.css', 'client/index.html', 'client/templates/*.html'],
+            tasks: ['sass', 'uglify']
         }
     },
     nodemon: {
@@ -82,10 +97,12 @@ grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-cssmin');
 grunt.loadNpmTasks('grunt-contrib-watch');
+grunt.loadNpmTasks('grunt-contrib-sass')
 grunt.loadNpmTasks('grunt-nodemon');
 grunt.loadNpmTasks('grunt-concurrent');
 grunt.loadNpmTasks('grunt-contrib-connect');
 grunt.loadNpmTasks('grunt-injector');
+
 
 grunt.registerTask('serve', ['concurrent']);
 grunt.registerTask('inject', ['injector']);
