@@ -1,5 +1,888 @@
+/* General */
 body {
-  background-color: yellow;
+  background-color: #E8EDF1;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  line-height: 1.5em;
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+
+a {
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  color: #55B0E6;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+
+.red {
+  color: #E53333;
+}
+
+.left {
+  float: left;
+  text-align: left;
+}
+
+.right {
+  float: right;
+  text-align: right;
+}
+
+.page-container {
+  padding-top: 80px;
+}
+
+/* SITE HEADER */
+header {
+  width: 100%;
+  display: table;
+  height: 80px;
+  background-color: #2F4F84;
+  padding: 0px 40px;
+  position: fixed;
+  z-index: 500;
+}
+
+.title, .title a {
+  display: table-cell;
+  vertical-align: middle;
+  width: 20%;
+}
+
+.title h1 {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 32px;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.nav {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
+}
+
+.nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  display: inline;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-left: 50px;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+.nav li a {
+  color: #fff;
+  padding-bottom: 2px;
+  font-weight: bold;
+}
+
+.nav li a:hover,
+.nav li a:focus {
+  border-bottom: 3px solid #E53333;
+  text-decoration: none;
+}
+
+.description {
+  color: #232066;
+  font-size: 16px;
+}
+
+.jumbotron {
+  background-color: #232066;
+  color: #fff;
+}
+
+.jumbotron .title {
+  font-size: 36px;
+}
+
+/* ABOUT */
+.splash-container {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../images/monument.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 80px;
+}
+
+.intro-message strong {
+  text-transform: uppercase;
+  font-size: 1.25em;
+}
+
+.intro-message {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.5em;
+  letter-spacing: .5px;
+  line-height: 1.65em;
+  color: #fff;
+  padding: 0 50px;
+}
+
+.intro-message ul {
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+
+.intro-message li {
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+.underline {
+  border-bottom: 2px solid #fff;
+}
+
+/*.intro-message a {
+  padding: 10px 30px;
+  font-weight: bold;
+  border: 3px solid #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 50px;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.intro-message a:hover {
+  color: #fff;
+  background-color: #55B0E6;
+  border-color: #55B0E6;
+}*/
+.intro-message a {
+  color: #fff;
+}
+
+.intro-message a:hover {
+  color: #E53333;
+  text-decoration: none;
+}
+
+/* Section: Why */
+article {
+  width: 100%;
+  padding: 200px 80px;
+  background-color: #E8EDF1;
+}
+
+article h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: .5em;
+  color: #2F4F84;
+  display: block;
+  margin-top: 0;
+}
+
+article a {
+  color: #55B0E6;
+  text-decoration: none;
+}
+
+article a:hover {
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  text-decoration: none;
+}
+
+article p {
+  font-size: 1.25em;
+  line-height: 1.65em;
+}
+
+article .article-image {
+  width: 35%;
+  text-align: center;
+  height: 300px;
+}
+
+article#why .article-image {
+  padding-left: 50px;
+}
+
+article#how {
+  padding-top: 100px;
+}
+
+article#how h2 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  width: 100%;
+  clear: both;
+}
+
+article#how .article-image {
+  display: table-cell;
+  width: 30%;
+  height: 150px;
+}
+
+article .step {
+  display: inline-block;
+  width: 100%;
+  min-height: 150px;
+  margin-bottom: 50px;
+}
+
+article .step .article-text {
+  width: auto;
+}
+
+article .step .article-text h3 {
+  font-weight: bold;
+  color: #2F4F84;
+  text-transform: uppercase;
+}
+
+article .article-text {
+  width: 65%;
+  vertical-align: middle;
+}
+
+h2 .underline {
+  border-bottom: 3px solid #2F4F84;
+}
+
+.learnmore {
+  padding: 15px 20px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: -100px;
+  font-size: .75em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.learnmore:hover,
+.learnmore:active,
+.learnmore:focus {
+  text-decoration: none;
+}
+
+.learnmore p {
+  margin: 0;
+}
+
+.learnmore .arrow {
+  font-size: 2.5em;
+}
+
+/* FOOTER */
+footer {
+  padding: 30px 20px;
+  width: 100%;
+  clear: both;
+  text-align: center;
+  font-size: .75em;
+  letter-spacing: .5px;
+  color: #8b9cb9;
+}
+
+footer p {
+  margin: 10px;
+}
+
+/* RESULTS */
+.results-chart {
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  position: center;
+}
+
+.toolTip {
+  position: absolute;
+  display: none;
+  width: auto;
+  height: auto;
+  background: none repeat scroll 0 0 white;
+  border: 0 none;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: -3px 3px 15px #888888;
+  color: black;
+  font: 12px sans-serif;
+  padding: 5px;
+  text-align: center;
+}
+
+name {
+  font: 10px sans-serif;
+  color: white;
+}
+
+text.data {
+  font-size: 1.15em;
+  fill: white;
+}
+
+.axisHorizontal path {
+  fill: none;
+}
+
+.axisHorizontal .tick line {
+  stroke-width: 2;
+  stroke: rgba(0, 0, 0, 0.2);
+}
+
+.bar {
+  fill: #2F4F84;
+}
+
+.bar rect {
+  opacity: .85;
+}
+
+text.name {
+  fill: #0F2446 !important;
+  opacity: 1.0 !important;
+}
+
+/* CANDIDATES */
+aside {
+  padding: 30px 0;
+}
+
+.candidate-box {
+  display: block;
+  padding: 10px 25px;
+}
+
+.candidate-box a {
+  color: #0F2446;
+  font-size: 1.25em;
+  letter-spacing: -.25px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.candidate-box a:hover,
+.candidate-box a:active {
+  text-decoration: none;
+  color: #E53333;
+  cursor: pointer;
+}
+
+.candidate-box a:focus {
+  color: #E53333;
+}
+
+.candidate-box a:focus:hover {
+  color: #E53333;
+}
+
+.candidate-box p {
+  margin: 0;
+}
+
+.candidate-box i {
+  font-size: .75em;
+  margin-right: 10px;
+  vertical-align: middle;
+  color: #2F4F84;
+}
+
+.candidate-info {
+  padding: 50px 40px 40px 0;
+}
+
+.candidate-info h3 {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #2F4F84;
+  padding-top: 10px;
+}
+
+.candidate-info h4 {
+  font-size: 1.25em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #2F4F84;
+  padding-bottom: 15px;
+  margin: 0;
+}
+
+aside h4 {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #2F4F84;
+  margin: 20px 0 15px 25px;
+  border-bottom: 2px solid #D0D9E2;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.photo-container {
+  border-radius: 200px;
+  width: 225px;
+  height: 225px;
+  overflow: hidden;
+  vertical-align: bottom;
+  text-align: center;
+  background-color: #2F4F84;
+}
+
+.photo-container a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+}
+
+.candidates-about {
+  text-align: center;
+  display: table;
+  margin: 80px 0 60px;
+  width: 100%;
+}
+
+.candidate-container {
+  text-align: center;
+  display: table-cell;
+  font-size: .65em;
+  font-weight: bold;
+  padding-right: 30px;
+  vertical-align: top;
+  width: 16.5%;
+}
+
+.candidate-container:last-child {
+  padding-right: 0;
+}
+
+.candidates-about .photo-container {
+  border-radius: 200px;
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  vertical-align: middle;
+  text-align: center;
+  background-color: #2F4F84;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  line-height: 1em;
+  font-size: .95em;
+}
+
+.candidates-about .photo-container a:hover,
+.candidates-about .photo-container a:focus {
+  background-color: #55B0E6;
+}
+
+.candidates-about .photo-container a:hover img,
+.candidates-about .photo-container a:focus img {
+  display: none;
+  cursor: pointer;
+}
+
+.candidates-about .photo-container a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.candidates-about .photo-container a p {
+  display: table-cell;
+  vertical-align: middle;
+  height: 110px;
+  line-height: 1.15;
+  color: #fff;
+  width: 110px;
+  margin: 0 auto;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.candidate-photo {
+  width: 100%;
+}
+
+.candidate-info p {
+  width: 80%;
+}
+
+.candidate-name {
+  color: #2F4F84;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: .5px;
+  margin: 40px 0 20px 0;
+}
+
+.candidate-links {
+  padding: 0 0 20px 0;
+  margin: 0;
+  font-size: 1.10em;
+  border-bottom: 2px solid #D0D9E2;
+}
+
+.candidate-links li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.candidate-links i {
+  color: #55B0E6;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.candidate-links a {
+  color: #55B0E6;
+  text-decoration: none;
+}
+
+.candidate-links a:hover {
+  color: #2F4F84;
+}
+
+.endorse-btn {
+  float: right;
+  padding: 20px 30px;
+  font-size: 1.25em;
+  background-color: #E53333;
+  border: none;
+  color: #fff;
+  box-shadow: 7px 7px 0px #fff;
+}
+
+.endorse-btn:hover {
+  background-color: #55B0E6;
+  color: #fff;
+}
+
+.candidate-overview h2 {
+  font-size: 1.85em;
+  font-weight: bold;
+  color: #2F4F84;
+  margin: 0 0 20px 0;
+}
+
+.candidate-overview i {
+  width: 16%;
+  padding-right: 30px;
+  float: left;
+  text-align: center;
+  font-size: 5em;
+  vertical-align: top;
+  color: #D0D9E2;
+  margin-top: -5px;
+}
+
+.candidate-overview p {
+  margin-bottom: 60px;
+  width: 80%;
+  float: left;
+}
+
+.find-your-elector {
+  padding: 40px;
+}
+
+.elector-container {
+  padding: 160px 40px;
+}
+
+.elector-container h2 {
+  font-size: 1.85em;
+  font-weight: bold;
+  color: #2F4F84;
+  margin: 0 0 60px 0;
+  text-align: center;
+}
+
+.elector-container form {
+  margin: 0px auto;
+  min-width: 400px;
+  width: 40%;
+}
+
+.elector-container .input-container {
+  margin-bottom: 30px;
+  display: block;
+}
+
+.elector-container .checkbox-container {
+  margin: -20px 0 20px 0;
+  display: block;
+  text-align: right;
+}
+
+.elector-container .checkbox-container input {
+  margin-right: 10px;
+}
+
+.elector-container .input-container label {
+  margin-right: 20px;
+  font-size: 1.15em;
+  text-transform: uppercase;
+  color: #0F2446;
+  width: 30%;
+}
+
+.elector-container .input-container input,
+.elector-container .input-container select {
+  width: 65%;
+  padding: 7px 15px;
+  font-size: 1.25em;
+  border: 0;
+  border-radius: 8px;
+}
+
+.elector-container .input-container select {
+  height: 50px;
+  background: #fff;
+  font-size: 1.25em;
+}
+
+.elector-container .input-container.age input {
+  width: 25%;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 15px 30px;
+  font-size: 1.85em;
+  letter-spacing: 1px;
+  background-color: #55B0E6;
+  border: none;
+  color: #fff;
+}
+
+.submit-btn:hover {
+  background-color: #2F4F84;
+  color: #fff;
+}
+
+.elector-container h2 {
+  margin: 30px;
+  text-transform: capitalize;
+}
+
+.elector-container aside {
+  float: left;
+  width: 30%;
+  padding-top: 0;
+}
+
+.elector-container h4 {
+  text-align: center;
+}
+
+.elector-container ul {
+  padding: 30px 0 0 0;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.elector-container li {
+  list-style-type: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+  width: 33%;
+  font-size: 1.15em;
+  display: inline-block;
+}
+
+.elector-container li:hover {
+  color: #55B0E6;
+}
+
+.elector-container h3 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.elector-container .message-btn {
+  margin-bottom: 15px;
+  font-size: 1.25em;
+  color: #55B0E6;
+  cursor: pointer;
+}
+
+.elector-container .message-btn i {
+  margin-right: 10px;
+}
+
+.elector-container .message-btn:hover {
+  color: #2F4F84;
+}
+
+.elector-container textarea {
+  width: 50%;
+  display: block;
+  padding: 15px 20px;
+  font-size: 1.05em;
+  margin-top: 40px;
+  min-height: 160px;
+}
+
+.elector-container .send-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 40px;
+  font-size: 1.25em;
+  background-color: #E53333;
+  border: none;
+  color: #fff;
+}
+
+.elector-container .send-btn:hover {
+  background-color: #2F4F84;
+  color: #fff;
+}
+
+.elector-container .confirmation {
+  margin-top: 40px;
+  color: #E53333;
+}
+
+.modal-container {
+  padding: 20px 30px;
+  text-align: center;
+  background-color: #E8EDF1;
+  border-radius: 8px;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.modal-container h2 {
+  color: #2F4F84;
+}
+
+.modal-container .modal-footer,
+.modal-container .modal-header {
+  margin: 0 auto;
+  text-align: center;
+  border: 0;
+}
+
+.modal-container .btn {
+  padding: 10px 20px;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.05em;
+  background-color: #55B0E6;
+  border: 2px solid #55B0E6;
+  width: 40%;
+  text-align: center;
+  margin: 20px 0 0 0 !important;
+}
+
+.modal-container .btn:hover {
+  background-color: #2F4F84;
+  border-color: #2F4F84;
+}
+
+.modal-container .btn-warning {
+  background-color: transparent;
+  border: 2px solid #ccc;
+  color: #ccc;
+}
+
+.modal-container .btn-warning:hover {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #fff;
+}
+
+.modal-container form {
+  margin: 0px auto;
+  width: 100%;
+  text-align: left;
+}
+
+.modal-container .input-container {
+  margin-bottom: 30px;
+  display: block;
+}
+
+.modal-container .checkbox-container {
+  margin: -20px 0 20px 0;
+  display: block;
+  text-align: right;
+}
+
+.modal-container .checkbox-container input {
+  margin-right: 10px;
+}
+
+.modal-container .input-container label {
+  margin-right: 20px;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #0F2446;
+  width: 30%;
+}
+
+.modal-container .input-container input,
+.modal-container .input-container select {
+  width: 65%;
+  padding: 7px 15px;
+  font-size: 1.15em;
+  border: 0;
+  border-radius: 8px;
+}
+
+.modal-container .input-container select {
+  height: 50px;
+  background: #fff;
+  font-size: 1.15em;
+}
+
+.modal-container .input-container.age input {
+  width: 25%;
 }
 
 /*# sourceMappingURL=main.css.map */
