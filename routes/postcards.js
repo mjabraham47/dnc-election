@@ -5,7 +5,7 @@ var app = express();
 var Postcard = require('../models/postcard');
 var State = require('../models/state');
 var request = require('request');
-var config = require('./config');
+var config = require('../config');
 var Lob = require('lob')('test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc');
 
 app.post('/postcard', function(req, res) {

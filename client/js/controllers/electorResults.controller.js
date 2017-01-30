@@ -1,5 +1,5 @@
 angular.module('dncElection')
-.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, PostcardService) {
+.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, candidate) {
 
 	$scope.electors = electors;
 	$scope.created = created;
@@ -9,9 +9,8 @@ angular.module('dncElection')
 	$scope.pickedText = false;
 	$scope.pickedPostcard = false;
 	$scope.emailSent = false;
-	$scope.candidate = PostcardService.postcardData.candidate;
-	$scope.user = PostcardService.postcardData.user;
-	console.log('user', $scope.user);
+	$scope.candidate = candidate;
+	
 	$scope.chooseMessage = function(elector) {
 		$scope.messageTypes = true;
 		$scope.selectedElector = elector;

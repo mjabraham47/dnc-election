@@ -17,7 +17,6 @@ angular.module('dncElection')
             });
 
             modalInstance.result.then(function(result) {
-            	PostcardService.passingData({user: result.user, candidate: $scope.candidate})
                 var created = result.created ? true : false;
                 return $state.go('electorResults', { userId: result.user._id, created: result.created, candidate: candidate });
             });

@@ -115,7 +115,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-injector');
-    grunt.loadNpmTasks('build-control');
+    grunt.loadNpmTasks('grunt-build-control');
 
     grunt.registerTask('serve', ['concurrent']);
     grunt.registerTask('inject', ['injector']);

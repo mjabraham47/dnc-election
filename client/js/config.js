@@ -111,7 +111,7 @@ angular.module('dncElection')
                 development: ['localhost', 'dev.local'],
                 staging: ['rundncstaging.herokuapp.com'],
                 production: ['rundnc.herokuapp.com']
-            }
+            },
             vars: {
                 development: {
                     paypalClientId: '',
