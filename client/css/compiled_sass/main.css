@@ -1059,4 +1059,56 @@ aside h4 {
   width: 25%;
 }
 
+.candidate-card {
+  width: 40%;
+  float: left;
+  background: #fff;
+  padding: 20px;
+  margin: 0 0 60px 0;
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.05);
+  min-height: 150px;
+  position: relative;
+}
+.candidate-card:nth-child(odd) {
+  margin-left: 60px;
+}
+.candidate-card .candidate-name {
+  font-size: 1.5em;
+  letter-spacing: -.5px;
+  line-height: 1em;
+  vertical-align: middle;
+  margin: 10px 0 0 0;
+}
+.candidate-card .candidate-name:hover {
+  color: #E53333;
+}
+.candidate-card .photo-container {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin: 0 15px 15px 0;
+  vertical-align: middle;
+}
+.candidate-card .candidate-button {
+  position: absolute;
+  float: right;
+  bottom: 20px;
+  right: -20px;
+}
+.candidate-card .candidate-button .endorse-btn {
+  padding: 10px 20px;
+  font-size: 1.15em;
+  box-shadow: none;
+}
+.candidate-card .candidate-button .endorse-btn i {
+  font-size: 1.15em;
+  color: #fff;
+  float: right;
+  vertical-align: bottom;
+  width: auto;
+  text-align: right;
+  margin: 2px 0 0 0;
+  padding: 0 0 0 8px;
+}
+
 /*# sourceMappingURL=main.css.map */

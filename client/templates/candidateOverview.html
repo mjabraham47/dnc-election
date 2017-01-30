@@ -1,5 +1,24 @@
 <div class="candidate-overview col-xs-12">
   <i class="fa fa-vcard" aria-hidden="true"></i> 
+  <h4>Endorse your choice for DNC chair</h4>
+  <p>Read about your canidates, give them an endorsement, then send a postcard to your state committee!</p>
+  <div class="candidate-card" ng-repeat="candidate in candidates | orderBy: 'last_name'">
+    <div class="photo-container">
+      <img ng-src="{{candidate.photo}}" class="candidate-photo"></img>
+    </div>
+    <a ui-sref="candidates.detail({id: candidate._id})">
+      <h2 class="candidate-name">{{candidate.first_name}} {{candidate.last_name}}</h2>
+    </a>
+    <div class="candidate-button">
+      <a ui-sref="candidates.detail({id: candidate._id})" class="endorse-btn">
+        Endorse <i class="fa fa-check" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="candidate-overview col-xs-12">
+  <i class="fa fa-vcard" aria-hidden="true"></i> 
   <h4>Check out the candidates</h4>
   <p>Click on each candidate's name on the left to see their bio, personal statement and platform.</p>
   <i class="fa fa-check-square-o" aria-hidden="true"></i> 
@@ -9,3 +28,4 @@
   <h4>Amplify your voice</h4>
   <p>Send a postcard to your state committee. Call your delegates. Share your endorsement online.</p>
 </div>
+-->
