@@ -616,8 +616,9 @@ aside {
 
 .candidate-box a {
   color: #0F2446;
-  font-size: 1.25em;
+  font-size: 1.10em;
   letter-spacing: -.25px;
+  font-weight: bold;
   text-decoration: none;
   display: inline-block;
 }
@@ -675,9 +676,9 @@ aside h4 {
   font-weight: bold;
   color: #2F4F84;
   margin: 20px 0 15px 25px;
-  border-bottom: 2px solid #D0D9E2;
+  border-bottom: 4px solid #D0D9E2;
   display: inline-block;
-  padding-bottom: 5px;
+  padding-bottom: 3px;
 }
 .photo-container {
   border-radius: 200px;
