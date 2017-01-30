@@ -4,9 +4,25 @@ var express = require('express');
 var app = express();
 var Postcard = require('../models/postcard');
 var State = require('../models/state');
+var request = require('request');
 var Lob = require('lob')('test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc');
 
 app.post('/postcard', function(req, res) {
+// request.post('http://www.google.com', function (error, response, body) {
+//   Endpoint URL: https://api-3t.sandbox.paypal.com/nvp
+// HTTP method: POST
+// POST data:
+// USER=merchant_user_name
+// &PWD=merchant_password
+// &SIGNATURE=merchant_signature
+// &METHOD=GetTransactionDetails
+// &TRANSACTIONID=9XJ88717E86951234   #The ID of the transaction to retrieve
+// &VERSION=94
+
+//   if (!error && response.statusCode == 200) {
+//     console.log(body) // Show the HTML for the Google homepage.
+//   }
+// })
     State.findOne({ 'State': req.body.state }, function(err, party) {
         Lob.postcards.create({
             description: 'Postcard to Power',
