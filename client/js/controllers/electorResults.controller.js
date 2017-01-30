@@ -1,5 +1,5 @@
 angular.module('dncElection')
-.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, candidate) {
+.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, candidate, userId) {
 
 	$scope.electors = electors;
 	$scope.created = created;
@@ -10,7 +10,9 @@ angular.module('dncElection')
 	$scope.pickedPostcard = false;
 	$scope.emailSent = false;
 	$scope.candidate = candidate;
-	
+
+
+	$scope.states = [ "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" ];
 	$scope.chooseMessage = function(elector) {
 		$scope.messageTypes = true;
 		$scope.selectedElector = elector;
@@ -42,15 +44,15 @@ angular.module('dncElection')
 		$scope.postcardSent = true;	
 		var card = {
 			message: info.message,
-			name: info.first_name + info.last_name,
+			name: info.first_name + ' ' + info.last_name,
             street_address: info.street_address,
             city: info.city,
             state: info.state,
             zip: info.zip,
-            candidate: $scope.candidate._id,
-            user_id: $scope.user._id		
+            candidate: candidate,
+            user_id: userId		
 		};
-		PostcardService.sendPostcard(card).then(function(data) {
+		ElectorService.postcard(card).then(function(data) {
 				console.log(data);
 				
 		});	

@@ -60,6 +60,9 @@ angular.module('dncElection')
                     },
                     candidate: function($stateParams) {
                         return $stateParams.candidate;
+                    },
+                    userId: function($stateParams) {
+                        return $stateParams.userId;
                     }
                 },
                 templateUrl: 'templates/elector-results.html',

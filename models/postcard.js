@@ -10,10 +10,10 @@ var PostcardSchema = new mongoose.Schema({
     price: Number,
     from: {
         name: String,
-        address_line1: String,
-        address_city: String,
-        address_state: String,
-        address_zip: Number
+        street_address: String,
+        city: String,
+        state: String,
+        zip: Number
     }
 });
 

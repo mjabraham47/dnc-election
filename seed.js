@@ -65,14 +65,14 @@ var seed = {
             if (err) next(err);
 
             State.create({
-               state: state.State,
-               name: state.Name,
-               line_1: state.Line1,
-               line_2: state.Line2,
-               line_3: state.Line3,
-               website: state.Website,
-               email: state.Email,
-               phone: state.Phone
+               state: state.state,
+               name: state.name,
+               street_address: state.street_address,
+               city: state.city,
+               zip: state.zip,
+               website: state.website,
+               email: state.email,
+               phone: state.phone
             }, function(err, stat) {
                 if(err) {
                     console.log(err);
@@ -100,7 +100,7 @@ var seed = {
         };
     }
 };
-// seed.parseStates(stateFile);
+seed.parseStates(stateFile);
 // seed.parseCandidates(candidateFile);
 // seed.parseElectors(electorFile);
 
