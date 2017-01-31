@@ -6,9 +6,9 @@ var Schema = mongoose.Schema;
 var StateSchema = new mongoose.Schema({
 	state: String,
 	name: String,
-	line_1: String,
-	line_2: String,
-	line_3: String,
+	street_address: String,
+	city: String,
+	zip: Number,
 	website: String,
 	email: String,
 	phone: String

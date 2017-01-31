@@ -1,12 +1,12 @@
 <div class='page-container'>
-	<aside class='col col-sm-4'>
+	<aside class='col col-sm-3'>
 		<h4>Candidates</h4>
 		<candidate-box
 		ng-repeat="candidate in candidates | orderBy: 'last_name'"
 		candidate='candidate' class="candidate-box">
 		</candidate-box>
 	</aside>
-	<div class='col col-sm-8 col-md-8 candidate-info'>
+	<div class='col col-sm-9 col-md-9 candidate-info'>
 		<ui-view></ui-view>
 	</div>
 </div>

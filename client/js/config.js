@@ -60,6 +60,9 @@ angular.module('dncElection')
                     },
                     candidate: function($stateParams) {
                         return $stateParams.candidate;
+                    },
+                    userId: function($stateParams) {
+                        return $stateParams.userId;
                     }
                 },
                 templateUrl: 'templates/elector-results.html',
@@ -109,10 +112,22 @@ angular.module('dncElection')
         envServiceProvider.config({
             domains: {
                 development: ['localhost', 'dev.local'],
-                production: ['rundnc.herokuapp.com'],
-                staging: ['rundncstaging.herokuapp.com']
-                    // anotherStage: ['domain1', 'domain2'],
-                    // anotherStage: ['domain1', 'domain2']
+                staging: ['rundncstaging.herokuapp.com'],
+                production: ['rundnc.herokuapp.com']
+            },
+            vars: {
+                development: {
+                    paypalClientId: 'AajxYzRgckzNETtYb1ARVLCLIjkxycuC2EfIIwy4G4VijASE6HsoUC2eKEeqGcu-LxJKmnP9W11_ePJK',
+                    paypalEnv: 'sandbox'
+                },
+                staging: {
+                    paypalClientId: 'AajxYzRgckzNETtYb1ARVLCLIjkxycuC2EfIIwy4G4VijASE6HsoUC2eKEeqGcu-LxJKmnP9W11_ePJK',
+                    paypalEnv: 'sandbox'
+                },
+                production: {
+                    paypalClientId: '',
+                    paypalEnv: 'production'
+                }
             }
         });
 
@@ -126,18 +141,14 @@ angular.module('dncElection')
     //   noCaptchaProvider.setTheme('dark');
     // }])
     .run(function($rootScope, envService) {
-      var webroot;
-      if (envService.get() === 'development') {
-        webroot = '';
-      }
-      else if (envService.get() === 'staging') {
-        webroot = 'https://rundncstaging.herokuapp.com'
-      }
-      else if (envService.get() === 'production') {
-        webroot = 'https://rundnc.herokuapp.com'
-      }
-      $rootScope.baseUrl = webroot;
+        var webroot;
+        if (envService.get() === 'development') {
+            webroot = '';
+        } else if (envService.get() === 'staging') {
+            webroot = 'https://rundncstaging.herokuapp.com'
+        } else if (envService.get() === 'production') {
+            webroot = 'https://rundnc.herokuapp.com'
+        }
+        $rootScope.baseUrl = webroot;
 
-  });
-
-
+    });
