@@ -46,3 +46,6 @@ Contributions are welcome!
 4. Install and run Mongo.
 
 5. Email/contact one of the tech leads for the development secret keys.
+
+##License
+This project is licensed under the terms of the MIT license.
