@@ -10,6 +10,8 @@ angular.module('dncElection')
 	$scope.pickedPostcard = false;
 	$scope.emailSent = false;
 	$scope.candidate = candidate;
+	$scope.postcardSent = false;	
+
 
 	var paypalEnv = envService.read('paypalEnv');
 	var paypalClientId = envService.read('paypalClientId');
@@ -41,8 +43,9 @@ angular.module('dncElection')
 		$window.open('mailto:' + email + '?subject=' + subject + '&body=' + email_body);
 	};
 
-	$scope.sendPostcard = function(info, data) {
+	$scope.sendPostcard = function(info, paymentId) {
 		$scope.pickedPostcard = false;
+		console.log(info)
 		var card = {
 			message: info.message,
 			name: info.first_name + ' ' + info.last_name,
@@ -52,10 +55,14 @@ angular.module('dncElection')
             zip: info.zip,
             candidate: candidate,
             user_id: userId,
-            paymentId : data	
+            paymentId : paymentId	
 		};
 		ElectorService.postcard(card).then(function(data) {
 				console.log(data);
+				$scope.postcardFront = data[0];
+				$scope.postcardBack = data[1];
+				console.log($scope.postcardFront);
+				console.log($scope.postcardBack);
 				$scope.postcardSent = true;	
 		});	
 	}
