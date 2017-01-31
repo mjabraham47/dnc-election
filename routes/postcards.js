@@ -9,7 +9,7 @@ var config = require('../config');
 var Lob = require('lob')('test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc');
 
 app.post('/postcard', function(req, res) {
-    request.post('https://api-3t.sandbox.paypal.com/USER=' + config.paypalUsername + '&PWD=' + config.paypalPassword + '&METHOD=GetTransactionDetails&TRANSACTIONID=' + req.body.paymentId + '&VERSION=204',
+    request.post('https://api-3t.sandbox.paypal.com/USER=' + config.paypalUsername + '&PWD=' + config.paypalPassword + '&SIGNATURE=' + config.paypalSignature + '&METHOD=GetTransactionDetails&TRANSACTIONID=' + req.body.paymentId + '&VERSION=204',
         function(error, response, body) {
             console.log('ERR', error);
             console.log('body', body);
