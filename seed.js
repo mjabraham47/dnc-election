@@ -100,8 +100,8 @@ var seed = {
         };
     }
 };
-// seed.parseStates(stateFile);
-// seed.parseCandidates(candidateFile);
-// seed.parseElectors(electorFile);
+seed.parseStates(stateFile);
+seed.parseCandidates(candidateFile);
+seed.parseElectors(electorFile);
 
 module.exports = seed;
