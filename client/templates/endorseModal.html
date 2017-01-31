@@ -14,7 +14,7 @@
     </div>
     <div ng-if="confirmed">
         <p ng-if="errored" class="text-danger">An error occurred while registering your email. Please try again.</p>
-        <form novalidate class="simple-form" name="form">
+        <form novalidate class="simple-form" name="form" method='POST'>
             <div class="modal-body" id="modal-body">
                 <span class="input-container">
                     <label>First Name:</label> <input type="text" ng-model="user.first_name" name="first_name" placeholder="First Name" required/></label>
@@ -66,6 +66,12 @@
                         <span ng-show="form.gender.$error.required">Please enter a gender</span>
                     </div>
                 </span>
+                <div class="g-recaptcha"
+                    vc-recaptcha
+                    key="model.key"
+                    on-create="setWidgetId(widgetId)"
+                    on-success="setResponse(response)"
+                    on-expire="cbExpiration()"></div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel">Cancel</button>

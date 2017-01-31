@@ -8,7 +8,6 @@ var User = require('../models/user');
 app.get('/', function(req, res){
 	return Candidate.find()
 	.then(function(candidates){
-		console.log('candidates', candidates)
 		res.send(candidates);
 	});
 });
