@@ -117,11 +117,11 @@ angular.module('dncElection')
             },
             vars: {
                 development: {
-                    paypalClientId: '',
+                    paypalClientId: 'AajxYzRgckzNETtYb1ARVLCLIjkxycuC2EfIIwy4G4VijASE6HsoUC2eKEeqGcu-LxJKmnP9W11_ePJK',
                     paypalEnv: 'sandbox'
                 },
                 staging: {
-                    paypalClientId: '',
+                    paypalClientId: 'AajxYzRgckzNETtYb1ARVLCLIjkxycuC2EfIIwy4G4VijASE6HsoUC2eKEeqGcu-LxJKmnP9W11_ePJK',
                     paypalEnv: 'sandbox'
                 },
                 production: {
