@@ -136,6 +136,10 @@ angular.module('dncElection')
         // before controllers and services are built
         envServiceProvider.check();
     })
+    // .config(['noCAPTCHAProvider', function (noCAPTCHAProvider) {
+    //   noCaptchaProvider.setSiteKey('6Ld_dBMUAAAAABIcce9VC7qOi9kpiJDnqgElWGue');
+    //   noCaptchaProvider.setTheme('dark');
+    // }])
     .run(function($rootScope, envService) {
         var webroot;
         if (envService.get() === 'development') {

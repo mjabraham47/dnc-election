@@ -4,6 +4,7 @@
         'ngLodash',
         'ngSanitize',
         'ui.bootstrap',
+        'vcRecaptcha',
         'chart.js',
         'environment'
     ]);

@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express');
+var config = require('../config.js');
 var app = express();
 var passport = require('passport');
 var async = require('async');
@@ -8,14 +9,27 @@ var User = require('../models/user');
 var Elector = require('../models/elector');
 var zipcodes = require('zipcodes');
 var Candidate = require('../models/candidate');
+var request = require('request-promise');
 var emailExistence = require('email-existence');
 
 
 app.post('/endorse', function(req, res, next) {
+    
+    if (!req.body.recaptcha) throw new Error('Missing recaptcha response');
+
+    var googleSecret = config.googleCaptchaKey;
+    var remoteIp = req.connection.remoteAddress;
+    var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + googleSecret + "&response=" + req.body.recaptcha + "&remoteip=" + remoteIp;
     var created = true;
 
-    return User.find({email: req.body.email})
-    .then(function (users) {
+    return request(verificationUrl)
+    .then(function () {
+        return request(verificationUrl);
+    }).then(function(response){
+        if (response['error-codes']) throw new Error('Captcha verification failed');
+
+        return User.find({email: req.body.email});
+    }).then(function (users) {
         if (!users.length) {
             return User.create(req.body);
         } else {
