@@ -88,32 +88,32 @@ app.get('/:userId/electors', function(req, res) {
     
 });
 
-app.get('/getInfo/:id', function(req, res) {
-    User.findById({
-            _id: req.params.id
-        })
-        .populate('endorsed')
-        .exec(function(err, user) {
-            if (err) {
-                console.log(err);
-            } else {
-                res.json(user);
-            }
-        });
-});
+// app.get('/getInfo/:id', function(req, res) {
+//     User.findById({
+//             _id: req.params.id
+//         })
+//         .populate('endorsed')
+//         .exec(function(err, user) {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 res.json(user);
+//             }
+//         });
+// });
 
 
-app.get('/:id/electors', function(req, res) {
-    User.findOne({ _id: id }, function(err, user) {
-        Elector.findAll({ state: user.state }, function(err, electors) {
-            if (err) {
-                console.log(err);
-            } else {
-                res.send(electors);
-            };
-        });
-    });
-});
+// app.get('/:id/electors', function(req, res) {
+//     User.findOne({ _id: id }, function(err, user) {
+//         Elector.findAll({ state: user.state }, function(err, electors) {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 res.send(electors);
+//             };
+//         });
+//     });
+// });
 
 
 module.exports = app;

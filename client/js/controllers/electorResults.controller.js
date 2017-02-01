@@ -1,5 +1,5 @@
 angular.module('dncElection')
-.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, candidate, userId, envService) {
+.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, candidate, userId, envService, $sce, $timeout) {
 
 	$scope.electors = electors;
 	$scope.created = created;
@@ -11,7 +11,8 @@ angular.module('dncElection')
 	$scope.emailSent = false;
 	$scope.candidate = candidate;
 	$scope.postcardSent = false;	
-
+	$scope.postcardFront = '';
+	$scope.postcardBack = '';
 
 	var paypalEnv = envService.read('paypalEnv');
 	var paypalClientId = envService.read('paypalClientId');
@@ -42,7 +43,9 @@ angular.module('dncElection')
 		var email = elector.personal_email || 'fake@gmail.com';
 		$window.open('mailto:' + email + '?subject=' + subject + '&body=' + email_body);
 	};
-
+ //     $scope.deliberatelyTrustDangerousSnippet = function(snippet) {
+ //               return $sce.trustAsHtml(snippet);		
+	// }
 	$scope.sendPostcard = function(info, paymentId) {
 		$scope.pickedPostcard = false;
 		console.log(info)
@@ -58,12 +61,11 @@ angular.module('dncElection')
             paymentId : paymentId	
 		};
 		ElectorService.postcard(card).then(function(data) {
-				console.log(data);
-				$scope.postcardFront = data[0];
-				$scope.postcardBack = data[1];
-				console.log($scope.postcardFront);
-				console.log($scope.postcardBack);
-				$scope.postcardSent = true;	
+				$scope.postcardFront = $sce.trustAsResourceUrl('https://s3-us-west-2.amazonaws.com/assets.lob.com/psc_314bc078dd7c7c94_thumb_large_1.png?AWSAccessKeyId=AKIAJCFUUY3W2HE7FMBQ&Expires=1488500371&Signature=9g913cQ8AuL7yciOYb21RJTZhag%3D');
+
+				$scope.postcardBack = $sce.trustAsResourceUrl(data[1].large);
+
+				$scope.postcardSent = true;
 		});	
 	}
 
@@ -71,6 +73,7 @@ angular.module('dncElection')
 	$scope.buyPostcard = function(card) {
 		$scope.postcard = card;
 	}	
+
 
     paypal.Button.render({
     

@@ -6,6 +6,7 @@
         'ui.bootstrap',
         'vcRecaptcha',
         'chart.js',
-        'environment'
+        'environment',
+        'ngSanitize'
     ]);
 })();

@@ -1,4 +1,6 @@
+
 <div class="page-container elector-container">
+
     <div ng-if='!created'>Looks like you've already voted! We've updated your vote, and encourage you to look through the list of electors that represent your geographic and demographic profile below. Please take a few minutes to let your state Democratic Party know who you'd like to see as the next DNC chair! </div>
     <div ng-if="created">Thanks for voting! These are the electors that represent you during the DNC election. Please consider taking a few minutes to reach out to your state Democratic Party to let them know who you would like them to vote for on February 26.</div>
     <div ng-if="chooseElector">
@@ -80,8 +82,8 @@
     <div ng-if="postcardSent">
         <h3>Thanks! Your postcard has been sent to the {{electors[0].state}} Democratic Party. </h3>
 
-        <img src="https://s3-us-west-2.amazonaws.com/assets.lob.com/psc_3195fe0d0762b696_thumb_large_1.png?AWSAccessKeyId=AKIAJCFUUY3W2HE7FMBQ&Expires=1488476718&Signature=iOCVjIML%2Bx9Pt1o4Z78tvFr6Ic0%3D"></img>
-        <img ng-src="{{postcardBack.large}}"></img>
+        <img ng-src="{{postcardFront}}"/>
+        <img ng-src="{{postcardBack}}" />
 
     </div>
 </div>
