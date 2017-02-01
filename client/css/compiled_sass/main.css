@@ -339,7 +339,7 @@ header {
   display: block;
   min-height: 75px;
   background: #fff;
-  width: 4px;
+  width: 6px;
   margin: 15px auto;
   opacity: 0.35;
 }
@@ -348,7 +348,7 @@ header {
   display: block;
   min-height: 150px;
   background: #fff;
-  width: 4px;
+  width: 6px;
   margin: 15px auto;
   opacity: 0.35;
 }
@@ -357,7 +357,7 @@ header {
   display: block;
   height: 40vh;
   background: #fff;
-  width: 4px;
+  width: 6px;
   margin: 15px auto;
   opacity: 0.35;
 }
@@ -366,7 +366,7 @@ header {
   display: block;
   height: 90vh;
   background: #fff;
-  width: 4px;
+  width: 6px;
   margin: 15px auto;
   opacity: 0.35;
 }
@@ -778,10 +778,9 @@ aside h4 {
 }
 
 .candidate-overview i {
-  width: 16%;
   padding-right: 30px;
   float: left;
-  text-align: center;
+  text-align: left;
   font-size: 5em;
   vertical-align: top;
   color: #D0D9E2;
@@ -960,10 +959,10 @@ aside h4 {
 }
 
 .modal-container {
-  padding: 20px 30px;
+  padding: 20px;
   text-align: center;
   background-color: #E8EDF1;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .modal-title {
@@ -979,19 +978,25 @@ aside h4 {
   margin: 0 auto;
   text-align: center;
   border: 0;
+  clear: both;
+  width: 100%;
+  display: inline-block;
 }
 
 .modal-container .btn {
-  padding: 10px 20px;
+  padding: 10px 15px;
   border-radius: 0;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1.05em;
+  font-size: 1.15em;
   background-color: #55B0E6;
   border: 2px solid #55B0E6;
   width: 40%;
   text-align: center;
-  margin: 20px 0 0 0 !important;
+  margin: 20px 0 0 0;
+}
+.modal-container .btn:nth-child(2) {
+  margin-left: 15px;
 }
 
 .modal-container .btn:hover {
@@ -1018,12 +1023,12 @@ aside h4 {
 }
 
 .modal-container .input-container {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: block;
 }
 
 .modal-container .checkbox-container {
-  margin: -20px 0 20px 0;
+  margin: -10px 0 10px 0;
   display: block;
   text-align: right;
 }
@@ -1034,7 +1039,7 @@ aside h4 {
 
 .modal-container .input-container label {
   margin-right: 20px;
-  font-size: 1em;
+  font-size: .85em;
   text-transform: uppercase;
   color: #0F2446;
   width: 30%;
@@ -1044,23 +1049,52 @@ aside h4 {
 .modal-container .input-container select {
   width: 65%;
   padding: 7px 15px;
-  font-size: 1.15em;
+  font-size: 1em;
   border: 0;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .modal-container .input-container select {
-  height: 50px;
+  height: 36px;
   background: #fff;
-  font-size: 1.15em;
+  font-size: 1em;
 }
 
 .modal-container .input-container.age input {
   width: 25%;
 }
 
+.form-error,
+.text-danger {
+  clear: both;
+  width: 100%;
+  text-align: left;
+  display: inline-block;
+  color: #E53333;
+  font-size: .85em;
+  margin: 10px 0 0 0;
+}
+
+.disclaimer {
+  border-top: 2px solid #D0D9E2;
+  margin: 20px 15px;
+  padding-top: 20px;
+}
+.disclaimer p {
+  font-size: .75em;
+  letter-spacing: .5px;
+  color: #8b9cb9;
+}
+
+.captcha-box {
+  width: 340px;
+  margin: 0 auto;
+  display: inline-block;
+}
+
 .candidate-card {
   width: 40%;
+  max-width: 600px;
   float: left;
   background: #fff;
   padding: 20px;
