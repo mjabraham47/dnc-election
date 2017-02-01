@@ -51,7 +51,7 @@ angular.module('dncElection')
 		$window.open('mailto:' + email + '?subject=' + subject + '&body=' + email_body);
 	};
  
-
+	//sends the postcard along with paypal confirmation info
 	$scope.sendPostcard = function(info, paymentId) {
 		$scope.pickedPostcard = false;
 		console.log(info)
@@ -125,3 +125,13 @@ angular.module('dncElection')
 
 
 });
+// .filter('trustAsResourceUrl', ['$sce', function($sce) {
+// return function(val) {
+//     return $sce.trustAsResourceUrl(val);
+// };
+// }])
+// .filter('trustAsUrl', ['$sce', function($sce) {
+// return function(val) {
+//     return $sce.trustAsUrl(val);
+// };
+// }])

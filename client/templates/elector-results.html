@@ -4,7 +4,7 @@
     <div>
         <h2>Pick a message format:</h2>
         <div class="message-btn" ng-click="pickEmail()"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send your state party an e-mail</div>
-        <div class="message-btn" ng-click="pickPostcard()"><i class="fa fa-envelope" aria-hidden="true"></i> Send your state party a postcard</div>
+        <div class="message-btn" ng-click="pickPostcard()"><i class="fa fa-envelope" aria-hidden="true"></i> Send your state party a postcard (costs a dollar)</div>
     </div>
     <div ng-if="pickedEmail">
         <textarea placeholder="Type your email message..." ng-model="emailMessage"></textarea>
@@ -69,9 +69,9 @@
         </form>
     </div>
     <div ng-if="postcardSent">
-        <h3>Thanks! Your postcard has been sent to the {{electors[0].state}} Democratic Party. </h3>
+        <h3>Thanks! Your postcard has been sent to the {{electors[0].state}} state Democratic Party. </h3>
         <img ng-src="{{postcardFront}}" />
-        <img ng-src="{{postcardBack}}" />
+        <img src="{{ postcardBack }}" />
     </div>
     <div ng-if="chooseElector">
         <h2>Your Electors</h2>
