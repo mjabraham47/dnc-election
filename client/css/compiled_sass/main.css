@@ -322,11 +322,11 @@ header {
 .why .vertical-line-med,
 .why .vertical-line-lrg,
 .why .vertical-line-xl {
-  opacity: .5;
+  opacity: .25;
   background: #2F4F84;
 }
 .why .arrow {
-  opacity: .5;
+  opacity: .25;
   color: #2F4F84;
 }
 .why a {
@@ -676,6 +676,12 @@ aside h4 {
   display: inline-block;
   padding-bottom: 3px;
 }
+aside h4 a {
+  color: #2F4F84;
+}
+aside h4 a:hover {
+  color: #55B0E6;
+}
 
 .photo-container {
   border-radius: 200px;
@@ -879,7 +885,7 @@ aside h4 {
 
 .elector-container .input-container label {
   margin-right: 20px;
-  font-size: 1.15em;
+  font-size: .85em;
   text-transform: uppercase;
   color: #0F2446;
   width: 30%;
@@ -889,15 +895,15 @@ aside h4 {
 .elector-container .input-container select {
   width: 65%;
   padding: 7px 15px;
-  font-size: 1.25em;
+  font-size: 1em;
   border: 0;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .elector-container .input-container select {
-  height: 50px;
+  height: 36px;
   background: #fff;
-  font-size: 1.25em;
+  font-size: 1em;
 }
 
 .elector-container .input-container.age input {
@@ -977,7 +983,7 @@ aside h4 {
 }
 
 .elector-container textarea {
-  width: 50%;
+  width: 100%;
   display: block;
   padding: 15px 20px;
   font-size: 1.05em;
