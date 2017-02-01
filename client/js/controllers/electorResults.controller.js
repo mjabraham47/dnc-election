@@ -1,5 +1,5 @@
 angular.module('dncElection')
-.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, candidate, userId, envService, $sce, $timeout) {
+.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, candidate, userId, envService, $sce, user) {
 
 	$scope.electors = electors;
 	$scope.created = created;
@@ -13,6 +13,8 @@ angular.module('dncElection')
 	$scope.postcardSent = false;	
 	$scope.postcardFront = '';
 	$scope.postcardBack = '';
+	$scope.user = user;
+	console.log($scope.candidate)
 
 	var paypalEnv = envService.read('paypalEnv');
 	var paypalClientId = envService.read('paypalClientId');
@@ -32,6 +34,11 @@ angular.module('dncElection')
 	$scope.pickPostcard = function() {
 		$scope.pickedPostcard = true;
 		$scope.pickedEmail = false;
+		$scope.postcard.first_name = user.first_name; 
+		$scope.postcard.last_name = user.last_name;
+		$scope.postcard.state = electors[0].state || ''; 
+		$scope.postcard.zip = user.zip;
+		$scope.postcard.message = "I endorse " + $scope.candidate.first_name + ' ' + $scope.candidate.last_name + " to be the next Chair of the Democratic National Committee."
 	};
 
 	var subject = 'Thoughts%20on%20the%20DNC%20Chair';
@@ -43,9 +50,8 @@ angular.module('dncElection')
 		var email = elector.personal_email || 'fake@gmail.com';
 		$window.open('mailto:' + email + '?subject=' + subject + '&body=' + email_body);
 	};
- //     $scope.deliberatelyTrustDangerousSnippet = function(snippet) {
- //               return $sce.trustAsHtml(snippet);		
-	// }
+ 
+
 	$scope.sendPostcard = function(info, paymentId) {
 		$scope.pickedPostcard = false;
 		console.log(info)
@@ -74,6 +80,9 @@ angular.module('dncElection')
 		$scope.postcard = card;
 	}	
 
+	$scope.cancel = function() {
+		$scope.pickedPostcard = false;
+	}
 
     paypal.Button.render({
     

@@ -18,7 +18,7 @@ angular.module('dncElection')
 
       modalInstance.result.then(function(result) {
         var created = result.created ? true : false;
-        return $state.go('electorResults', { userId: result.user._id, created: result.created, candidate: candidate });
+        return $state.go('electorResults', { userId: result.user._id, created: result.created, candidate: candidate, user: result.user });
       });
     };
   })

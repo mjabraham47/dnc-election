@@ -49,7 +49,8 @@ angular.module('dncElection')
                 params: {
                     userId: null,
                     created: false,
-                    candidate: null
+                    candidate: null,
+                    user: null
                 },
                 resolve: {
                     electors: function(ElectorService, $stateParams) {
@@ -63,6 +64,9 @@ angular.module('dncElection')
                     },
                     userId: function($stateParams) {
                         return $stateParams.userId;
+                    },
+                    user: function($stateParams) {
+                        return $stateParams.user;
                     }
                 },
                 templateUrl: 'templates/elector-results.html',
