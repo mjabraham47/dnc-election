@@ -253,6 +253,32 @@ header {
 .dnc .vertical-line-xl {
   height: 100vh;
 }
+.dnc img {
+  max-height: 200px;
+  padding: 30px;
+  padding-top: 0;
+  margin-top: -35px;
+}
+.dnc img.right {
+  float: right;
+  padding-right: 0;
+}
+.dnc img.left {
+  float: left;
+  padding-left: 0;
+}
+.dnc p {
+  line-height: 1em;
+}
+.dnc p:first-child {
+  padding-top: 20vh !important;
+}
+.dnc p:nth-child(3) {
+  padding-top: 10vh !important;
+}
+.dnc p:nth-child(4) {
+  padding-top: 10vh !important;
+}
 .dnc i {
   color: #55B0E6;
   font-size: 1.5em;
@@ -263,12 +289,11 @@ header {
 
 .dnc-fail {
   background-color: rgba(0, 0, 0, 0.5);
-  background-image: url("../../images/hillary-fail.gif");
+  background-image: url("http://iamchriscollins.com/blog/wp-content/uploads/2012/04/1-4.gif");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 80vh;
   display: table;
   vertical-align: middle;
   color: #fff;
@@ -485,9 +510,31 @@ footer {
   letter-spacing: .5px;
   color: #8b9cb9;
 }
-
 footer p {
   margin: 10px;
+}
+footer a {
+  cursor: pointer;
+}
+
+.footer-logos {
+  margin: 40px 0 20px 0;
+  padding: 0;
+  list-style-type: none;
+}
+.footer-logos li {
+  list-style-type: none;
+  display: inline;
+  margin-left: 30px;
+}
+.footer-logos li:first-child {
+  margin-left: 0;
+}
+.footer-logos li a {
+  cursor: pointer;
+}
+.footer-logos li img {
+  max-height: 25px;
 }
 
 /* RESULTS */
