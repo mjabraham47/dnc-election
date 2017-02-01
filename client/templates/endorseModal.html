@@ -13,33 +13,33 @@
         </div>
     </div>
     <div ng-if="confirmed">
-        <p ng-if="errored" class="text-danger">An error occurred while registering your email. Please try again.</p>
+        <p ng-if="errored" class="text-danger">&#9785; An error occurred while registering your email. Please try again.</p>
         <form novalidate class="simple-form" name="form" method='POST'>
             <div class="modal-body" id="modal-body">
                 <span class="input-container">
                     <label>First Name:</label> <input type="text" ng-model="user.first_name" name="first_name" placeholder="First Name" required/></label>
                     <div ng-show="form.$submitted || form.first_name.$touched">
-                        <div ng-show="form.first_name.$error.required">Please enter your first name.</div>
+                        <span class="form-error" ng-show="form.first_name.$error.required">Please enter your first name.</span>
                     </div>
                 </span>
                 <span class="input-container">
                     <label>Last Name:</label> <input type="text" ng-model="user.last_name" name="last_name" placeholder="Last Name" required/>
                     <div ng-show="form.$submitted || form.last_name.$touched">
-                        <div ng-show="form.last_name.$error.required">Please enter your last name.</div>
+                        <span class="form-error" ng-show="form.last_name.$error.required">Please enter your last name.</span>
                     </div>
                 </span>
                 <span class="input-container">
                     <label>E-mail:</label> <input type="email" ng-model="user.email" name="email" placeholder="Valid e-mail address" required/>
                     <div ng-show="form.$submitted || form.email.$touched">
-                      <span ng-show="form.email.$error.required">Please enter your email.</span>
-                      <span ng-show="form.email.$error.email">This is not a valid email.</span>
+                      <span class="form-error" ng-show="form.email.$error.required">Please enter your email.</span>
+                      <span class="form-error" ng-show="form.email.$error.email">This is not a valid email.</span>
                     </div>
                 </span>
                 <span class="input-container">
                     <label>Zip Code:</label> <input type="text" ng-model="user.zip" name="zip" placeholder="Zip Code (if in the U.S.)" ng-pattern="/^(\d{5}-\d{4}|\d{5})$/"/ ng-required="!user.abroad">
                     <div ng-show="form.$submitted || form.zip.$touched">
-                        <span ng-show="form.zip.$error.pattern">Please enter a valid zipcode.</span>
-                        <span ng-show="form.zip.$error.required">Please enter your location info.</span>
+                        <span class="form-error" ng-show="form.zip.$error.pattern">Please enter a valid zipcode.</span>
+                        <span class="form-error" ng-show="form.zip.$error.required">Please enter your location info.</span>
                     </div>
                 </span>
                 <span class="checkbox-container">
@@ -48,11 +48,11 @@
                 <span class="input-container age">
                     <label>Age:</label> <input type="number" ng-model="user.age" name="age" min="18" max="120" placeholder="Age" required />
                     <div ng-show="form.$submitted || form.age.$touched">
-                        <span ng-show="form.age.$error.integer">Please enter a number</span>
-                        <span ng-show="form.age.$error.min || form.age.$error.max">
+                        <span class="form-error" ng-show="form.age.$error.integer">Please enter a number</span>
+                        <span class="form-error" ng-show="form.age.$error.min || form.age.$error.max">
                         Age must be over 18
                         </span>
-                        <span ng-show="form.age.$error.required">Please enter an age</span>
+                        <span class="form-error" ng-show="form.age.$error.required">Please enter an age</span>
                     </div>
                 </span>
                 <span class="input-container age">
@@ -63,10 +63,10 @@
                         <option value="null">I do not wish to self identify</option>
                     </select>
                      <div ng-show="form.$submitted || form.gender.$touched">
-                        <span ng-show="form.gender.$error.required">Please enter a gender</span>
+                        <span class="form-error" ng-show="form.gender.$error.required">Please enter a gender</span>
                     </div>
                 </span>
-                <div class="g-recaptcha"
+                <div class="captcha-box g-recaptcha"
                     vc-recaptcha
                     key="model.key"
                     on-create="setWidgetId(widgetId)"
@@ -78,8 +78,7 @@
                 <button class="btn btn-primary" type="submit" value="Endorse!" ng-click="endorse(user)">Endorse!</button>
             </div>
         </form>
-        <div>
-            <span>Data entered in this form is used solely for calculating vote results, duplicate vote prevention, and connecting users with their representative electors based on their geographic and demographic profiles. It will not be shared with any third parties.</span>
+        <div class="disclaimer"><p>Data entered in this form is used solely for calculating vote results, duplicate vote prevention, and connecting users with their representative electors based on their geographic and demographic profiles. It will not be shared with any third parties.</p>
         </div>
     </div>
 </div>
