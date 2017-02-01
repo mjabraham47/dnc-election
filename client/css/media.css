@@ -1,0 +1,36 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 800px) {
+	body {
+		zoom: 1.5;
+		font-size: 18px;
+	}
+	.splash-container {
+		height: 80vh;
+	}
+	.intro-message .vertical-line-xl {
+		height: 85vh;
+	}
+	.col-sm-3 {
+		width: 100%;
+		padding-top: 60px;
+		font-size: 20px;
+	}
+	.col-sm-3 h4 {
+		font-size: 1.65em;
+	}
+	.candidate-box p,
+	.candidate-info p {
+		font-size: 1.5em;
+	} 
+	.candidate-info {
+		width: 100%;
+		padding: 50px 60px 40px 60px;
+		border-top: 4px #E8EDF1;
+		margin-top: 50px;
+	}
+	.candidate-info .endorse-btn {
+		font-size: 1em;
+	}
+}
