@@ -1,7 +1,8 @@
 angular.module('dncElection')
-.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, candidate, userId, envService) {
+.controller('ElectorResultsCtrl', function($scope, $window, lodash, ElectorService, electors, created, candidate, userId, envService) {
 
 	$scope.electors = electors;
+	$scope.email = {};
 	$scope.created = created;
 	$scope.chooseElector = true;
 	$scope.messageTypes = false;
@@ -38,8 +39,10 @@ angular.module('dncElection')
 	var body = 'Dear DNC Elector, ';
 
 	$scope.sendEmail = function(message, elector) {
-		var email_body = message.length ? message : body;
-		var email = elector.personal_email || 'fake@gmail.com';
+		var emails = lodash.map(lodash.uniq($scope.electors, 'personal_email'), 'personal_email');
+		var email_body = $scope.email.message;
+		var subject = 'Test subject';
+		var email = emails.join(';');
 		$window.open('mailto:' + email + '?subject=' + subject + '&body=' + email_body);
 	};
 
