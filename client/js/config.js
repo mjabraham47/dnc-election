@@ -86,7 +86,7 @@ angular.module('dncElection')
                                     var fullName = candidate.first_name + ' ' + candidate.last_name;
                                     total += candidate.endorsements;
                                     return {
-                                        name: candidate.fullName,
+                                        name: fullName,
                                         data: candidate.endorsements
                                     }
                                 });
