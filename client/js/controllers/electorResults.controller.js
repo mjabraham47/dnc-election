@@ -1,7 +1,9 @@
 angular.module('dncElection')
-.controller('ElectorResultsCtrl', function($scope, $window, ElectorService, electors, created, candidate, userId, envService, $sce, user) {
+.controller('ElectorResultsCtrl', function($scope, $window, lodash, ElectorService, electors, created, candidate, userId, envService, $sce, user) {
+
 
 	$scope.electors = electors;
+	$scope.email = {};
 	$scope.created = created;
 	$scope.chooseElector = true;
 	$scope.messageTypes = false;
@@ -14,7 +16,6 @@ angular.module('dncElection')
 	$scope.postcardFront = false;
 	$scope.postcardBack = false;
 	$scope.user = user;
-	console.log($scope.candidate)
 
 	var paypalEnv = envService.read('paypalEnv');
 	var paypalClientId = envService.read('paypalClientId');
@@ -46,8 +47,10 @@ angular.module('dncElection')
 	var body = 'Dear DNC Elector, ';
 
 	$scope.sendEmail = function(message, elector) {
-		var email_body = message.length ? message : body;
-		var email = elector.personal_email || 'fake@gmail.com';
+		var emails = lodash.map(lodash.uniq($scope.electors, 'personal_email'), 'personal_email');
+		var email_body = $scope.email.message;
+		var subject = 'Test subject';
+		var email = emails.join(';');
 		$window.open('mailto:' + email + '?subject=' + subject + '&body=' + email_body);
 	};
  
@@ -67,7 +70,6 @@ angular.module('dncElection')
             paymentId : paymentId	
 		};
 		ElectorService.postcard(card).then(function(data) {
-			console.log(data);
 				$scope.postcardFront = $sce.trustAsResourceUrl('https://s3-us-west-2.amazonaws.com/assets.lob.com/psc_314bc078dd7c7c94_thumb_large_1.png?AWSAccessKeyId=AKIAJCFUUY3W2HE7FMBQ&Expires=1488500371&Signature=9g913cQ8AuL7yciOYb21RJTZhag%3D');
 
 				$scope.postcardBack = $sce.trustAsResourceUrl(data[1].large);
