@@ -1,5 +1,5 @@
 angular.module('dncElection')
-    .config(function($stateProvider, $urlRouterProvider, $httpProvider, ChartJsProvider, envServiceProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $httpProvider, ChartJsProvider, envServiceProvider, $compileProvider) {
         $stateProvider
             .state('about', {
                 url: '/about',
@@ -49,7 +49,8 @@ angular.module('dncElection')
                 params: {
                     userId: null,
                     created: false,
-                    candidate: null
+                    candidate: null,
+                    user: null
                 },
                 resolve: {
                     electors: function(ElectorService, $stateParams) {
@@ -63,6 +64,9 @@ angular.module('dncElection')
                     },
                     userId: function($stateParams) {
                         return $stateParams.userId;
+                    },
+                    user: function($stateParams) {
+                        return $stateParams.user;
                     }
                 },
                 templateUrl: 'templates/elector-results.html',
@@ -135,6 +139,9 @@ angular.module('dncElection')
         // run the environment check, so the comprobation is made
         // before controllers and services are built
         envServiceProvider.check();
+
+        $compileProvider.debugInfoEnabled(false);
+
     })
     // .config(['noCAPTCHAProvider', function (noCAPTCHAProvider) {
     //   noCaptchaProvider.setSiteKey('6Ld_dBMUAAAAABIcce9VC7qOi9kpiJDnqgElWGue');

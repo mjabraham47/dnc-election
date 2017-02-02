@@ -3,6 +3,9 @@ angular.module('dncElection')
 	var self = this;
 
 	this.data = results;
+
+    console.log(results)
+
 })
 .directive("resultsChart", function($window) {
   return{

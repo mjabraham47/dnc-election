@@ -48,7 +48,7 @@ var seed = {
                 vision: candidate.Vision,
                 platform: candidate.Platform,
                 facebook: candidate.Facebook,
-                endorsements: Math.floor( Math.random() * 1000 ) 
+                endorsements: 0
             }, function(err, candid) {
                 if(err) {
                     console.log(err);
@@ -100,8 +100,8 @@ var seed = {
         };
     }
 };
-seed.parseStates(stateFile);
-seed.parseCandidates(candidateFile);
-seed.parseElectors(electorFile);
+// seed.parseStates(stateFile);
+// seed.parseCandidates(candidateFile);
+// seed.parseElectors(electorFile);
 
 module.exports = seed;

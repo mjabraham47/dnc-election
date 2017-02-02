@@ -28,15 +28,19 @@ app.post('/endorse', function(req, res, next) {
     }).then(function(response){
         if (response['error-codes']) throw new Error('Captcha verification failed');
 
-        return User.find({email: req.body.email});
-    }).then(function (users) {
-        if (!users.length) {
-            return User.create(req.body);
+        return User.findOne({email: req.body.email});
+    }).then(function (user) {
+        console.log(user)
+        if (!user) {
+            Candidate.findOneAndUpdate({_id: req.body.endorsed}, { $inc: {endorsements: 1}}, function(err, candidate){candidate.save()});
+                return User.create(req.body);
         } else {
             created = false;
+            Candidate.findOneAndUpdate({_id: user.endorsed}, { $inc: {endorsements: -1}}, function(err, candidate){candidate.save()});
+            Candidate.findOneAndUpdate({_id: req.body.endorsed}, { $inc: {endorsements: 1}}, function(err, candidate){candidate.save()});
             return User.update(req.body)
             .then(function(res){
-                return users[0];
+                return user;
             });
         }
     }).then(function(updatedUser){
@@ -88,32 +92,32 @@ app.get('/:userId/electors', function(req, res) {
     
 });
 
-app.get('/getInfo/:id', function(req, res) {
-    User.findById({
-            _id: req.params.id
-        })
-        .populate('endorsed')
-        .exec(function(err, user) {
-            if (err) {
-                console.log(err);
-            } else {
-                res.json(user);
-            }
-        });
-});
+// app.get('/getInfo/:id', function(req, res) {
+//     User.findById({
+//             _id: req.params.id
+//         })
+//         .populate('endorsed')
+//         .exec(function(err, user) {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 res.json(user);
+//             }
+//         });
+// });
 
 
-app.get('/:id/electors', function(req, res) {
-    User.findOne({ _id: id }, function(err, user) {
-        Elector.findAll({ state: user.state }, function(err, electors) {
-            if (err) {
-                console.log(err);
-            } else {
-                res.send(electors);
-            };
-        });
-    });
-});
+// app.get('/:id/electors', function(req, res) {
+//     User.findOne({ _id: id }, function(err, user) {
+//         Elector.findAll({ state: user.state }, function(err, electors) {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 res.send(electors);
+//             };
+//         });
+//     });
+// });
 
 
 module.exports = app;
