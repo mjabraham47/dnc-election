@@ -156,3 +156,57 @@ and (max-device-width : 800px) {
     max-height: 40px;
   }
 }
+
+/* RESPONSIVE BROWSER WIDTH */
+
+@media only screen 
+and (min-width : 800px) 
+and (max-width : 1024px) {
+  body {
+    zoom: .80;
+  }
+  .candidate-card .photo-container {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media only screen 
+and (min-width : 500px) 
+and (max-width : 800px) {
+  body {
+    zoom: .65;
+  }
+  .photo-container {
+    width: 175px;
+    height: 175px;
+  }
+}
+
+@media only screen 
+and (min-width : 300px) 
+and (max-width : 770px) {
+  .col-sm-3 {
+    width: 25%;
+    float: left;
+  }
+  .candidate-info {
+    width: 75%;
+    float: left;
+  }
+  .candidate-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: auto;
+    margin: 0 0 60px 0 !important;
+  }
+}
+
+@media only screen 
+and (min-width : 300px) 
+and (max-width : 500px) {
+  body {
+    zoom: .5;
+  }
+}
