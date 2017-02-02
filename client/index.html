@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/compiled_sass/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/media.css">
     <script src="https://use.fontawesome.com/f379a6cc53.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- injector:css -->
@@ -28,12 +29,17 @@
           </ul>
         </div>
       </header>
-      <ui-view></ui-view>
+      <ui-view autoscroll="true"></ui-view>
     </div>
     <footer>
-      <p>Copyright &copy; 2017 RUN-DNC. RUN-DNC is not affiliated with the Democratic National Committee.</p>
-      <p>To reach us with any questions, comments, or concerns email: <a href="mailto:info@rundnc.io" target="_blank">info@rundnc.io</a></p>
-      <p>Issues and contributions are welcome on <a href="https://github.com/mjabraham47/dnc-election"><i class="fa fa-github-alt" aria-hidden="true"></i> Github</a></p>
+      <p>Copyright &copy; 2017 RUN-DNC.</p>
+      <p>RUN-DNC is not affiliated with the Democratic National Committee. To reach us with any questions, comments, or concerns email: <a href="mailto:info@rundnc.io" target="_blank">info@rundnc.io</a></p>
+      <p>Issues and contributions are welcome on <a href="https://github.com/mjabraham47/dnc-election" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i> Github</a>.</p>
+      <ul class="footer-logos">
+        <li><a href="https://www.debugpolitics.com/" target="_blank"><img src="https://www.debugpolitics.com/assets/logo.svg" title="Debug Politics" /></a></li>
+        <li><a href="http://www.progcode.co/" target="_blank"><img src="http://www.progcode.co/img/logo.png" title="Progressive Coders Network" /></a></li>
+        <li><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/3.0/us/88x31.png" /></a></li>
+      </ul>
     </footer>
 
     <!--external javascript libraries -->

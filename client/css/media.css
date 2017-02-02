@@ -1,0 +1,212 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 800px) {
+  body {
+    zoom: 1.5;
+    font-size: 18px;
+  }
+  .title {
+    clear: both;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    padding: 20px;
+  }
+  .title a {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .nav {
+    display: inline-block;
+    clear: both;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 20px;
+    font-size: 1.25em;
+  }
+  .page-container {
+    padding-top: 130px;
+  }
+  .splash-container {
+    height: 80vh;
+    padding-top: 0;
+  }
+  .intro-message p.left {
+    width: 45%;
+  }
+  .intro-message p.right {
+    width: 45%;
+  }
+  .intro-message p {
+    width: 100%;
+  }
+  .intro-message.outro p {
+    width: 100%;
+  }
+  .intro-message .vertical-line-xl {
+    height: 85vh;
+  }
+  .col-sm-3 {
+    width: 100%;
+    padding-top: 60px;
+    font-size: 20px;
+    text-align: center;
+  }
+  .col-sm-3 h4 {
+    font-size: 1.65em;
+    margin-left: 0;
+  }
+  .candidate-box p,
+  .candidate-info p {
+    font-size: 1.65em;
+    width: 100%;
+  } 
+  .candidate-info {
+    width: 100%;
+    padding: 50px 60px 40px 60px;
+    border-top: 4px #E8EDF1;
+    margin-top: 50px;
+  }
+  .candidate-info .endorse-btn {
+    font-size: 1.15em;
+    width: 100%;
+    zoom: 1.5;
+    clear: both;
+    margin-bottom: 40px;
+    padding: 20px 10px;
+  }
+  .photo-container {
+    margin: 0 auto;
+  }
+  .candidate-overview {
+    border-top: 5px solid #D0D9E2;
+  }
+  .candidate-overview i {
+    width: 100%;
+    text-align: center;
+    clear: both;
+    padding: 30px 0;
+  }
+  .candidate-info h4 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .candidate-card {
+    width: 100%;
+    max-width: 100%;
+    height: 250px;
+    padding: 30px;
+    margin: 0 0 60px 0 !important;
+  }
+  .candidate-card .photo-container {
+    width: 100px;
+    height: 100px;
+  }
+  .candidate-card .candidate-name {
+    text-align: left;
+    font-size: 1.75em;
+  }
+  .candidate-card .candidate-button {
+    position: absolute;
+    float: right;
+    bottom: -10px;
+    right: -30px;
+  }
+  .candidate-card .endorse-btn {
+    margin-bottom: 30px;
+  }
+  .candidate-box {
+    padding: 15px 20px;
+  }
+  .candidate-name {
+    text-align: center;
+  }
+  .candidate-links {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .candidate-links li {
+    margin-bottom: 20px;
+  }
+  .candidate-links i {
+    margin-right: 30px;
+  }
+  .candidate-info h3 {
+    font-size: 2.25em;
+  }
+  .modal-container {
+    font-size: 1.25em;
+  }
+  .modal-container h4 {
+    font-size: 1.5em;
+  }
+  .modal-container .btn {
+    width: 48%;
+  }
+  footer {
+    font-size: 1em;
+  }
+  footer p {
+    margin: 20px 0;
+  }
+  .footer-logos li img {
+    max-height: 40px;
+  }
+}
+
+/* RESPONSIVE BROWSER WIDTH */
+
+@media only screen 
+and (min-width : 800px) 
+and (max-width : 1024px) {
+  body {
+    zoom: .80;
+  }
+  .candidate-card .photo-container {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media only screen 
+and (min-width : 500px) 
+and (max-width : 800px) {
+  body {
+    zoom: .65;
+  }
+  .photo-container {
+    width: 175px;
+    height: 175px;
+  }
+}
+
+@media only screen 
+and (min-width : 300px) 
+and (max-width : 770px) {
+  .col-sm-3 {
+    width: 25%;
+    float: left;
+  }
+  .candidate-info {
+    width: 75%;
+    float: left;
+  }
+  .candidate-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: auto;
+    margin: 0 0 60px 0 !important;
+  }
+}
+
+@media only screen 
+and (min-width : 300px) 
+and (max-width : 500px) {
+  body {
+    zoom: .5;
+  }
+}
