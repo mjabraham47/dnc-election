@@ -3,7 +3,7 @@
 and (min-device-width : 320px) 
 and (max-device-width : 800px) {
   body {
-    zoom: 1.5;
+    zoom: 1.5 !important;
     font-size: 18px;
   }
   .title {
