@@ -14,7 +14,7 @@ var UserSchema = new mongoose.Schema({
     zip: String,
     state: String,
     abroad: Boolean,
-    endorsing: {type: mongoose.Schema.Types.ObjectId, ref:'Candidate'}
+    endorsed: {type: mongoose.Schema.Types.ObjectId, ref:'Candidate'}
 });
 
 UserSchema.plugin(uniqueValidator);

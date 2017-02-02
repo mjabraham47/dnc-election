@@ -16,62 +16,62 @@
         <h3>Thanks! Your e-mail has been sent to the {{electors[0].state}} state Democratic Party. </h3>
     </div>
     <div ng-show="pickedPostcard">
-        <form novalidate class="simple-form" name="form">
+        <form novalidate class="simple-form" name="form" method="POST">
             <span class="input-container">
-        <label>Your First Name:</label> <input type="text" ng-model="postcard.first_name" name="first_name" placeholder="First Name" required/></label>
-        <div ng-show="form.$submitted || form.first_name.$touched">
-        <div ng-show="form.first_name.$error.required">Please enter your first name.</div>
-        </div>
-        </span>
+                <label>Your First Name:</label> <input type="text" ng-model="postcard.first_name" name="first_name" placeholder="First Name" required/></label>
+                <div ng-show="form.$submitted || form.first_name.$touched">
+                    <div ng-show="form.first_name.$error.required">Please enter your first name.</div>
+                </div>
+            </span>
             <span class="input-container">
-        <label>Your Last Name:</label> <input type="text" ng-model="postcard.last_name" name="last_name" placeholder="Last Name" required/>
-        <div ng-show="form.$submitted || form.last_name.$touched">
-            <div ng-show="form.last_name.$error.required">Please enter your last name.</div>
-        </div>
-        </span>
+                <label>Your Last Name:</label> <input type="text" ng-model="postcard.last_name" name="last_name" placeholder="Last Name" required/>
+                <div ng-show="form.$submitted || form.last_name.$touched">
+                    <div ng-show="form.last_name.$error.required">Please enter your last name.</div>
+                </div>
+            </span>
             <span class="input-container">
-        <label>Your Street Address:</label> <input type="text" ng-model="postcard.street_address" name="street_address" placeholder="Street Address" required/>
-        <div ng-show="form.$submitted || form.street_address.$touched">
-        <div ng-show="form.street_address.$error.required">Please enter your street address.</div>
-        </div>
-        </span>
+                <label>Your Street Address:</label> <input type="text" ng-model="postcard.street_address" name="street_address" placeholder="Street Address" required/>
+                <div ng-show="form.$submitted || form.street_address.$touched">
+                    <div ng-show="form.street_address.$error.required">Please enter your street address.</div>
+                </div>
+            </span>
             <span class="input-container">
-        <label>Your City:</label> <input type="text" ng-model="postcard.city" name="city" placeholder="City" required/>
-        <div ng-show="form.$submitted || form.city.$touched">
-        <div ng-show="form.city.$error.required">Please enter your city.</div>
-        </div>
-        </span>
+                <label>Your City:</label> <input type="text" ng-model="postcard.city" name="city" placeholder="City" required/>
+                <div ng-show="form.$submitted || form.city.$touched">
+                    <div ng-show="form.city.$error.required">Please enter your city.</div>
+                </div>
+            </span>
             <span class="input-container">
-        <label>Your State:</label>   
-            <select ng-model="postcard.state"/>
-                <option ng-repeat="state in states" name="state" value={{state}} required>{{state}}
-                </option>
-            </select>
-        <div ng-show="form.$submitted || form.state.$touched">
-        <div ng-show="form.state.$error.required">Please enter your state.</div>
-        </div>
-        </span>
+            <label>Your State:</label>   
+                <select ng-model="postcard.state"/>
+                    <option ng-repeat="state in states" name="state" value={{state}} required>{{state}}
+                    </option>
+                </select>
+                <div ng-show="form.$submitted || form.state.$touched">
+                    <div ng-show="form.state.$error.required">Please enter your state.</div>
+                </div>
+            </span>
             <span class="input-container">
-        <label>Your Zip Code:</label> <input type="text" ng-model="postcard.zip" name="zip" placeholder="Zip Code" ng-pattern="/^(\d{5}-\d{4}|\d{5})$/" required/>
-        <div ng-show="form.$submitted || form.zip.$touched">
-        <div ng-show="form.zip.$error.required">Please enter your zip code.</div>
-        </div>
-        </span>
+                <label>Your Zip Code:</label> <input type="text" ng-model="postcard.zip" name="zip" placeholder="Zip Code" ng-pattern="/^(\d{5}-\d{4}|\d{5})$/" required/>
+                <div ng-show="form.$submitted || form.zip.$touched">
+                    <span ng-show="form.zip.$error.pattern">Please enter a valid zipcode.</span>
+                    <span ng-show="form.zip.$error.required">Please enter your location info.</span>
+                </div>
+            </span>
             <span class="input-container">
-        <label>Your Message:</label> <textarea type="text" ng-model="postcard.message" name="message" placeholder="Write your message to the state Democratic Committee here" required/>I endorse {{candidate.firstName + candidate.lastName}} to be the Chair of the Democratic National Committee.</textarea>
-        <div ng-show="form.$submitted || form.message.$touched">
-     </div>
-        </span>
+                <label>Your Message:</label> <textarea type="text" ng-model="postcard.message" name="message" placeholder="Write your message to the state Democratic Committee here" required/>I endorse {{candidate.firstName + candidate.lastName}} to be the Chair of the Democratic National Committee.</textarea>
+                <div ng-show="form.$submitted || form.message.$touched"></div>
+            </span>
             <div class="modal-footer">
                 <button class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel">Cancel</button>
-                <div id="paypal-button" ng-click="buyPostcard(postcard)"></div>
+                <div id="paypal-button" type="submit" ng-click="buyPostcard(postcard)"></div>
             </div>
         </form>
     </div>
     <div ng-if="postcardSent">
         <h3>Thanks! Your postcard has been sent to the {{electors[0].state}} state Democratic Party. </h3>
-        <img ng-src="{{postcardFront}}" />
-        <img src="{{ postcardBack }}" />
+        <img ng-if="postcardFront" ng-src="{{postcardFront}}" />
+        <img ng-if="postcardBack" ng-src="{{ postcardBack }}" />
     </div>
     <div ng-if="chooseElector">
         <h2>Your Electors</h2>
