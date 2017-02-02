@@ -1008,18 +1008,19 @@ aside h4 {
 }
 .elector-container ul {
   padding: 20px 0 0 0;
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
 }
 .elector-container li {
   list-style-type: none;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   cursor: pointer;
   width: 25%;
   font-size: 1em;
   height: 45px;
   vertical-align: text-top;
   display: inline-block;
+  text-align: left;
 }
 .elector-container li:hover {
   color: #55B0E6;
