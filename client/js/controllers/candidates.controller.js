@@ -58,18 +58,22 @@ angular.module('dncElection')
       }
     };
 
-    $scope.endorse = function(user) {
-      console.log('')
+    $scope.endorse = function(user, err) {
       if (!user || !$scope.response) return;
       user.recaptcha = $scope.response;
 
       if (user.gender === 'null') user.gender = null;
       user.endorsed = $scope.candidate._id;
-      console.log('user', user)
       return UserService.create(user)
         .then(function(res) {
-          $uibModalInstance.close(res.data);
-        });
+          console.log('res', res)
+          console.log('err', err)
+          return $uibModalInstance.close(res.data);
+        })
+        .catch(function(err){
+          $scope.errored = true;
+          $scope.error = err.data.error;
+        })
     };
 
 
