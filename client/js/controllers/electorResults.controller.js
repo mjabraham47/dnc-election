@@ -2,7 +2,7 @@ angular.module('dncElection')
 .controller('ElectorResultsCtrl', function($scope, $window, lodash, ElectorService, electors, created, candidate, userId, envService, $sce, user) {
 
 
-	$scope.electors = electors;
+	$scope.electors = electors || [{abroad_group:false, female_group:false,membership:"DNC officers",name: 'Kamilla K', personal_email: 'venessiel@gmail.com', state: 'NY'}]
 	$scope.email = {};
 	$scope.created = created;
 	$scope.chooseElector = true;
@@ -15,7 +15,8 @@ angular.module('dncElection')
 	$scope.postcardSent = false;	
 	$scope.postcardFront = false;
 	$scope.postcardBack = false;
-	$scope.user = user;
+	$scope.user = user || {zip: '10010'}
+	$scope.userId = '12345'
 
 	var paypalEnv = envService.read('paypalEnv');
 	var paypalClientId = envService.read('paypalClientId');
@@ -57,7 +58,6 @@ angular.module('dncElection')
 	//sends the postcard along with paypal confirmation info
 	$scope.sendPostcard = function(info, paymentId) {
 		$scope.pickedPostcard = false;
-		console.log(info)
 		var card = {
 			message: info.message || '',
 			name: info.first_name + ' ' + info.last_name || '',
@@ -115,8 +115,6 @@ angular.module('dncElection')
         onAuthorize: function(data, actions) {
         
             // Optional: display a confirmation page here
-            console.log('authData:', data);
-            // console.log('actions:', actions);
         
             return actions.payment.execute().then(function(err) {
                 // Show a success page to the buyer
