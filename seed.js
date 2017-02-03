@@ -17,7 +17,7 @@ var seed = {
                 title: elector.Title,
                 phone: elector.Phone,
                 state: elector.State,
-                personal_email: elector.PersonalEmail,
+                personal_email: elector.Email,
                 under_37_group: Boolean(elector.Age_36andunder),
                 over_64_group: Boolean(elector.Age_65andolder),
                 female_group: Boolean(elector.Sex_female),
@@ -102,6 +102,6 @@ var seed = {
 };
 // seed.parseStates(stateFile);
 // seed.parseCandidates(candidateFile);
-// seed.parseElectors(electorFile);
+seed.parseElectors(electorFile);
 
 module.exports = seed;

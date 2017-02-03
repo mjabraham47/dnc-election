@@ -2,8 +2,7 @@ angular.module('dncElection')
 .controller('ElectorResultsCtrl', function($scope, $window, lodash, ElectorService, electors, created, candidate, userId, envService, $sce, user) {
 
 
-	$scope.electors = electors || [{abroad_group:false, female_group:false,membership:"DNC officers",name: 'Kamilla K', personal_email: 'venessiel@gmail.com', state: 'NY'}]
-	$scope.email = {};
+	$scope.electors = electors;
 	$scope.created = created;
 	$scope.chooseElector = true;
 	$scope.messageTypes = false;
@@ -15,8 +14,12 @@ angular.module('dncElection')
 	$scope.postcardSent = false;	
 	$scope.postcardFront = false;
 	$scope.postcardBack = false;
-	$scope.user = user || {zip: '10010'}
-	$scope.userId = '12345'
+	$scope.user = user;
+	$scope.userId = '12345';
+
+	$scope.email = {
+		message: ''
+	};
 
 	var paypalEnv = envService.read('paypalEnv');
 	var paypalClientId = envService.read('paypalClientId');
@@ -48,10 +51,12 @@ angular.module('dncElection')
 	var body = 'Dear DNC Elector, ';
 
 	$scope.sendEmail = function(message, elector) {
+		console.log('electors', $scope.electors)
 		var emails = lodash.map(lodash.uniq($scope.electors, 'personal_email'), 'personal_email');
 		var email_body = $scope.email.message;
 		var subject = 'Test subject';
-		var email = emails.join(';');
+		var email = $scope.electors[0]['personal_email'];
+		console.log('email', email);
 		$window.open('mailto:' + email + '?subject=' + subject + '&body=' + email_body);
 	};
  
