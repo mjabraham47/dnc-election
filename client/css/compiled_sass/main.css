@@ -901,6 +901,7 @@ aside h4 a:hover {
   padding: 100px 40px;
   min-width: 500px;
   max-width: 750px;
+  margin: 0 auto;
 }
 
 .elector-container h2 {
