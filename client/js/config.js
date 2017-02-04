@@ -129,7 +129,7 @@ angular.module('dncElection')
                     paypalEnv: 'sandbox'
                 },
                 production: {
-                    paypalClientId: '',
+                    paypalClientId: 'AZ0yRSD0i6xVhdTJA2HlmN6AZLAx01jJiWOuEjXyDgmkzIvxkL_C7Tlj7xyMzgS5OYrYItSiOU725pTC',
                     paypalEnv: 'production'
                 }
             }
