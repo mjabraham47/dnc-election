@@ -2,6 +2,7 @@ angular.module('dncElection')
   .controller('CandidatesCtrl', function($scope, candidate, $uibModal, $state) {
     $scope.platform = candidate.platform.replace(/\n\r?/g, '<br />');
     $scope.candidate = candidate;
+    $scope.platform = 'To rebuild the Democratic Party, Jaime will:\n\tInvest in all 50 State Parties (plus those in the territories and Democrats Abroad) by increasing the State Partnership Program to $12,000 a month and easing restrictions on how that money is spent\n\tProvide State Parties with professional and specialized operations, capabilities, and in- kind services on a permanent basis through regional Caucus hubs, i.e., provide political, press, fundraising, and tech staff dedicated to serve state parties in each region'
 
     $scope.openEndorseModal = function() {
       var modalInstance = $uibModal.open({
@@ -58,18 +59,22 @@ angular.module('dncElection')
       }
     };
 
-    $scope.endorse = function(user) {
-      console.log('')
+    $scope.endorse = function(user, err) {
       if (!user || !$scope.response) return;
       user.recaptcha = $scope.response;
 
       if (user.gender === 'null') user.gender = null;
       user.endorsed = $scope.candidate._id;
-      console.log('user', user)
       return UserService.create(user)
         .then(function(res) {
-          $uibModalInstance.close(res.data);
-        });
+          console.log('res', res)
+          console.log('err', err)
+          return $uibModalInstance.close(res.data);
+        })
+        .catch(function(err){
+          $scope.errored = true;
+          $scope.error = err.data.error;
+        })
     };
 
 

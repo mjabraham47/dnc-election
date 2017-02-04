@@ -1,53 +1,55 @@
 <div class="page-container elector-container">
-    <div ng-if='!created'>
-        <h2>Looks like you've already voted!</h2>
-        <p>We've updated your vote, and encourage you to look through the list of electors that represent your geographic and demographic profile below. Please take a few minutes to let your state Democratic Party know who you'd like to see as the next DNC chair!</p>
-    </div>
-    <div ng-if="created">
-        <h2>Thanks for voting!</h2>
-        <p>These are the electors that represent you during the DNC election. Please consider taking a few minutes to reach out to your state Democratic Party to let them know who you would like them to vote for on February 26.</p>
-    </div>
-    <div>
-        <h2>Pick a message format:</h2>
-        <div class="message-btn" ng-click="pickEmail()"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send your state party and non-state electors an e-mail</div>
-        <div class="message-btn" ng-click="pickPostcard()"><i class="fa fa-envelope" aria-hidden="true"></i> Send your state party a postcard</div>
-    </div>
-    <div ng-if="pickedEmail">
-        <textarea placeholder="Type your email message..." ng-model="email.message"></textarea>
-        <button class="send-btn" ng-click="sendEmail()">
-            Send!
-        </button>
-    </div>
-    <div ng-if="emailSent">
-        <h3>Thanks! Your e-mail has been sent to the {{electors[0].state}} state Democratic Party. </h3>
-    </div>
-    <div ng-show="pickedPostcard">
-        <form novalidate class="simple-form" name="form" method="POST">
-        <span class="input-container">
-        <label>Your First Name:</label> <input type="text" ng-model="postcard.first_name" name="first_name" placeholder="First Name" required/></label>
+  <div ng-if='!created'>
+    <h2>Looks like you've already voted!</h2>
+    <p>We've updated your vote, and encourage you to look through the list of electors that represent your geographic and demographic profile below. Please take a few minutes to let your state Democratic Party know who you'd like to see as the next DNC chair!</p>
+  </div>
+  <div ng-if="created">
+    <h2>Thanks for voting!</h2>
+    <p>These are the electors that represent you during the DNC election. Please consider taking a few minutes to reach out to your state Democratic Party to let them know who you would like them to vote for on February 26.</p>
+  </div>
+  <div>
+    <h2>Pick a message format:</h2>
+    <div class="message-btn" ng-click="pickEmail()"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send your state party and non-state electors an e-mail</div>
+    <div class="message-btn" ng-click="pickPostcard()"><i class="fa fa-envelope" aria-hidden="true"></i> Send your state party a postcard</div>
+  </div>
+  <div ng-if="pickedEmail">
+    <textarea placeholder="Type your email message..." ng-model="email.message"></textarea>
+    <button class="send-btn" ng-click="sendEmail()">
+      Send!
+    </button>
+  </div>
+  <div ng-if="emailSent">
+    <h3>Thanks! Your e-mail has been sent to the {{electors[0].state}} state Democratic Party. </h3>
+  </div>
+  <div ng-show="pickedPostcard">
+    <form novalidate class="simple-form" name="form" method="POST">
+      <span class="input-container">
+        <label>Your First Name:</label> <input type="text" ng-model="postcard.first_name" name="first_name" placeholder="First Name" required /></label>
         <div ng-show="form.$submitted || form.first_name.$touched">
-        <span class="form-error" ng-show="form.first_name.$error.required">Please enter your first name.</span>
-        </div>
-        </span>
-        <span class="input-container">
-        <label>Your Last Name:</label> <input type="text" ng-model="postcard.last_name" name="last_name" placeholder="Last Name" required/>
+            <span class="form-error" ng-show="form.first_name.$error.required">Please enter your first name.</span>
+  </div>
+  </span>
+  <span class="input-container">
+        <label>Your Last Name:</label> <input type="text" ng-model="postcard.last_name" name="last_name" placeholder="Last Name" required />
         <div ng-show="form.$submitted || form.last_name.$touched">
             <span class="form-error" ng-show="form.last_name.$error.required">Please enter your last name.</span>
-        </div>
-        </span>
-        <span class="input-container">
+</div>
+</span>
+<span class="input-container">
                 <label>Your Street Address:</label> <input type="text" ng-model="postcard.street_address" name="street_address" placeholder="Street Address" required/>
                 <div ng-show="form.$submitted || form.street_address.$touched">
                 <span class="form-error" ng-show="form.street_address.$error.required">Please enter your street address.</span>
-        </div>
-        </span>
-        <span class="input-container">
+<span class="form-error" ng-show="form.street_address.$error.minLength">Please enter your full street address.</span>
+</div>
+</span>
+<span class="input-container">
                 <label>Your City:</label> <input type="text" ng-model="postcard.city" name="city" placeholder="City" required/>
                 <div ng-show="form.$submitted || form.city.$touched">
                 <span class="form-error" ng-show="form.city.$error.required">Please enter your city.</span>
-        </div>
-        </span>
-        <span class="input-container">
+<span class="form-error" ng-show="form.city.$error.minLength">Please enter your full city. name</span>
+</div>
+</span>
+<span class="input-container">
                 <label>Your State:</label>   
                     <select ng-model="postcard.state"/>
                     <option ng-repeat="state in states" name="state" value={{state}} required>{{state}}
@@ -55,36 +57,36 @@
             </select>
                 <div ng-show="form.$submitted || form.state.$touched">
                 <span class="form-error" ng-show="form.state.$error.required">Please enter your state.</span>
-        </div>
-        </span>
-        <span class="input-container">
+</div>
+</span>
+<span class="input-container">
                 <label>Your Zip Code:</label> <input type="number" ng-model="postcard.zip" name="zip" placeholder="Zip Code" ng-pattern="/^(\d{5}-\d{4}|\d{5})$/" required/>
                         <div ng-show="form.$submitted || form.zip.$touched">
                             <span ng-show="form.zip.$error.pattern">Please enter a valid zipcode.</span>
-        <span ng-show="form.zip.$error.required">Please enter your location info.</span>
-        </div>
-        </span>
-        <span class="input-container">
+<span ng-show="form.zip.$error.required">Please enter your location info.</span>
+</div>
+</span>
+<span class="input-container">
                         <label>Your Message:</label> <textarea type="text" ng-model="postcard.message" name="message" placeholder="Write your message to the state Democratic Committee here" required/>I endorse {{candidate.firstName + candidate.lastName}} to be the Chair of the Democratic National Committee.</textarea>
                         <div ng-show="form.$submitted || form.message.$touched"></div>
-                    </span>
-        <div class="modal-footer">
-            <button class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel">Cancel</button>
-            <div id="paypal-button" type="submit" ng-click="buyPostcard(postcard)"></div>
-        </div>
+                    </span> {{form}}
+<div class="modal-footer">
+  <div id="paypal-button" type="submit" ng-click="buyPostcard(form)"></div>
+  <button class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel">Cancel</button>
+</div>
 </form>
 </div>
 <div ng-if="postcardSent">
-    <h3>Thanks! Your postcard has been sent to the {{electors[0].state}} state Democratic Party. </h3>
-    <img ng-if="postcardFront" ng-src="{{postcardFront}}" />
-    <img ng-if="postcardBack" ng-src="{{ postcardBack }}" />
+  <h3>Thanks! Your postcard has been sent to the {{electors[0].state}} state Democratic Party. </h3>
+  <img ng-if="postcardFront" ng-src="{{postcardFront}}" />
+  <img ng-if="postcardBack" ng-src="{{ postcardBack }}" />
 </div>
 <div ng-if="chooseElector">
-    <h2>Your Electors</h2>
-    <ul>
-        <li ng-repeat="elector in electors">
-            <div> {{elector.name}}</div>
-        </li>
-    </ul>
+  <h2>Your Electors</h2>
+  <ul>
+    <li ng-repeat="elector in electors">
+      <div> {{elector.name}}</div>
+    </li>
+  </ul>
 </div>
 </div>

@@ -10,6 +10,7 @@ var Elector = require('../models/elector');
 var zipcodes = require('zipcodes');
 var Candidate = require('../models/candidate');
 var request = require('request-promise');
+var Bluebird = require('bluebird')
 var emailExistence = require('email-existence');
 
 
@@ -26,26 +27,53 @@ app.post('/endorse', function(req, res, next) {
     .then(function () {
         return request(verificationUrl);
     }).then(function(response){
-        if (response['error-codes']) throw new Error('Captcha verification failed');
+        response = JSON.parse(response);
+        if (response['error-codes']) {
+            res.status(500).send({ error: 'Captcha verification failed!' });
+        }
 
         return User.findOne({email: req.body.email});
-    }).then(function (user) {
-        console.log(user)
-        if (!user) {
-            Candidate.findOneAndUpdate({_id: req.body.endorsed}, { $inc: {endorsements: 1}}, function(err, candidate){candidate.save()});
+    }).then(function(user){
+        if (!user._id) {
+            var checkEmail = Bluebird.promisify(emailExistence.check);
+            return checkEmail(req.body.email)
+            .then(function(response){
+                if (!response) res.status(500).send({error: 'Email verification failed!'});
                 return User.create(req.body);
+            })
+            .catch(function(err){
+                res.status(500).send({error: 'Email verification failed!'});
+            })
+            .then(function(user){
+                return Candidate.findOneAndUpdate({_id: req.body.endorsed}, { $inc: {endorsements: 1}});
+            })
+            .then(function(candidate){
+                return candidate.save();
+            });
         } else {
             created = false;
-            Candidate.findOneAndUpdate({_id: user.endorsed}, { $inc: {endorsements: -1}}, function(err, candidate){candidate.save()});
-            Candidate.findOneAndUpdate({_id: req.body.endorsed}, { $inc: {endorsements: 1}}, function(err, candidate){candidate.save()});
-            return User.update(req.body)
+            
+            return User.update({_id: user._id}, req.body)
             .then(function(res){
-                return user;
+                console.log('res', res)
+                return Candidate.findOneAndUpdate({_id: user.endorsed}, { $inc: {endorsements: -1}});
+            }).then(function(candidate){
+                return candidate.save();
+            }).then(function(){
+                return Candidate.findOneAndUpdate({_id: req.body.endorsed}, { $inc: {endorsements: 1}});
+            }).then(function(candidate){
+                return candidate.save();
             });
         }
-    }).then(function(updatedUser){
-        res.send({ created: created, user: updatedUser });
-    });
+    }).then(function(){
+        return User.findOne({email: req.body.email});
+    }).then(function(user){
+        user.isNew = false;
+        res.send({ created: created, user: user});
+    }).catch(function(err) {
+        console.error('err', err)
+        res.status(500).send({error: 'There was an error processing your request'});
+    })
 });
 
 app.get('/:userId/electors', function(req, res) {
@@ -87,37 +115,7 @@ app.get('/:userId/electors', function(req, res) {
             res.send(electors);
         });
     });
-
-    
-    
 });
-
-// app.get('/getInfo/:id', function(req, res) {
-//     User.findById({
-//             _id: req.params.id
-//         })
-//         .populate('endorsed')
-//         .exec(function(err, user) {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 res.json(user);
-//             }
-//         });
-// });
-
-
-// app.get('/:id/electors', function(req, res) {
-//     User.findOne({ _id: id }, function(err, user) {
-//         Elector.findAll({ state: user.state }, function(err, electors) {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 res.send(electors);
-//             };
-//         });
-//     });
-// });
 
 
 module.exports = app;
