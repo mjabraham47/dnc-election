@@ -10,7 +10,7 @@
   <div>
     <h2>Pick a message format:</h2>
     <div class="message-btn" ng-click="pickEmail()"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send your state party and non-state electors an e-mail</div>
-    <div class="message-btn" ng-click="pickPostcard()"><i class="fa fa-envelope" aria-hidden="true"></i> Send your state party a postcard</div>
+    <div class="message-btn" ng-click="pickPostcard()"><i class="fa fa-envelope" aria-hidden="true"></i> Send your state party a postcard ($1.00) </div>
   </div>
   <div ng-if="pickedEmail">
     <textarea placeholder="Type your email message..." ng-model="email.message"></textarea>
@@ -60,16 +60,17 @@
 </div>
 </span>
 <span class="input-container">
-                <label>Your Zip Code:</label> <input type="number" ng-model="postcard.zip" name="zip" placeholder="Zip Code" ng-pattern="/^(\d{5}-\d{4}|\d{5})$/" required/>
+                <label>Your Zip Code:</label> <input type="text" ng-model="postcard.zip" name="zip" placeholder="Zip Code" ng-pattern="/^(\d{5}-\d{4}|\d{5})$/" required/>
                         <div ng-show="form.$submitted || form.zip.$touched">
                             <span ng-show="form.zip.$error.pattern">Please enter a valid zipcode.</span>
 <span ng-show="form.zip.$error.required">Please enter your location info.</span>
 </div>
 </span>
 <span class="input-container">
-                        <label>Your Message:</label> <textarea type="text" ng-model="postcard.message" name="message" placeholder="Write your message to the state Democratic Committee here" required/>I endorse {{candidate.firstName + candidate.lastName}} to be the Chair of the Democratic National Committee.</textarea>
-                        <div ng-show="form.$submitted || form.message.$touched"></div>
-                    </span> {{form}}
+    <label>Your Message:</label> <textarea type="text" ng-model="postcard.message" name="message" placeholder="Write your message to the state Democratic Committee here" required maxlength="455" />Dear DNC Delegates, I'm endorsing  {{candidate.firstName + candidate.lastName}} to be the next Chair of the Democratic National Committee because...</textarea>
+    <p class="form-error">Max 450 characters.</p>
+    <div ng-show="form.$submitted || form.message.$touched"></div>
+</span>
 <div class="modal-footer">
   <div id="paypal-button" type="submit" ng-click="buyPostcard(form)"></div>
   <button class="btn btn-warning" type="button" ng-click="cancel()" value="Cancel">Cancel</button>
@@ -78,8 +79,8 @@
 </div>
 <div ng-if="postcardSent">
   <h3>Thanks! Your postcard has been sent to the {{electors[0].state}} state Democratic Party. </h3>
-  <img ng-if="postcardFront" ng-src="{{postcardFront}}" />
-  <img ng-if="postcardBack" ng-src="{{ postcardBack }}" />
+<!--   <img ng-if="postcardFront" ng-src="{{postcardFront}}" />
+  <img ng-if="postcardBack" ng-src="{{ postcardBack }}" /> -->
 </div>
 <div ng-if="chooseElector">
   <h2>Your Electors</h2>

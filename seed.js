@@ -13,15 +13,9 @@ var seed = {
             if (err) next(err);
             Elector.create({
                 name: elector.Name,
-                membership: elector.Membership,
-                title: elector.Title,
                 phone: elector.Phone,
                 state: elector.State,
-                personal_email: elector.Email,
-                under_37_group: Boolean(elector.Age_36andunder),
-                over_64_group: Boolean(elector.Age_65andolder),
-                female_group: Boolean(elector.Sex_female),
-                abroad_group: Boolean(elector.abroad)
+                personal_email: elector.Email
             }, function(err, elect) {
             	if(err) {
             		console.log(err);
@@ -38,16 +32,15 @@ var seed = {
             if (err) next(err);
 
             Candidate.create({
-                first_name: candidate.FirstName,
-                last_name: candidate.LastName,
-                bio: candidate.Bio,
-                twitter: candidate.Twitter,
-                website: candidate.Website,
-                photo: candidate.Photo,
-                image_source: candidate.ImageSource,
-                vision: candidate.Vision,
-                platform: candidate.Platform,
-                facebook: candidate.Facebook,
+                first_name: candidate.first_name,
+                last_name: candidate.last_name,
+                bio: candidate.bio,
+                twitter: candidate.twitter,
+                website: candidate.website,
+                photo: candidate.photo,
+                vision: candidate.vision,
+                platform: candidate.platform,
+                facebook: candidate.facebook,
                 endorsements: 0
             }, function(err, candid) {
                 if(err) {
@@ -100,8 +93,8 @@ var seed = {
         };
     }
 };
-// seed.parseStates(stateFile);
+seed.parseStates(stateFile);
+// seed.parseElectors(electorFile);
 // seed.parseCandidates(candidateFile);
-seed.parseElectors(electorFile);
 
 module.exports = seed;

@@ -34,7 +34,7 @@ app.post('/endorse', function(req, res, next) {
 
         return User.findOne({email: req.body.email});
     }).then(function(user){
-        if (!user._id) {
+        if (user === null) {
             var checkEmail = Bluebird.promisify(emailExistence.check);
             return checkEmail(req.body.email)
             .then(function(response){
@@ -45,6 +45,7 @@ app.post('/endorse', function(req, res, next) {
                 res.status(500).send({error: 'Email verification failed!'});
             })
             .then(function(user){
+                user.save()
                 return Candidate.findOneAndUpdate({_id: req.body.endorsed}, { $inc: {endorsements: 1}});
             })
             .then(function(candidate){

@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<title>RUN-DNC | Send A Postcard!</title>
+
+<style>
+
+  *, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body {
+    width: 6.25in;
+    height: 4.25in;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+  }
+
+  /* do not put text outside of the safe area */
+  #safe-area {
+    position: absolute;
+    width: 5.875in;
+    height: 3.875in;
+    left: 0.1875in;
+    top: 0.1875in;
+  }
+
+  #message {
+    position: absolute;
+    width: 2.2in;
+    height: 2in;
+    top: 1.3in;
+    left: .25in;
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: .10in;
+    line-height: .15in;
+  }
+
+  #header {
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+    font-size: .125in;
+    text-align: center;
+    color: #E53333;
+    background-color: #D0D9E2;
+    height: 1.2in;
+  }
+  #header p {
+    line-height: .05in;
+    font-size: .18in;
+  }
+  .your-name {
+    font-weight: bold;
+    font-size: .25in !important;
+    padding-top: .30in;
+    color: #2F4F84;
+  }
+  .candidate-name {
+    font-weight: bold;
+    font-size: .25in !important;
+    color: #2F4F84;
+  }
+
+</style>
+</head>
+
+<body>
+  <div id="header">
+    <p class="your-name">{{FirstName}} {{LastName}}</p>
+    <p>endorses</p>
+    <p class="candidate-name">{{CandidateFirstName}} {{CandidateLastName}}</p>
+  </div>
+
+  <!-- do not put text outside of the safe area -->
+  <div id="safe-area">
+    <div id="message">
+      <span class="accent">Dear delegates,</span>
+      <br><br>
+      {{YourMessageMax455Chars}}
+      <br><br>
+      Sincerely,
+      <br><br>
+      {{FirstName}} {{LastName}}
+    </div>
+  </div>
+</body>
+
+</html>
