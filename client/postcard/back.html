@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<title>RUN-DNC | Send A Postcard!</title>
+
+<style>
+
+  *, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body {
+    width: 6.25in;
+    height: 4.25in;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+  }
+
+  /* do not put text outside of the safe area */
+  #safe-area {
+    position: absolute;
+    width: 5.875in;
+    height: 3.875in;
+    left: 0.1875in;
+    top: 0.1875in;
+  }
+
+  #message {
+    position: absolute;
+    width: 2.2in;
+    height: 2in;
+    top: 1.4in;
+    left: .25in;
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: .122in;
+  }
+
+  #header {
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+    font-size: .125in;
+    text-align: center;
+    color: white;
+    background-color: #2F4F84;
+    height: 1.25in;
+  }
+  #header p {
+    line-height: .10in;
+    font-size: .15in;
+  }
+  .your-name {
+    font-weight: bold;
+    font-size: .25in !important;
+    padding-top: .20in;
+    color: #55B0E6;
+  }
+  .candidate-name {
+    font-weight: bold;
+    font-size: .25in !important;
+    color: #55B0E6;
+  }
+
+</style>
+</head>
+
+<body>
+  <div id="header">
+    <p class="your-name">{{Firstname_Lastname}}</p>
+    <p>endorses</p>
+    <p class="candidate-name">{{CandidateFirstName_CandidateLastName}}</p>
+  </div>
+
+  <!-- do not put text outside of the safe area -->
+  <div id="safe-area">
+    <div id="message">
+      <span class="accent">Dear {{DelegateFirstName_DelegatLastName}},</span>
+      <br><br>
+      Thank you so much for your donation given on June 17, 2015. You can rest assured that your money is going to a great cause. You will continue to get updates on our status on your WaterHealth dashboard.
+      <br><br>
+      Sincerely,
+      <br><br>
+      {{Firstname_Lastname}}
+    </div>
+  </div>
+</body>
+
+</html>
