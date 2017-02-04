@@ -17,6 +17,7 @@ angular.module('dncElection')
 	$scope.user = user;
 	$scope.userId = '12345';
 
+	console.log($scope.electors);
 	$scope.email = {
 		message: ''
 	};
