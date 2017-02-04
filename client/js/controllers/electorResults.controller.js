@@ -19,7 +19,7 @@ angular.module('dncElection')
 
 	console.log($scope.electors);
 	$scope.email = {
-		message: "Dear DNC Delegates, I'm endorsing" +$scope.candidate.first_name + ' ' + $scope.candidate.last_name + "to be the next Chair of the Democratic National Committee because.."
+		message: "Dear DNC Delegates, I'm endorsing " +$scope.candidate.first_name + ' ' + $scope.candidate.last_name + "to be the next Chair of the Democratic National Committee because.."
 	};
 
 	var paypalEnv = envService.read('paypalEnv');

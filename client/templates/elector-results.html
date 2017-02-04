@@ -67,7 +67,7 @@
 </div>
 </span>
 <span class="input-container">
-    <label>Your Message:</label> <textarea type="text" ng-model="postcard.message" name="message" placeholder="Write your message to the state Democratic Committee here" required maxlength="455" />Dear DNC Delegates, I'm endorsing {{candidate.firstName + candidate.lastName}} to be the next Chair of the Democratic National Committee because...</textarea>
+    <label>Your Message:</label> <textarea type="text" ng-model="postcard.message" name="message" placeholder="Write your message to the state Democratic Committee here" required maxlength="455" />Dear DNC Delegates, I'm endorsing  {{candidate.firstName + candidate.lastName}} to be the next Chair of the Democratic National Committee because...</textarea>
     <p class="form-error">Max 450 characters.</p>
     <div ng-show="form.$submitted || form.message.$touched"></div>
 </span>
