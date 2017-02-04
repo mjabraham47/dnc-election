@@ -13,7 +13,7 @@
         </div>
     </div>
     <div ng-if="confirmed">
-        <p ng-if="errored" class="text-danger">&#9785; An error occurred while registering your email. Please try again.</p>
+        <p ng-if="errored" class="text-danger">&#9785;{{error}}</p>
         <form novalidate class="simple-form" name="form" method='POST'>
             <div class="modal-body" id="modal-body">
                 <span class="input-container">

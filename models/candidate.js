@@ -9,7 +9,6 @@ var CandidateSchema = new mongoose.Schema({
 	twitter: String,
 	website: String,
 	photo: String,
-	image_source: String,
 	vision: String,
 	platform: String,
 	facebook: String,

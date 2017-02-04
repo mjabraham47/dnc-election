@@ -8,7 +8,8 @@ var config = {
 	paypalSignature: process.env.PAYPAL_SIGNATURE,
 	paypalClientId: process.env.PAYPAL_CLIENT_ID,
 	paypalClientSecret: process.env.PAYPAL_CLIENT_SECRET,
-	paypalEnv: process.env.PAYPAL_ENV
+	paypalEnv: process.env.PAYPAL_ENV,
+	lobApiKey: process.env.LOB_API_KEY
 };
 
 module.exports = config;

@@ -6,8 +6,8 @@ Endorse This Candidate!</button>
 <h2 class="candidate-name">{{candidate.first_name}} {{candidate.last_name}}</h2>
 <ul class="candidate-links">
 	<li><a ng-href="http://www.twitter.com/{{candidate.twitter}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>{{candidate.twitter}}</a></li>
-	<li><a ng-href="{{candidate.facebook}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook Page</a></li>
-	<li><i class="fa fa-link" aria-hidden="true"></i><a ng-href="{{candidate.website}}" target="_blank">Website</a></li>
+	<li ng-if="candidate.facebook.length>0"><a ng-href="{{candidate.facebook}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook Page</a></li>
+	<li ng-if="candidate.website.length>0"><i class="fa fa-link" aria-hidden="true"></i><a ng-href="{{candidate.website}}" target="_blank">Website</a></li>
 </ul>
 	<h3>Bio</h3>
 	<p>{{candidate.bio}}</p>
@@ -17,4 +17,5 @@ Endorse This Candidate!</button>
 	
 	<h3>Platform</h3>
 	<p ng-bind-html="platform"></p>
-<p>To learn more about {{candidate.first_name}} {{candidate.last_name}} visit <a ng-href="{{candidate.website}}">{{candidate.website}}</a>
+<p ng-if="candidate.website.length>0">To learn more about {{candidate.first_name}} {{candidate.last_name}} visit <a ng-href="{{candidate.website}}">{{candidate.website}}</a></p>
+	<!-- <p ng-bind-html="platform"></p> -->
