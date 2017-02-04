@@ -38,16 +38,15 @@ var seed = {
             if (err) next(err);
 
             Candidate.create({
-                first_name: candidate.FirstName,
-                last_name: candidate.LastName,
-                bio: candidate.Bio,
-                twitter: candidate.Twitter,
-                website: candidate.Website,
-                photo: candidate.Photo,
-                image_source: candidate.ImageSource,
-                vision: candidate.Vision,
-                platform: candidate.Platform,
-                facebook: candidate.Facebook,
+                first_name: candidate.first_name,
+                last_name: candidate.last_name,
+                bio: candidate.bio,
+                twitter: candidate.twitter,
+                website: candidate.website,
+                photo: candidate.photo,
+                vision: candidate.vision,
+                platform: candidate.platform,
+                facebook: candidate.facebook,
                 endorsements: 0
             }, function(err, candid) {
                 if(err) {
@@ -101,7 +100,7 @@ var seed = {
     }
 };
 // seed.parseStates(stateFile);
-// seed.parseCandidates(candidateFile);
+seed.parseCandidates(candidateFile);
 // seed.parseElectors(electorFile);
 
 module.exports = seed;
