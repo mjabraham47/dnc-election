@@ -924,9 +924,13 @@ aside h4 {
 .find-your-elector {
   padding: 40px;
 }
-
+.elector-list {
+  margin-top: 100px;
+}
 .elector-container {
   padding: 100px 40px;
+  min-width: 500px;
+  max-width: 750px;
 }
 .elector-container h2 {
   font-size: 1.85em;
@@ -937,8 +941,8 @@ aside h4 {
 }
 .elector-container form {
   margin: 0px auto;
-  min-width: 500px;
-  width: 40%;
+  max-width: 600px;
+  margin-top: 40px;
 }
 .elector-container .input-container {
   margin-bottom: 30px;
@@ -997,6 +1001,7 @@ aside h4 {
 
 .elector-container h2 {
   margin: 30px;
+  margin-top: 75px;
   text-transform: capitalize;
 }
 .elector-container aside {
@@ -1016,7 +1021,7 @@ aside h4 {
   list-style-type: none;
   margin-bottom: 10px;
   cursor: pointer;
-  width: 25%;
+  width: 49%;
   font-size: 1em;
   height: 45px;
   vertical-align: text-top;
@@ -1024,7 +1029,8 @@ aside h4 {
   text-align: left;
 }
 .elector-container li:hover {
-  color: #55B0E6;
+  //color: #55B0E6;
+  cursor: default;
 }
 .elector-container h3 {
   margin-bottom: 20px;

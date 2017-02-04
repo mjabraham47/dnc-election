@@ -893,8 +893,14 @@ aside h4 a:hover {
   padding: 40px;
 }
 
+.elector-list {
+  margin-top: 100px;
+}
+
 .elector-container {
   padding: 100px 40px;
+  min-width: 500px;
+  max-width: 750px;
 }
 
 .elector-container h2 {
@@ -907,8 +913,8 @@ aside h4 a:hover {
 
 .elector-container form {
   margin: 0px auto;
-  min-width: 500px;
-  width: 40%;
+  max-width: 600px;
+  margin-top: 40px;
 }
 
 .elector-container .input-container {
@@ -973,6 +979,7 @@ aside h4 a:hover {
 
 .elector-container h2 {
   margin: 30px;
+  margin-top: 75px;
   text-transform: capitalize;
 }
 
@@ -996,7 +1003,7 @@ aside h4 a:hover {
   list-style-type: none;
   margin-bottom: 10px;
   cursor: pointer;
-  width: 25%;
+  width: 49%;
   font-size: 1em;
   height: 45px;
   vertical-align: text-top;
@@ -1005,7 +1012,7 @@ aside h4 a:hover {
 }
 
 .elector-container li:hover {
-  color: #55B0E6;
+  cursor: default;
 }
 
 .elector-container h3 {
