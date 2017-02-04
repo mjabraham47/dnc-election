@@ -13,15 +13,9 @@ var seed = {
             if (err) next(err);
             Elector.create({
                 name: elector.Name,
-                membership: elector.Membership,
-                title: elector.Title,
                 phone: elector.Phone,
                 state: elector.State,
-                personal_email: elector.Email,
-                under_37_group: Boolean(elector.Age_36andunder),
-                over_64_group: Boolean(elector.Age_65andolder),
-                female_group: Boolean(elector.Sex_female),
-                abroad_group: Boolean(elector.abroad)
+                personal_email: elector.Email
             }, function(err, elect) {
             	if(err) {
             		console.log(err);
@@ -102,6 +96,5 @@ var seed = {
 // seed.parseStates(stateFile);
 // seed.parseElectors(electorFile);
 // seed.parseCandidates(candidateFile);
-
 
 module.exports = seed;

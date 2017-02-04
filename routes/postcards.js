@@ -8,6 +8,7 @@ var request = require('request');
 var config = require('../config');
 var Lob = require('lob')('test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc');
 var paypal = require('paypal-rest-sdk');
+var postcardTemplates = require('../postcardTemplates/postcardTemplates');
 
 paypal.configure({
     'mode': config.paypalEnv, //sandbox or live
@@ -53,9 +54,10 @@ app.post('/postcard', function(req, res) {
                 });
             },
             createPostcard: function(body, party) {
+                console.log(req.body)
                 var that = this;
                 Lob.postcards.create({
-                    description: 'Postcard to Power',
+                    description: 'DNC Election',
                     to: {
                         name: party.name,
                         address_line1: party.street_address,
@@ -70,13 +72,10 @@ app.post('/postcard', function(req, res) {
                         address_state: body.state,
                         address_zip: body.zip
                     },
-                    front: '<html style="margin: .5in; background-color: #fff; color:#2F4F84;"><img style="width: 100%" src="http://res.cloudinary.com/chels/image/upload/v1485882540/Screen_Shot_2017-01-31_at_12.07.21_PM_lmeshe.png"/>I endorse {{name}} for DNC chair. .</html>',
-                    back: '<html style="background-color: #2F4F84; color: #fff; margin: .5in; font-size: 20;"><div style="width: 35%">{{message}}</div><img style="width: 55%;" src="http://res.cloudinary.com/chels/image/upload/v1485882540/Screen_Shot_2017-01-31_at_12.07.21_PM_lmeshe.png"/></html>',
-                    data: {
-                        name: body.candidate.first_name + ' ' + body.candidate.last_name,
-                        message: body.message
-                    }
+                    front: postcardTemplates.front(),
+                    back: postcardTemplates.back(body.candidate.first_name + ' ' + body.candidate.last_name, body.name, body.message)
                 }, function(err, resp) {
+                    console.log(resp);
                     if (err) {
                         throw err;
                     } else {
