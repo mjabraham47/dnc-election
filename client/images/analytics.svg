@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="324px" height="323px" viewBox="0 0 324 323" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <polygon id="Fill-2" fill="#2F4F84" points="133.5 157.75 258.5 157.75 258.5 105.801 133.5 105.801"></polygon>
+            <polygon id="Fill-3" fill="#E53333" points="0.833 191.451 125.833 191.451 125.833 176.631 0.833 176.631"></polygon>
+            <polygon id="Fill-4" fill="#E8EDF1" points="307.391 319.988 324 319.988 324 128 307.391 128"></polygon>
+            <polygon id="Fill-5" fill="#E53333" points="307.391 176 324 176 324 128 307.391 128"></polygon>
+            <polygon id="Fill-6" fill="#E8EDF1" points="276 320 292 320 292 208 276 208"></polygon>
+            <polygon id="Fill-7" fill="#E53333" points="276 223.994 292 223.994 292 55.666 276 55.666"></polygon>
+            <g id="Group-37" transform="translate(4.000000, 0.000000)">
+                <path d="M18.6016,107.25 C18.6016,58.291 58.2906,18.603 107.2496,18.603 C156.2086,18.603 195.8976,58.291 195.8976,107.25 C195.8976,156.209 156.2086,195.897 107.2496,195.897 C58.2906,195.897 18.6016,156.209 18.6016,107.25 Z M214.4996,107.25 C214.4996,48.018 166.4826,0 107.2496,0 C48.0176,0 -0.0004,48.018 -0.0004,107.25 C-0.0004,166.482 48.0176,214.5 107.2496,214.5 C133.5926,214.5 157.7116,204.997 176.3806,189.239 L198.1806,211.039 L210.2936,198.926 L188.5566,177.188 C204.7246,158.41 214.4996,133.973 214.4996,107.25 Z" id="Fill-8" fill="#BAC4C6"></path>
+                <polygon id="Fill-10" fill="#E53333" points="303.3906 319.9883 195.3606 211.9583 211.2906 196.0273 319.3216 304.0573"></polygon>
+                <polyline id="Stroke-12" stroke="#30241C" stroke-width="4" stroke-linejoin="round" points="56 135.501 105 80.001 176 80 240 26.502 311.5 19.963"></polyline>
+                <path d="M63.5,135.501 C63.5,131.359 60.143,128.001 56,128.001 C51.857,128.001 48.5,131.359 48.5,135.501 C48.5,139.643 51.857,143.001 56,143.001 C60.143,143.001 63.5,139.643 63.5,135.501" id="Fill-14" fill="#2F4F84"></path>
+                <path d="M183.5,80 C183.5,75.857 180.143,72.5 176,72.5 C171.857,72.5 168.5,75.857 168.5,80 C168.5,84.143 171.857,87.5 176,87.5 C180.143,87.5 183.5,84.143 183.5,80" id="Fill-16" fill="#2F4F84"></path>
+                <path d="M319,19.9629 C319,15.8199 315.643,12.4629 311.5,12.4629 C307.357,12.4629 304,15.8199 304,19.9629 C304,24.1049 307.357,27.4629 311.5,27.4629 C315.643,27.4629 319,24.1049 319,19.9629" id="Fill-18" fill="#2F4F84"></path>
+                <path d="M117,80.001 C117,73.373 111.627,68.001 105,68.001 C98.373,68.001 93,73.373 93,80.001 C93,86.629 98.373,92.001 105,92.001 C111.627,92.001 117,86.629 117,80.001" id="Fill-20" fill="#55B0E6"></path>
+                <path d="M252,26.502 C252,19.875 246.627,14.502 240,14.502 C233.373,14.502 228,19.875 228,26.502 C228,33.13 233.373,38.502 240,38.502 C246.627,38.502 252,33.13 252,26.502" id="Fill-22" fill="#55B0E6"></path>
+                <polygon id="Fill-24" fill="#E53333" points="0 320 16 320 16 304 0 304"></polygon>
+                <polygon id="Fill-26" fill="#55B0E6" points="0 287.965 16 287.965 16 271.965 0 271.965"></polygon>
+                <polygon id="Fill-27" fill="#2F4F84" points="0 256 16 256 16 240 0 240"></polygon>
+                <path d="M32,240 L160.5,240" id="Stroke-28" stroke="#30241C" stroke-width="4" stroke-linejoin="round"></path>
+                <path d="M32,256 L112,256" id="Stroke-29" stroke="#30241C" stroke-width="4" stroke-linejoin="round"></path>
+                <path d="M32,271.9648 L160.5,271.9648" id="Stroke-30" stroke="#30241C" stroke-width="4" stroke-linejoin="round"></path>
+                <path d="M32,287.9648 L112,287.9648" id="Stroke-31" stroke="#30241C" stroke-width="4" stroke-linejoin="round"></path>
+                <path d="M32,304.2031 L160.5,304.2031" id="Stroke-32" stroke="#30241C" stroke-width="4" stroke-linejoin="round"></path>
+                <path d="M32,320.2031 L112,320.2031" id="Stroke-33" stroke="#30241C" stroke-width="4" stroke-linejoin="round"></path>
+                <polygon id="Fill-34" fill="#E8EDF1" points="176 320.203 192 320.203 192 312.203 176 312.203"></polygon>
+                <polygon id="Fill-35" fill="#E8EDF1" points="208 320.203 224 320.203 224 305.691 208 305.691"></polygon>
+                <polygon id="Fill-36" fill="#E8EDF1" points="240 320.204 256 320.204 256 283.144 240 283.144"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
