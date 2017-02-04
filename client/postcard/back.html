@@ -35,35 +35,36 @@
     position: absolute;
     width: 2.2in;
     height: 2in;
-    top: 1.4in;
+    top: 1.3in;
     left: .25in;
     font-family: 'Montserrat', 'Open Sans', sans-serif;
     font-weight: 400;
-    font-size: .122in;
+    font-size: .10in;
+    line-height: .15in;
   }
 
   #header {
     font-family: 'Montserrat', 'Open Sans', sans-serif;
     font-size: .125in;
     text-align: center;
-    color: white;
-    background-color: #2F4F84;
-    height: 1.25in;
+    color: #E53333;
+    background-color: #D0D9E2;
+    height: 1.2in;
   }
   #header p {
-    line-height: .10in;
-    font-size: .15in;
+    line-height: .05in;
+    font-size: .18in;
   }
   .your-name {
     font-weight: bold;
     font-size: .25in !important;
-    padding-top: .20in;
-    color: #55B0E6;
+    padding-top: .30in;
+    color: #2F4F84;
   }
   .candidate-name {
     font-weight: bold;
     font-size: .25in !important;
-    color: #55B0E6;
+    color: #2F4F84;
   }
 
 </style>
@@ -71,21 +72,21 @@
 
 <body>
   <div id="header">
-    <p class="your-name">{{Firstname_Lastname}}</p>
+    <p class="your-name">{{FirstName}} {{LastName}}</p>
     <p>endorses</p>
-    <p class="candidate-name">{{CandidateFirstName_CandidateLastName}}</p>
+    <p class="candidate-name">{{CandidateFirstName}} {{CandidateLastName}}</p>
   </div>
 
   <!-- do not put text outside of the safe area -->
   <div id="safe-area">
     <div id="message">
-      <span class="accent">Dear {{DelegateFirstName_DelegatLastName}},</span>
+      <span class="accent">Dear delegates,</span>
       <br><br>
-      Thank you so much for your donation given on June 17, 2015. You can rest assured that your money is going to a great cause. You will continue to get updates on our status on your WaterHealth dashboard.
+      {{YourMessageMax455Chars}}
       <br><br>
       Sincerely,
       <br><br>
-      {{Firstname_Lastname}}
+      {{FirstName}} {{LastName}}
     </div>
   </div>
 </body>
