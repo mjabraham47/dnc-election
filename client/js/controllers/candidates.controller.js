@@ -1,5 +1,6 @@
 angular.module('dncElection')
   .controller('CandidatesCtrl', function($scope, candidate, $uibModal, $state) {
+    $scope.platform = candidate.platform.replace(/\n\r?/g, '<br />');
     $scope.candidate = candidate;
 
     $scope.openEndorseModal = function() {
