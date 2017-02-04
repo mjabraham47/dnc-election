@@ -41,6 +41,20 @@ a:active {
   padding-top: 80px;
 }
 
+.results-page article {
+  height: 60vh;
+  padding: 50px;
+  background: transparent;
+  text-align: center;
+}
+.results-page article img {
+  max-height: 200px;
+  margin: 40px auto;
+}
+.results-page article h2 {
+  text-align: center;
+}
+
 /* SITE HEADER */
 header {
   width: 100%;

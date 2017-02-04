@@ -45,6 +45,21 @@ a:active {
 .page-container {
   padding-top: 80px;
 }
+.results-page {
+  article {
+    height: 60vh;
+    padding: 50px;
+    background: transparent;
+    text-align: center;
+    img {
+      max-height: 200px;
+      margin: 40px auto;
+    }
+    h2 {
+      text-align: center;
+    }
+  }
+}
 
 /* SITE HEADER */
 
