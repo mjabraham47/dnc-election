@@ -34,7 +34,7 @@ angular.module('dncElection')
     if (envService.get() === 'development') {
       $scope.model.key = '6LcclxMUAAAAAKxjhIvP22bFparObb1164xj1wli';
     } else {
-      $scope.model.key = '6Ld_dBMUAAAAABIcce9VC7qOi9kpiJDnqgElWGue';
+      $scope.model.key = '6LcSUxQUAAAAAP5uhEFHnkTkz1kDE-h1ocBtSpXX';
     }
 
     $scope.setResponse = function(response) {
