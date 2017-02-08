@@ -1,6 +1,7 @@
 'use strict'
 require('dotenv').config();
 var express = require('express'),
+helmet = require('helmet'),
 mongoose = require('mongoose'),
 logger = require('morgan'),
 cookieParser = require('cookie-parser'),
@@ -13,6 +14,7 @@ config = require('./config'),
 cors = require('cors'),
 seed = require('./seed');
 
+app.use(helmet())
 app.use(cors())
 app.use(express.static('./client'));
 app.use(favicon('./favicon.ico'));

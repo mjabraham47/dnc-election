@@ -28,6 +28,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-nodemon": "^0.4.2",
     "grunt-wiredep": "^3.0.1",
+    "helmet": "^3.4.0",
     "http": "0.0.0",
     "lob": "^3.9.0",
     "mongoose": "^4.4.14",
