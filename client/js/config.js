@@ -157,5 +157,4 @@ angular.module('dncElection')
             webroot = 'https://rundnc.herokuapp.com'
         }
         $rootScope.baseUrl = webroot;
-
     });
