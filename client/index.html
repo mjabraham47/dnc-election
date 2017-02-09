@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -9,11 +10,33 @@
     <link rel="stylesheet" type="text/css" href="./css/media.css">
     <script src="https://use.fontawesome.com/f379a6cc53.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <title>Run DNC - help the Democratic party succeed by voting for the 2017 DNC Chair</title>
     <!-- injector:css -->
     <!-- endinjector -->
+    <!--Facebook fields -->
+    <title>Run DNC - help the Democratic party succeed by voting for the 2017 DNC Chair</title>
+    <meta property="og:url" content="http://rundnc.herokuapp.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Run DNC" />
+    <meta property="og:description" content="Online voting for the DNC Chair Election" />
+    <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/assets.lob.com/psc_a05a9012184a6692_thumb_large_1.png?AWSAccessKeyId=AKIAIILJUBJGGIBQDPQQ&Expires=1488776859&Signature=BDSN0%2FMliISqwF5VTzS3AFK%2FjiI%3D" />
   </head>
   <body ng-app="dncElection">
+  <div id="fb-root"></div>
+  <script>
+   window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1146617948769101',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
     <div>
       <header>
         <div class="title">
@@ -47,12 +70,14 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.1/angular-sanitize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.4.0/ui-bootstrap-tpls.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
+    <script src ="https://connect.facebook.net/en_US/all.js"></script>
     <script src="scripts/ng-lodash.min.js"></script>
     <script src="bower_components/angular-environment/dist/angular-environment.min.js"></script>
     <script src="bower_components/angular-recaptcha/release/angular-recaptcha.min.js"></script>
