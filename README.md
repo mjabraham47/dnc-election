@@ -5,7 +5,7 @@
 RUN-DNC is a web app that aims to gather the peoples' vote for the upcoming DNC Chair election on February 26th, 2017. It also gives users the ability to send an email or postcard to their representatives in the DNC.
 
 ### Group leaders
-####Teach leads:
+####Tech leads:
 Kamilla Khabibrakhmanova: me@kamilla.io
 
 Mike Abraham: mjabraham@gmail.com
