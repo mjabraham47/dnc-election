@@ -1,6 +1,6 @@
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
+@media only screen
+and (min-device-width : 320px)
 and (max-device-width : 800px) {
   body {
     zoom: 1.5 !important;
@@ -30,7 +30,6 @@ and (max-device-width : 800px) {
   }
   .splash-container {
     height: 80vh;
-    padding-top: 0;
   }
   .intro-message p.left {
     width: 45%;
@@ -61,7 +60,7 @@ and (max-device-width : 800px) {
   .candidate-info p {
     font-size: 1.65em;
     width: 100%;
-  } 
+  }
   .candidate-info {
     width: 100%;
     padding: 50px 60px 40px 60px;
@@ -159,8 +158,8 @@ and (max-device-width : 800px) {
 
 /* RESPONSIVE BROWSER WIDTH */
 
-@media only screen 
-and (min-width : 800px) 
+@media only screen
+and (min-width : 800px)
 and (max-width : 1024px) {
   body {
     zoom: .80;
@@ -171,8 +170,8 @@ and (max-width : 1024px) {
   }
 }
 
-@media only screen 
-and (min-width : 500px) 
+@media only screen
+and (min-width : 500px)
 and (max-width : 800px) {
   body {
     zoom: .65;
@@ -183,8 +182,8 @@ and (max-width : 800px) {
   }
 }
 
-@media only screen 
-and (min-width : 300px) 
+@media only screen
+and (min-width : 300px)
 and (max-width : 770px) {
   .col-sm-3 {
     width: 25%;
@@ -203,8 +202,8 @@ and (max-width : 770px) {
   }
 }
 
-@media only screen 
-and (min-width : 300px) 
+@media only screen
+and (min-width : 300px)
 and (max-width : 500px) {
   body {
     zoom: .5;
