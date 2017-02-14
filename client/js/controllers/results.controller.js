@@ -83,7 +83,7 @@ angular.module('dncElection')
             .attr("dy", ".35em") //vertical align middle
             .attr("text-anchor", "end")
             .text(function(d){
-                return (parseInt((d.data/scope.chartData.total) * 100) +"%");
+                return (parseFloat((d.data/scope.chartData.total) * 100) +"%");
             })
             .attr("x", function(d){
                 var width = this.getBBox().width;
