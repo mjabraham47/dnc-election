@@ -53,17 +53,28 @@ app.post('/endorse', function(req, res, next) {
             });
         } else {
             created = false;
-            
-            return User.update({_id: user._id}, req.body)
-            .then(function(res){
-                console.log('res', res)
-                return Candidate.findOneAndUpdate({_id: user.endorsed}, { $inc: {endorsements: -1}});
-            }).then(function(candidate){
-                return candidate.save();
-            }).then(function(){
-                return Candidate.findOneAndUpdate({_id: req.body.endorsed}, { $inc: {endorsements: 1}});
-            }).then(function(candidate){
-                return candidate.save();
+            Candidate.findById(user.endorsed).then(function(value) {
+                console.log('value', value)
+                if (typeof value == 'undefined' || value == null) {
+                    return User.update({_id: user._id}, req.body)
+                    .then(function(res){
+                        return Candidate.findOneAndUpdate({_id: req.body.endorsed}, { $inc: {endorsements: 1}});
+                    }).then(function(candidate){
+                        return candidate.save();
+                    });
+                } else {
+                    return User.update({_id: user._id}, req.body)
+                    .then(function(res){
+                        console.log('res', res)
+                        return Candidate.findOneAndUpdate({_id: user.endorsed}, { $inc: {endorsements: -1}});
+                    }).then(function(candidate){
+                        return candidate.save();
+                    }).then(function(){
+                        return Candidate.findOneAndUpdate({_id: req.body.endorsed}, { $inc: {endorsements: 1}});
+                    }).then(function(candidate){
+                        return candidate.save();
+                    });                
+                }
             });
         }
     }).then(function(){

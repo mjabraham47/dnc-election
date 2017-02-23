@@ -93,7 +93,7 @@ var seed = {
         };
     }
 };
-seed.parseStates(stateFile);
+// seed.parseStates(stateFile);
 // seed.parseElectors(electorFile);
 // seed.parseCandidates(candidateFile);
 
