@@ -95,6 +95,6 @@ var seed = {
 };
 // seed.parseStates(stateFile);
 // seed.parseElectors(electorFile);
-// seed.parseCandidates(candidateFile);
+seed.parseCandidates(candidateFile);
 
 module.exports = seed;
